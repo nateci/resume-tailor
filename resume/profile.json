@@ -1,0 +1,29 @@
+{
+  "name": "Nate Cirino",
+  "grad_date": "2027-05",
+  "target_start": "mid-to-late 2027 (full-time new grad)",
+  "target_tc_usd": 130000,
+  "tc_reference_note": "Anchor ~130-165k TC; Wayfair-new-grad level and above. Below ~120k is a low match.",
+  "strengths": [
+    "distributed systems (Raft, LSM-tree, MVCC — built a linearizable KV store in Rust)",
+    "backend microservices (Java Spring, Flask, FastAPI, JMS)",
+    "AI/agentic + RAG (pgvector, Bedrock KB, tool-use agents, LLM infra)",
+    "cloud & infra (AWS, Azure, Kubernetes, Terraform, CI/CD, Datadog)",
+    "systems/security concentration"
+  ],
+  "languages": ["Rust", "Java", "Python", "TypeScript", "C", "C++", "Go(learning)"],
+  "role_fit_high": [
+    "backend / distributed systems SWE",
+    "infrastructure / platform / SRE-adjacent SWE",
+    "systems engineering",
+    "ML infra / AI platform / applied-AI SWE"
+  ],
+  "role_fit_low": [
+    "pure frontend / design-heavy",
+    "non-technical PM",
+    "hardware/embedded-only (EE-centric)",
+    "roles requiring 5+ yrs experience or active security clearance"
+  ],
+  "location_pref": "US; Boston/NYC strong plus; remote fine; open to relocation",
+  "constraints": ["US-authorized", "no security clearance", "new grad (not senior)"]
+}

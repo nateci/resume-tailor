@@ -1,0 +1,212 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+  \textbf{\Huge \scshape Nate Cirino} \\
+  \small 832-833-5202\, $|$ \,\href{mailto:cirino.na@northeastern.edu}
+  {\underline{cirino.na@northeastern.edu}}\, $|$ \,\href{https://natecirino.com}{\underline{portfolio}}  $|$ \,\href{https://linkedin.com/in/nate-cirino}{\underline{linkedin.com/in/nate-cirino}}\, $|$ \,\href{https://github.com/nateci}{\underline{github.com/nateci}} \\ [0.3em]
+  \small Available May 2027
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Northeastern University}{May 2027 $|$ MGPA: 3.6/4.0}
+    {B.S. in Computer Science, Systems Concentration}{Boston, MA}
+  \resumeSubItem{
+    \begin{tabular}[t]{@{}p{2.5cm}p{14.3cm}@{}}
+    \textbf{Coursework:} & Algorithms \& Data Structures, Object-Oriented Design, Foundations of Software Engineering, Computer Systems, Computer Networks, Digital Design \& Computer Architecture, Foundations of Data Science, Systems Security, Cybersecurity
+    \end{tabular}
+  }
+\resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Wayfair}{Jul 2026 -- Present}
+    {Software Engineering Co-op}{Boston, MA}
+  \resumeItemListStart
+    \resumeItem{Own front-of-house device stack across all Wayfair physical retail brands (AllModern, Birch Lane, Joss \& Main, Perigold): e-labels, mobile, and customer/associate-facing POS}
+    \resumeItem{Building a supplier-agnostic e-label API unifying 4 suppliers behind one interface, powering new outlet launches}
+    \resumeItem{Shipped POS checkout flows: in-store scan-to-basket customer switching and live associate-entry customer sync}
+  \resumeItemListEnd
+
+
+  \resumeSubheading
+    {Wolters Kluwer}{Jul 2025 -- Jun 2026}
+    {Software Engineer}{Boston, MA}
+  \resumeItemListStart
+    \resumeItem{Integrated Expert AI into CME accrual/redemption microservices, expanding GenAI CDS to 250K+ clinicians}    \resumeItem{Built Java Spring microservice for CME credit issuance inside Expert AI's clinician-facing workflow}
+    \resumeItem{Overhauled Relay JMS broker serialization with json-io across 20+ microservices, eliminating timeouts at scale}
+    \resumeItem{Optimized Expert AI search and filtering across 20+ microservices, improving clinical query relevance at scale}
+    \resumeItem{Implemented OIDC/IdP authentication via Azure across 20 enterprise health systems, securing 10K+ clinicians}
+
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {SculptAI}{Jan 2025 -- Aug 2026}
+    {Software Architect}{New York, NY}
+  \resumeItemListStart
+\resumeItem{Led eng org restructure at \$1M-funded startup, partitioning teams into DevOps, dev, and agentic workflows}
+\resumeItem{Architected Flask backend with RAG pipeline for personalized workout recommendations using Bedrock KB}
+\resumeItem{Evolved RAG stack from LangChain to Vespa to zero-ops Bedrock KB, improving retrieval and reducing overhead}
+\resumeItem{Maintained 99.99\% uptime across 1-2M monthly model calls for 2K paying users via AWS WAF, Datadog, and K8s}
+\resumeItem{Continue as technical advisor on architecture and agentic-workflow direction}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {Chevron New Energies}{May 2024 -- Aug 2024}
+    {Software Engineer Intern}{Houston, TX}
+  \resumeItemListStart
+    \resumeItem{Built RESTful APIs and data pipelines using Azure Data Factory, improving product efficiency by 40\%}
+    \resumeItem{Implemented CI/CD workflows using Azure DevOps and K8s, enabling automated deployment and rollback}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-9pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+ 
+  \resumeProjectHeading
+    {\textbf{Kepler} $|$ \emph{Rust, C++, Raft, LSM-tree, MVCC, Tokio}}{Mar. 2026 -- Present}
+  \resumeItemListStart
+    \resumeItem{Built a distributed, linearizable key-value store in Rust with from-scratch Raft consensus and LSM-tree engine}
+    \resumeItem{Implemented Raft election, log replication, and membership changes; storage: memtable, WAL, leveled SSTables}
+    \resumeItem{Added MVCC transaction layer providing snapshot isolation and linearizable reads across multi-node Raft cluster}
+    \resumeItem{Built single-tier compaction with full SSTable rewrite every 4 flushes; inline, writer-blocking execution}
+  \resumeItemListEnd
+ 
+  \resumeProjectHeading
+    {\textbf{Sentinel} $|$ \emph{Next.js, FastAPI, Claude, pgvector, OpenTelemetry, Docker}}{Apr. 2026 -- Present}
+  \resumeItemListStart
+    \resumeItem{Built an AI SRE agent autonomously triaging incidents via tool-use over Prometheus, Tempo, and Loki telemetry}
+    \resumeItem{Built pgvector RAG over runbooks and postmortems with prompt caching on frozen schemas; 100\% eval accuracy}
+    \resumeItem{Human-in-the-loop remediation gated behind approval; running live in SculptAI production triaging incidents}
+  \resumeItemListEnd
+ 
+  \resumeProjectHeading
+    {\textbf{NOAA AUV Sonar Detection} $|$ \emph{Python, PyTorch, AWS Neuron SDK, SageMaker}}{April 2025 -- July 2025}
+  \resumeItemListStart
+    \resumeItem{Trained CNN models on thermal sensor spectrograms to detect novel aquatic signatures for NOAA AUVs}
+    \resumeItem{Refined architecture and loss formulation to address class imbalance and sensor noise, improving model detection}
+    \resumeItem{Designed AWS Neuron SDK deployment path for onboard custom-silicon inference under hard real-time limits}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills \& Honors}
+\resumeSubHeadingListStart
+  \resumeSubItem{
+    \begin{tabular}[t]{@{}p{3.2cm}p{14cm}@{}}
+    \textbf{Languages/Tools:} & Python, Rust, TypeScript, JavaScript, C, C++, Java, Bash, Linux, AWS, Azure, Docker, Kubernetes, Terraform, Jenkins, Buildkite, Groovy, PostgreSQL, GraphQL
+    \end{tabular}
+  }
+  \resumeSubItem{
+    \begin{tabular}[t]{@{}p{4.2cm}p{13cm}@{}}
+    \textbf{AI / Agentic Tooling:} & Devin, Cursor, Claude Code, Claude Cowork, GitHub Copilot, CodeRabbit
+    \end{tabular}
+  }
+  \resumeSubItem{
+    \begin{tabular}[t]{@{}p{4.5cm}p{12cm}@{}}
+    \textbf{Frameworks \& Libraries:} & React, Next.js, Node.js, Express, Flask, PyTorch, TensorFlow, Pandas, FastAPI
+    \end{tabular}
+  }
+  \resumeSubItem{
+    \begin{tabular}[t]{@{}p{1.5cm}p{14.3cm}@{}}
+    \textbf{Honors:} & Dean's List (All Semesters), Tech Lead at Northeastern Electronic Racing, PawHacks, json-io OSS Contributor
+    \end{tabular}
+
+  }
+\resumeSubHeadingListEnd
+
+\end{document}
