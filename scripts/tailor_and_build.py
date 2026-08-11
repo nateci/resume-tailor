@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Per new job, ONE Claude call returns:
+Per new job, ONE Claude Code CLI call returns:
   - fit_score (0-100) vs Nate's profile
   - fit_reason (one line)
   - tc_estimate_low / tc_estimate_high (USD new-grad TC, best-effort)
@@ -10,16 +10,18 @@ Per new job, ONE Claude call returns:
 Then compile -> PDF, and append to a ranked xlsx sorted by a blend of fit and TC.
 Nothing is dropped; low matches just sort to the bottom.
 
-Requires ANTHROPIC_API_KEY. LaTeX via latexmk/pdflatex.
+Runs against the local Claude Code CLI (subscription seat, not the metered API) —
+requires `claude` on PATH and an active login (`claude setup-token` for unattended
+use). No ANTHROPIC_API_KEY needed. LaTeX via latexmk/pdflatex.
 """
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import datetime
 
-import anthropic
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, Alignment, PatternFill
 from openpyxl.utils import get_column_letter
@@ -29,9 +31,22 @@ RESUME_TEX = "resume/resume.tex"
 PROFILE = "resume/profile.json"
 PDF_DIR = "output/pdfs"
 SHEET_PATH = "output/tailored_resumes.xlsx"
-MODEL = "claude-opus-4-8"
+MODEL = "claude-opus-5"
+CLAUDE_BIN = "claude"
 
-client = anthropic.Anthropic()
+RESULT_SCHEMA = json.dumps({
+    "type": "object",
+    "properties": {
+        "fit_score": {"type": "integer"},
+        "fit_reason": {"type": "string"},
+        "tc_estimate_low": {"type": "integer"},
+        "tc_estimate_high": {"type": "integer"},
+        "tc_basis": {"type": "string"},
+        "tailored_tex": {"type": "string"},
+    },
+    "required": ["fit_score", "fit_reason", "tc_estimate_low",
+                 "tc_estimate_high", "tc_basis", "tailored_tex"],
+})
 
 
 def slugify(s):
@@ -47,7 +62,7 @@ def ask_claude(base_tex, profile, job):
              "Only title + company available — make light adjustments only; do "
              "not invent anything.")
 
-    prompt = f"""You are helping a specific new-grad candidate apply to a job. Do two things and return ONE JSON object, nothing else.
+    prompt = f"""You are helping a specific new-grad candidate apply to a job. Do two things.
 
 CANDIDATE PROFILE:
 {json.dumps(profile, indent=2)}
@@ -70,26 +85,21 @@ HARD RULES for the resume:
 - Keep it compilable with pdflatex and preserve the preamble and all custom macros.
 - Keep it one page.
 
-Return EXACTLY this JSON (no markdown fences):
-{{
-  "fit_score": <int 0-100>,
-  "fit_reason": "<one sentence>",
-  "tc_estimate_low": <int USD>,
-  "tc_estimate_high": <int USD>,
-  "tc_basis": "<short reason>",
-  "tailored_tex": "<the full LaTeX document as a JSON string>"
-}}
-
 RESUME (LaTeX):
 {base_tex}
 """
-    msg = client.messages.create(
-        model=MODEL, max_tokens=6000,
-        messages=[{"role": "user", "content": prompt}],
+    proc = subprocess.run(
+        [CLAUDE_BIN, "-p", "--model", MODEL,
+         "--output-format", "json", "--json-schema", RESULT_SCHEMA,
+         "--tools", "", "--no-session-persistence"],
+        input=prompt, capture_output=True, text=True, timeout=180,
     )
-    raw = "".join(b.text for b in msg.content if b.type == "text").strip()
-    raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw)
-    return json.loads(raw)
+    if proc.returncode != 0:
+        raise RuntimeError(f"claude CLI exited {proc.returncode}: {proc.stderr[:300]}")
+    data = json.loads(proc.stdout)
+    if data.get("is_error"):
+        raise RuntimeError(f"claude CLI error: {str(data.get('result', ''))[:300]}")
+    return data["structured_output"]
 
 
 def compile_pdf(tex_path, out_dir):
@@ -151,6 +161,12 @@ def _num(v):
 
 
 def main():
+    if not shutil.which(CLAUDE_BIN):
+        print("claude CLI not found on PATH. Install with:\n"
+              "  npm install -g @anthropic-ai/claude-code\n"
+              "then run `claude setup-token` once.", file=sys.stderr)
+        sys.exit(1)
+
     jobs = json.load(open(JOBS_PATH))
     if not jobs:
         print("No new jobs.", file=sys.stderr)

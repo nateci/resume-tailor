@@ -1,6 +1,8 @@
 # Daily Resume Tailor — Nate Cirino
 
-Every morning, GitHub Actions (your PC stays off):
+Runs locally on your PC, triggered by Windows Task Scheduler when you log in
+(no GitHub Actions, no API key — tailoring runs through the Claude Code CLI
+against your subscription seat, not metered per-token billing):
 
 1. Reads `listings.json` from SimplifyJobs/New-Grad-Positions (the machine-
    readable source the README rows are generated from). Falls back to the
@@ -35,20 +37,38 @@ Every morning, GitHub Actions (your PC stays off):
 
 ## One-time setup
 
-1. New GitHub repo (private is fine); drop these files in.
-2. `resume/resume.tex` is already your real resume. Tweak `resume/profile.json`
+1. `resume/resume.tex` is already your real resume. Tweak `resume/profile.json`
    if you want to change how fit/TC are judged.
-3. Repo → Settings → Secrets and variables → Actions → new secret
-   `ANTHROPIC_API_KEY`.
-4. First run only **seeds** the seen-list (no backlog tailoring). After that you
-   get newly-added roles each morning.
-5. Edit the `cron:` time in `.github/workflows/tailor.yml` (UTC) for your morning.
+2. Install the Claude Code CLI: `npm install -g @anthropic-ai/claude-code`
+   (requires Node.js).
+3. Generate a long-lived token tied to your Claude Code subscription seat:
+   `claude setup-token` (one-time, opens a browser to authorize).
+4. Store it so unattended runs can read it — **never commit it to the repo**:
+   `setx CLAUDE_CODE_OAUTH_TOKEN "<token from step 3>"`, then log out/in once
+   so the new environment variable takes effect.
+5. LaTeX (MiKTeX) must be installed for PDF compilation — installs missing
+   packages automatically on first compile.
+6. Python deps: `pip install openpyxl playwright` (Playwright is used for
+   career pages that need a real browser to render).
+7. First run only **seeds** the seen-list (no backlog tailoring). After that
+   you get newly-added roles each time the pipeline runs.
+8. Set up the trigger — Windows Task Scheduler:
+   - Trigger: **At log on** (your user account).
+   - Action: **Start a program** →
+     `powershell.exe -ExecutionPolicy Bypass -File "<repo path>\scripts\run_pipeline.ps1"`
+   - The script skips itself if it already completed successfully today, so
+     logging in more than once a day is harmless.
+   - Leave "Run whether user is logged on or not" **unchecked** — the task
+     needs your logged-in session so it can read `CLAUDE_CODE_OAUTH_TOKEN`
+     and push to GitHub with your credentials.
 
 ## Get results
 
-Pull the repo or download `output/tailored_resumes.xlsx`. Rows are pre-ranked;
+Pull the repo or open `output/tailored_resumes.xlsx` directly on your machine
+— it's updated and pushed automatically after each run. Rows are pre-ranked;
 skim top-down. Each row links to its tailored PDF in `output/pdfs/`.
 
 ## Manual run
 
-Actions tab → "Daily Resume Tailor" → "Run workflow."
+`powershell -ExecutionPolicy Bypass -File scripts\run_pipeline.ps1` from the
+repo root. Check `output\pipeline.log` for a run history / errors.

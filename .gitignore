@@ -5,3 +5,5 @@ output/pdfs/*.fls
 output/pdfs/*.fdb_latexmk
 output/pdfs/*.tex
 __pycache__/
+.last_run
+output/pipeline.log
