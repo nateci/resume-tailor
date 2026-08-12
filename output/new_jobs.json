@@ -1,1 +1,777 @@
-[]
+[
+  {
+    "id": "2cffa18e-22e5-404c-959e-db78d84ecbda",
+    "company": "Fortinet",
+    "title": "Applied AI Engineer - AI Agent",
+    "url": "https://edel.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/job/22125",
+    "locations": [
+      "Sunnyvale, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1770851386
+  },
+  {
+    "id": "7b26d568-7721-45b7-ad28-66f8775408d4",
+    "company": "Symbotic",
+    "title": "Software Engineer New Grad",
+    "url": "https://symbotic.wd504.myworkdayjobs.com/Symbotic/job/USA-Wilmington--MA---HQ/New-Grad--Software-Engineer_R6770",
+    "locations": [
+      "Burlington, MA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1779228410
+  },
+  {
+    "id": "12b0c4cc-55d1-42fd-a6ad-d544d2b42999",
+    "company": "The Walt Disney Company",
+    "title": "Product Software Engineer 1",
+    "url": "https://disney.wd5.myworkdayjobs.com/disneycareer/job/Glendale-CA-USA/Product-Software-Engineer-I_10151599",
+    "locations": [
+      "Glendale, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1781820331
+  },
+  {
+    "id": "b28000f1-01d7-4052-8ad3-e73e8bf916cc",
+    "company": "Trustpilot",
+    "title": "Software Engineer 1 - Trust Tech",
+    "url": "https://corporate.trustpilot.com/careers/job/8015788?gh_jid=8015788",
+    "locations": [
+      "Edinburgh, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1781820620
+  },
+  {
+    "id": "77ad6851-537c-48f4-a303-c011b75a68b1",
+    "company": "Trustpilot",
+    "title": "Software Engineer 1 - Trust Tech",
+    "url": "https://corporate.trustpilot.com/careers/job/7984603?gh_jid=7984603",
+    "locations": [
+      "London, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1781820625
+  },
+  {
+    "id": "f5d0810b-8d0e-4bee-b85c-e93f19ab3aef",
+    "company": "Alkira",
+    "title": "Software Engineer - Datapath",
+    "url": "https://alkira.bamboohr.com/careers/232/",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1783548695
+  },
+  {
+    "id": "7a41b37b-bd8a-4927-901d-15da9744cdcf",
+    "company": "Cisco",
+    "title": "Failure Analysis Engineer",
+    "url": "https://careers.cisco.com/global/en/job/2018947",
+    "locations": [
+      "Acton, MA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1784153503
+  },
+  {
+    "id": "63848af9-c211-4b79-b264-401610b828f6",
+    "company": "9to9 Software Solutions",
+    "title": "Entry Level Java Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999674047363",
+    "locations": [
+      "Silver Creek, NY"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786497430
+  },
+  {
+    "id": "6ad93ce0-0fca-4ce7-a3be-52c11a1e1d93",
+    "company": "Cohesity",
+    "title": "Software Engineer New Grad",
+    "url": "https://cohesity.wd5.myworkdayjobs.com/Cohesity_Careers/job/Santa-Clara-CA---USA-Office/Software-Engineer_R01282",
+    "locations": [
+      "Santa Clara, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786406400
+  },
+  {
+    "id": "fd61bf7a-2536-4242-9d48-42c4c11f5c44",
+    "company": "Valeo Foods",
+    "title": "Enterprise Applications Developer - Enterprise Applications",
+    "url": "https://jobs.smartrecruiters.com/ValeoFoods/744000142617715",
+    "locations": [
+      "Leeds, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786497227
+  },
+  {
+    "id": "a8a20ee3-a64f-4803-bb5e-5d77bfb50ff2",
+    "company": "Valeo Foods",
+    "title": "Enterprise Applications Developer - Enterprise Applications",
+    "url": "https://jobs.smartrecruiters.com/ValeoFoods/744000142106764",
+    "locations": [
+      "Norwich, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786497222
+  },
+  {
+    "id": "f2c37266-0aea-45bc-b19c-fff00c5e3490",
+    "company": "SOSi",
+    "title": "PeopleSoft Software Developer",
+    "url": "https://jobs.smartrecruiters.com/SOSi1/3743990012453536",
+    "locations": [
+      "Charleston, SC"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786497207
+  },
+  {
+    "id": "d77ab18e-96cd-4110-89ca-b38044f2e7d6",
+    "company": "AbbVie",
+    "title": "Associate Software Engineer 1",
+    "url": "https://jobs.smartrecruiters.com/AbbVie/3743990014551564",
+    "locations": [
+      "North Chicago, IL"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786497124
+  },
+  {
+    "id": "213bc9ef-3bbc-4045-9691-800365cf327e",
+    "company": "PaperCut",
+    "title": "Associate Support Engineer",
+    "url": "https://jobs.smartrecruiters.com/PaperCutSoftware/744000138284139",
+    "locations": [
+      "Bracknell, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786497177
+  },
+  {
+    "id": "b93029bb-0502-4da5-9050-4b8933270db8",
+    "company": "ERPA",
+    "title": "Software Developer",
+    "url": "https://jobs.smartrecruiters.com/ERPAnalysts1/743999677352777",
+    "locations": [
+      "Franklin County, OH"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496876
+  },
+  {
+    "id": "373503da-6c2b-4f86-9593-05ea22db87af",
+    "company": "TOMRA",
+    "title": "Field Service Engineer - London/South East",
+    "url": "https://jobs.smartrecruiters.com/Tomra/744000142128330",
+    "locations": [
+      "London, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496814
+  },
+  {
+    "id": "9f3702b3-a0cf-4dc4-b67b-7435571d1648",
+    "company": "9to9 Software Solutions",
+    "title": "Entry Level .NET Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999674047805",
+    "locations": [
+      "Louisville, CO"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496810
+  },
+  {
+    "id": "e5b4ea41-d433-47b9-a9c8-0a104086edca",
+    "company": "9to9 Software Solutions",
+    "title": "Software Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999677209227",
+    "locations": [
+      "Pittsburgh, PA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496807
+  },
+  {
+    "id": "7c378aeb-7ed5-4825-a428-ffb19f70e2fe",
+    "company": "9to9 Software Solutions",
+    "title": "Entry Level Software Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999677188473",
+    "locations": [
+      "Copperhill, TN"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496809
+  },
+  {
+    "id": "5ccab6b5-7969-43fe-9774-e707fa607b1b",
+    "company": "9to9 Software Solutions",
+    "title": "Entry Level Java Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999677209089",
+    "locations": [
+      "Elk Grove, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496808
+  },
+  {
+    "id": "59cc82e3-db3c-47e2-aabd-88480b1db02a",
+    "company": "9to9 Software Solutions",
+    "title": "Java Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999674047567",
+    "locations": [
+      "Portland, OR"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496810
+  },
+  {
+    "id": "13719d38-34eb-47e9-93f0-7b6571a6375e",
+    "company": "9to9 Software Solutions",
+    "title": "Entry Level Software Developer",
+    "url": "https://jobs.smartrecruiters.com/9to9SoftwareSolutionsLLC/743999674053935",
+    "locations": [
+      "Randolph AFB, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786496809
+  },
+  {
+    "id": "fd15571c-45e4-401e-a770-63dbf731403c",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Mall - PhD",
+    "url": "https://lifeattiktok.com/search/7672883737036654853",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498237
+  },
+  {
+    "id": "d97157b9-8f0c-4cfb-be47-a801be8548ae",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Foundation",
+    "url": "https://lifeattiktok.com/search/7672882500030138629",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498238
+  },
+  {
+    "id": "cde17d88-b571-4ece-be7c-9bd87c212bce",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Foundation - PhD",
+    "url": "https://lifeattiktok.com/search/7672877778696407301",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498243
+  },
+  {
+    "id": "b22a26e1-15a6-4e32-89fb-f2378da11dd1",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Foundation - PhD",
+    "url": "https://lifeattiktok.com/search/7672879948538284341",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498240
+  },
+  {
+    "id": "511e7c10-e092-4a5a-8187-fe5563536b99",
+    "company": "TikTok",
+    "title": "AI Infrastructure Engineer Graduate - Recommendation & LLM",
+    "url": "https://lifeattiktok.com/search/7672654026594093317",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498242
+  },
+  {
+    "id": "408e20cf-c3dc-45af-b899-339fc8e2925a",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Foundation",
+    "url": "https://lifeattiktok.com/search/7672880386574338309",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498240
+  },
+  {
+    "id": "07c10a29-94ab-4223-bb97-af5572d30bc6",
+    "company": "TikTok",
+    "title": "AI Infrastructure Engineer Graduate - Recommendation & LLM",
+    "url": "https://lifeattiktok.com/search/7672656091025066293",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786498243
+  },
+  {
+    "id": "b62dcf53-f9ca-48c0-aeea-39de27c89b8f",
+    "company": "Adobe",
+    "title": "Photoshop Developer - GPU/Imaging",
+    "url": "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/San-Francisco/Photoshop-Developer--GPU-Imaging_R171014",
+    "locations": [
+      "Seattle, WA",
+      "SF",
+      "San Jose, CA",
+      "NYC"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786406400
+  },
+  {
+    "id": "9fbb930f-34ce-45eb-818b-c842d3a2f8c9",
+    "company": "Microchip Technology",
+    "title": "Reliability Engineer 2",
+    "url": "https://wd5.myworkdaysite.com/recruiting/microchiphr/External/job/AZ---Chandler/Engineer-II-Reliability_R3501-26",
+    "locations": [
+      "Chandler, AZ"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786406400
+  },
+  {
+    "id": "f2a032d3-8549-4c56-895d-10d70eec9514",
+    "company": "Mach Industries",
+    "title": "Software Engineer New Grad - Software - GNC",
+    "url": "https://jobs.ashbyhq.com/mach/43c8b037-c77d-4efb-9379-52a6c3718bdb/application?embed=true",
+    "locations": [
+      "Huntington Beach, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505629
+  },
+  {
+    "id": "5ddd9ecb-ced2-4c9d-8d98-a39b73f03884",
+    "company": "Handshake",
+    "title": "Associate Software Engineer",
+    "url": "https://jobs.ashbyhq.com/handshake/fe319ff8-87e1-46d9-b23e-4b78cf6086f8/application?embed=true",
+    "locations": [
+      "SF"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505631
+  },
+  {
+    "id": "fb0623ca-1ed7-4273-adcc-dda455705721",
+    "company": "Truveta",
+    "title": "Software Engineer - Live Link",
+    "url": "https://job-boards.greenhouse.io/truveta/jobs/6140479004",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505534
+  },
+  {
+    "id": "dba5405f-12de-4a7e-a7b7-323dd31fc670",
+    "company": "ByteDance",
+    "title": "Research Engineer Graduate - Seed Infra - PhD",
+    "url": "https://jobs.bytedance.com/en/position/7671034858089040181/detail",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505447
+  },
+  {
+    "id": "85abc859-5041-4b75-b40d-40befacf7a1e",
+    "company": "Axos Bank",
+    "title": "Data Engineer",
+    "url": "https://axos.wd5.myworkdayjobs.com/Axos/job/HQ---San-Diego-CA/JBATA--Data-Engineer_JR5192-1",
+    "locations": [
+      "San Diego, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786406400
+  },
+  {
+    "id": "09ed1754-b65e-4a83-a305-e5158633c52c",
+    "company": "ByteDance",
+    "title": "Video/Image AI/ML Software Engineer Graduate - Multimedia",
+    "url": "https://jobs.bytedance.com/en/position/7670354624860703029/detail",
+    "locations": [
+      "San Diego, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505448
+  },
+  {
+    "id": "64b41a7b-4a92-4d69-bc33-95786288e3cd",
+    "company": "ByteDance",
+    "title": "AI/LLM Network Software Development Engineer Graduate - High Speed Network - PhD",
+    "url": "https://jobs.bytedance.com/en/position/7668855566150732037/detail",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505444
+  },
+  {
+    "id": "66396035-7ef7-4576-a4e0-7487fd68616c",
+    "company": "D.R. Horton",
+    "title": "Application Developer 1",
+    "url": "https://drhorton.taleo.net/careersection/2/jobdetail.ftl?job=2603801",
+    "locations": [
+      "Arlington, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786505432
+  },
+  {
+    "id": "ad10670d-56f5-4600-ab6f-5c48cbd8fb5c",
+    "company": "AmNet Services",
+    "title": "Software Systems Engineer 3",
+    "url": "https://jobs.smartrecruiters.com/AmNetServicesInc/743999652095708",
+    "locations": [
+      "Warren, NJ"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786514779
+  },
+  {
+    "id": "5c60a2fc-e21d-48d2-9b21-f326f7d56df9",
+    "company": "Radius Limited",
+    "title": "Graduate Mobile Developer - Vehicle Telematics",
+    "url": "https://jobs.smartrecruiters.com/RadiusLimited/744000143047509",
+    "locations": [
+      "Crewe, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786525714
+  },
+  {
+    "id": "248bd865-39b3-4dab-8ccf-6a8fed297dc7",
+    "company": "Barrios",
+    "title": "Software Developer",
+    "url": "https://careers-barrios.icims.com/jobs/2840/job?mobile=true&needsRedirect=false",
+    "locations": [
+      "Houston, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786140365
+  },
+  {
+    "id": "1eec26e4-90a7-468f-9d99-e40cacb9badd",
+    "company": "TikTok",
+    "title": "Data Knowledge System Research Scientist Graduate - Data Platform-Global Live",
+    "url": "https://lifeattiktok.com/search/7628363726332102965",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1781503906
+  },
+  {
+    "id": "0cbe5f0d-bc44-4b45-85bb-9272f05546e8",
+    "company": "ByteDance",
+    "title": "Research Scientist - Seed AI Foundation Model Infrastructure",
+    "url": "https://jobs.bytedance.com/en/position/7623552015124154629/detail",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1780610903
+  },
+  {
+    "id": "656014ab-4409-4e99-a202-5cf3956fd828",
+    "company": "Abbott",
+    "title": "Associate Software Engineer - Multiple Teams",
+    "url": "https://abbott.wd5.myworkdayjobs.com/abbottcareers/job/United-States---Texas---Irving/Associate-Software-Engineer_31158107-1",
+    "locations": [
+      "Irving, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786060800
+  },
+  {
+    "id": "454f3e0f-d45d-4812-8e2b-341136a7977f",
+    "company": "Lilt",
+    "title": "AI Training Contributor - French",
+    "url": "https://jobs.ashbyhq.com/lilt-production/1819d958-1eb4-4f5c-b5f2-eba8c1a9da55/application?embed=true",
+    "locations": [
+      "Remote in Canada",
+      "Qu\u00e9bec City, QC, Canada"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1783328911
+  },
+  {
+    "id": "b6b3d7a4-ef99-4d90-b54e-4875edd95d12",
+    "company": "Abbott",
+    "title": "Associate Software Engineer - Multiple Teams",
+    "url": "https://abbott.wd5.myworkdayjobs.com/abbottcareers2/job/United-States---Texas---Irving/Associate-Software-Engineer_31158107",
+    "locations": [
+      "Irving, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786060800
+  },
+  {
+    "id": "a83af7c2-9a81-4585-acbf-ed85d2dc627d",
+    "company": "Cisco",
+    "title": "Software Engineer 2 - Wireless Platform",
+    "url": "https://careers.cisco.com/global/en/job/2022718",
+    "locations": [
+      "SF",
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786487036
+  },
+  {
+    "id": "cbc9cae5-131c-4da5-9664-90601d74f6de",
+    "company": "TikTok",
+    "title": "Software Engineer Graduate - Recommendation",
+    "url": "https://lifeattiktok.com/search/7672517471946000645",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786545323
+  },
+  {
+    "id": "d18e7a7d-54ff-4946-bca8-1bdb2a671a6f",
+    "company": "TikTok",
+    "title": "Big Data Engineer Graduate - TikTok Recommendation Architecture",
+    "url": "https://lifeattiktok.com/search/7672518398222387461",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786545102
+  },
+  {
+    "id": "4ec8e592-f297-479a-ab56-d80abf24fa27",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - TikTok Vertical Recommendation",
+    "url": "https://lifeattiktok.com/search/7672532275557583157",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786545122
+  },
+  {
+    "id": "b7fadd8a-1f88-4b03-9fa5-8befef1a3a26",
+    "company": "TikTok",
+    "title": "Backend Engineer Graduate - TikTok Vertical Recommendation Architecture - 2027 Start",
+    "url": "https://lifeattiktok.com/search/7672532801686571317",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786545102
+  },
+  {
+    "id": "a09f224d-f684-4fb4-915b-6dbc5f486570",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Mall",
+    "url": "https://lifeattiktok.com/search/7672911151560296709",
+    "locations": [
+      "Seattle, WA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786545121
+  },
+  {
+    "id": "8676c704-b2ee-4643-8fbc-9ad19fa89fa4",
+    "company": "TikTok",
+    "title": "Machine Learning Engineer Graduate - E-Commerce Recommendation Mall",
+    "url": "https://lifeattiktok.com/search/7672915427278457141",
+    "locations": [
+      "San Jose, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786545123
+  },
+  {
+    "id": "776b2184-8dc2-4958-b964-94a1ee9c9454",
+    "company": "RTX",
+    "title": "Software Engineer 1",
+    "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-IA-CEDAR-RAPIDS-105--400-Collins-Rd-NE--BLDG-105/Software-Engineer-I--Onsite-_01865680",
+    "locations": [
+      "Cedar Rapids, IA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786492800
+  },
+  {
+    "id": "fc8f90bf-1265-416f-a1d2-b93977214909",
+    "company": "RTX",
+    "title": "Software Engineer 1",
+    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-IN-FT-WAYNE-150A--1010-Production-Rd--BLDG-150A/Software-Engineer-I--Onsite-_01863042",
+    "locations": [
+      "Fort Wayne, IN"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786492800
+  },
+  {
+    "id": "6f101397-849a-4dbf-ab58-ae8ee1dd3ab2",
+    "company": "RTX",
+    "title": "Software Engineer 1",
+    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-CA-ANAHEIM-406--160-N-Riverview-Dr--BLDG-406-Ste-150/Software-Engineer-I--Onsite-_01861811",
+    "locations": [
+      "Anaheim, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786492800
+  },
+  {
+    "id": "4b6397d8-4d17-49a1-b825-b676fb076798",
+    "company": "Vector Atomic",
+    "title": "Associate Firmware Engineer - Firmware",
+    "url": "https://apply.workable.com/vectoratomic/j/00C9C6A8E4/apply",
+    "locations": [
+      "Pleasanton, CA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786566116
+  },
+  {
+    "id": "b9f974bd-1020-49a6-bb58-787fba5d9e9e",
+    "company": "General Motors",
+    "title": "Software Engineer",
+    "url": "https://generalmotors.wd5.myworkdayjobs.com/Careers_GM/job/Warren-Michigan-United-States-of-America/Entry-Level-Software-Engineer_JR-202616904",
+    "locations": [
+      "Warren, MI"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786492800
+  },
+  {
+    "id": "61b8359d-6611-4e4e-af7f-469b630f576e",
+    "company": "Securian Financial Group",
+    "title": "Engineering Analyst",
+    "url": "https://hq.wd12.myworkdayjobs.com/Securian_External/job/Saint-Paul-MN-Campus/Engineering-Analyst_R-010805",
+    "locations": [
+      "St Paul, MN"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786492800
+  },
+  {
+    "id": "27f47499-66c7-4824-95ed-b65a16d3438a",
+    "company": "Seagate Technology ",
+    "title": "Firmware Engineer",
+    "url": "https://seagatecareers.com/job/Longmont-Firmware-Engineer-Early-Career-CO-80501/1418862200/?ats=successfactors",
+    "locations": [
+      "Longmont, CO"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786565899
+  },
+  {
+    "id": "4adedb1c-f646-45c1-873f-d94e442704be",
+    "company": "Hawk-Eye Innovations",
+    "title": "Football Tracking Systems Operator - Remote Operations Centre",
+    "url": "https://jobs.ashbyhq.com/hawkeyeinnovations/8dda0b7b-5e67-450b-b281-76aa9949f460/application?embed=true",
+    "locations": [
+      "Basingstoke, UK",
+      "Southampton, UK",
+      "Reading, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786565615
+  },
+  {
+    "id": "49a0cdeb-234c-424e-bf83-6b00a8e87119",
+    "company": "T-Mobile",
+    "title": "Associate Engineer - Software",
+    "url": "https://tmobile.wd1.myworkdayjobs.com/External/job/Frisco-Texas/Assoc-Engineer--Software_REQ367425-1",
+    "locations": [
+      "Frisco, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786492800
+  },
+  {
+    "id": "97058eb6-70e5-40db-8c64-0391a99980ec",
+    "company": "Integration Innovation (i3)",
+    "title": "Associate Software Developer - COMPASS",
+    "url": "https://careers-i3-corps.icims.com/jobs/5211/job?mobile=true&needsRedirect=false",
+    "locations": [
+      "Huntsville, AL"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786565176
+  }
+]
