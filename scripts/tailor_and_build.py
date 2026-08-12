@@ -33,6 +33,23 @@ PDF_DIR = "output/pdfs"
 SHEET_PATH = "output/tailored_resumes.xlsx"
 MODEL = "claude-opus-5"
 CLAUDE_BIN = "claude"
+CLAUDE_CMD_PREFIX = None  # resolved once in main(); see resolve_claude_cmd()
+
+
+def resolve_claude_cmd():
+    """Resolve `claude` to an invocable argv prefix.
+
+    On Windows, npm installs global CLIs as .CMD shim scripts (e.g.
+    C:\\nvm4w\\nodejs\\claude.CMD). subprocess.run can't execute those
+    directly in list form (raises WinError 2 / FileNotFoundError) —
+    cmd.exe has to be the one interpreting them.
+    """
+    resolved = shutil.which(CLAUDE_BIN)
+    if not resolved:
+        return None
+    if resolved.lower().endswith((".cmd", ".bat")):
+        return ["cmd", "/c", resolved]
+    return [resolved]
 
 RESULT_SCHEMA = json.dumps({
     "type": "object",
@@ -89,7 +106,7 @@ RESUME (LaTeX):
 {base_tex}
 """
     proc = subprocess.run(
-        [CLAUDE_BIN, "-p", "--model", MODEL,
+        CLAUDE_CMD_PREFIX + ["-p", "--model", MODEL,
          "--output-format", "json", "--json-schema", RESULT_SCHEMA,
          "--tools", "", "--no-session-persistence"],
         input=prompt, capture_output=True, text=True, timeout=180,
@@ -161,7 +178,9 @@ def _num(v):
 
 
 def main():
-    if not shutil.which(CLAUDE_BIN):
+    global CLAUDE_CMD_PREFIX
+    CLAUDE_CMD_PREFIX = resolve_claude_cmd()
+    if not CLAUDE_CMD_PREFIX:
         print("claude CLI not found on PATH. Install with:\n"
               "  npm install -g @anthropic-ai/claude-code\n"
               "then run `claude setup-token` once.", file=sys.stderr)
