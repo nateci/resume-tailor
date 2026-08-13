@@ -8,3 +8,4 @@ __pycache__/
 .last_run
 .pipeline.lock
 output/pipeline.log
+output/dashboard.html

@@ -13,7 +13,7 @@ import json
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_sheet
+from job_store import load_store, save_store, write_outputs
 
 JOBS_PATH = "output/jobs_with_desc.json"
 PROFILE = "resume/profile.json"
@@ -92,7 +92,7 @@ def main():
         store[job["id"]] = entry
 
     save_store(store)
-    n = write_sheet(store)
+    n = write_outputs(store)
     print(f"Scored {len(jobs)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
 
 

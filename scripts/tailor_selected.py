@@ -18,7 +18,7 @@ import subprocess
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_sheet
+from job_store import load_store, save_store, write_outputs
 
 RESUME_TEX = "resume/resume.tex"
 PDF_DIR = "output/pdfs"
@@ -193,7 +193,7 @@ def main():
         store[job["id"]] = job
 
     save_store(store)
-    n = write_sheet(store)
+    n = write_outputs(store)
     print(f"Tailored {len(targets)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
 
 
