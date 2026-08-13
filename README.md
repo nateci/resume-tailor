@@ -88,11 +88,20 @@ skipped unless you pass `--force`.
 
 ## Get results
 
-Pull the repo or open `output/tailored_resumes.xlsx` directly on your machine
-— it's updated and pushed automatically after each run. Rows are pre-ranked;
-skim top-down. Rows with Status `tailored` link to a resume PDF in
-`output/pdfs/`; everything else has been scored but not yet tailored — see
-above for pulling the trigger on specific ones.
+**Leave `output/dashboard.html` open in a browser tab** — it auto-refreshes
+every 20 seconds (plain `<meta refresh>`, no server needed) and always
+shows the current ranked list. Unlike the xlsx, a browser doesn't lock the
+file it's displaying, so this is safe to leave open indefinitely; it'll
+just repaint with fresh data after every run, no re-opening required.
+
+`output/tailored_resumes.xlsx` is the portable snapshot (same data) for
+when you actually want to open it in Excel — **don't leave it open**
+while the pipeline might run, since Excel takes an exclusive lock on the
+file and the next write will fail until you close it.
+
+Rows are pre-ranked; skim top-down. Rows with Status `tailored` link to a
+resume PDF in `output/pdfs/`; everything else has been scored but not yet
+tailored — see below for pulling the trigger on specific ones.
 
 ## Manual run
 
@@ -102,6 +111,11 @@ repo root. Check `output\pipeline.log` for a run history / errors.
 
 Tailor specific jobs on demand:
 `python scripts\tailor_selected.py --match "<company or title>" [...]`
+
+Add a single job by link (found outside the SimplifyJobs feed):
+`python scripts\add_job.py --url "<job url>" [--title "..." --company "..."]`
+— title/company auto-detect from the ATS API for Ashby/Greenhouse/Lever
+links; pass them explicitly if auto-detection doesn't apply.
 
 ## Concurrency note
 
