@@ -1,12 +1,18 @@
-# Runs the full resume-tailor pipeline locally, using the Claude Code CLI
-# (subscription seat, not the metered API). Meant to be triggered by Windows
-# Task Scheduler on an "At log on" trigger — safe to invoke more than once a
-# day, since it skips itself if it already completed successfully today.
+# Runs the resume-tailor scan/rank pipeline locally, using the Claude Code
+# CLI (subscription seat, not the metered API). Meant to be triggered by
+# Windows Task Scheduler on "At log on" / "On workstation unlock" triggers —
+# safe to invoke more than once a day, since it skips itself if it already
+# completed successfully today.
+#
+# This only SCORES new jobs (fast, no LaTeX/PDF). Full tailoring for jobs you
+# actually want to apply to is on-demand — run scripts\tailor_selected.py
+# with --match <company/title substrings> whenever you've picked some.
 
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $RepoRoot
 
 $StateFile = Join-Path $RepoRoot ".last_run"
+$LockFile = Join-Path $RepoRoot ".pipeline.lock"
 $Today = (Get-Date).ToString("yyyy-MM-dd")
 $LogFile = Join-Path $RepoRoot "output\pipeline.log"
 
@@ -40,47 +46,66 @@ if ((Test-Path $StateFile) -and ((Get-Content $StateFile -Raw).Trim() -eq $Today
     exit 0
 }
 
-if (-not (Get-Command claude -ErrorAction SilentlyContinue)) {
-    Log "ERROR: claude CLI not found on PATH."
-    exit 1
+# Single-instance lock. Without this, two Task Scheduler triggers close
+# together (e.g. a logon plus an unlock) can both start a run — this is
+# exactly what happened once already and corrupted nothing only by luck.
+if (Test-Path $LockFile) {
+    $lockPid = (Get-Content $LockFile -Raw).Trim()
+    $existing = Get-Process -Id $lockPid -ErrorAction SilentlyContinue
+    if ($existing) {
+        Log "Another run is already in progress (PID $lockPid). Skipping."
+        exit 0
+    }
+    Log "Found stale lock file (PID $lockPid no longer running). Continuing."
 }
-if (-not $env:CLAUDE_CODE_OAUTH_TOKEN) {
-    Log "ERROR: CLAUDE_CODE_OAUTH_TOKEN is not set for this session. Run 'claude setup-token' and 'setx CLAUDE_CODE_OAUTH_TOKEN <token>' once, then log out/in."
-    exit 1
-}
-
-Log "=== Run started ==="
+Set-Content -Path $LockFile -Value $PID
 
 try {
-    git pull --rebase --quiet
-    if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
-
-    $filterResult = Invoke-PyScript "scripts\filter_jobs.py"
-    if ($filterResult.ExitCode -ne 0) { throw "filter_jobs.py failed" }
-    $count = $filterResult.StdOut | Select-Object -Last 1
-    Log "New jobs: $count"
-
-    if ([int]$count -gt 0) {
-        $fetchResult = Invoke-PyScript "scripts\fetch_descriptions.py"
-        if ($fetchResult.ExitCode -ne 0) { throw "fetch_descriptions.py failed" }
-
-        $tailorResult = Invoke-PyScript "scripts\tailor_and_build.py"
-        if ($tailorResult.ExitCode -ne 0) { throw "tailor_and_build.py failed" }
+    if (-not (Get-Command claude -ErrorAction SilentlyContinue)) {
+        Log "ERROR: claude CLI not found on PATH."
+        exit 1
+    }
+    if (-not $env:CLAUDE_CODE_OAUTH_TOKEN) {
+        Log "ERROR: CLAUDE_CODE_OAUTH_TOKEN is not set for this session. Run 'claude setup-token' and 'setx CLAUDE_CODE_OAUTH_TOKEN <token>' once, then log out/in."
+        exit 1
     }
 
-    git add output/
-    $staged = git diff --cached --quiet; $hasChanges = ($LASTEXITCODE -ne 0)
-    if ($hasChanges) {
-        git commit -m "Ranked tailored resumes: $Today" --quiet
-        git push --quiet
-        Log "Committed and pushed results."
-    } else {
-        Log "No changes to commit."
-    }
+    Log "=== Run started ==="
 
-    Set-Content -Path $StateFile -Value $Today
-    Log "=== Run completed successfully ==="
-} catch {
-    Log "ERROR: $_"
-    exit 1
+    try {
+        git pull --rebase --quiet
+        if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
+
+        $filterResult = Invoke-PyScript "scripts\filter_jobs.py"
+        if ($filterResult.ExitCode -ne 0) { throw "filter_jobs.py failed" }
+        $count = $filterResult.StdOut | Select-Object -Last 1
+        Log "New jobs: $count"
+
+        if ([int]$count -gt 0) {
+            $fetchResult = Invoke-PyScript "scripts\fetch_descriptions.py"
+            if ($fetchResult.ExitCode -ne 0) { throw "fetch_descriptions.py failed" }
+
+            $rankResult = Invoke-PyScript "scripts\rank_jobs.py"
+            if ($rankResult.ExitCode -ne 0) { throw "rank_jobs.py failed" }
+        }
+
+        git add output/
+        git diff --cached --quiet | Out-Null
+        $hasChanges = ($LASTEXITCODE -ne 0)
+        if ($hasChanges) {
+            git commit -m "Ranked jobs: $Today" --quiet
+            git push --quiet
+            Log "Committed and pushed results."
+        } else {
+            Log "No changes to commit."
+        }
+
+        Set-Content -Path $StateFile -Value $Today
+        Log "=== Run completed successfully ==="
+    } catch {
+        Log "ERROR: $_"
+        exit 1
+    }
+} finally {
+    Remove-Item -Path $LockFile -Force -ErrorAction SilentlyContinue
 }

@@ -6,4 +6,5 @@ output/pdfs/*.fdb_latexmk
 output/pdfs/*.tex
 __pycache__/
 .last_run
+.pipeline.lock
 output/pipeline.log

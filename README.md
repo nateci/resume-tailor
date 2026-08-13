@@ -13,12 +13,29 @@ against your subscription seat, not metered per-token billing):
 3. Best-effort fetches each posting's description (Greenhouse/Lever/Ashby APIs;
    Playwright for Workday/iCIMS/careers; graceful fallback) and scrapes any
    **start-date / 2027 signal**.
-4. One Claude call per job returns: a **fit score (0-100)** vs your profile, a
-   **new-grad TC estimate**, and a **tailored `resume.tex`** — then compiles a PDF.
-5. Writes `output/tailored_resumes.xlsx`: one row per job, **ranked** by a blend
-   of fit (70%) and estimated TC (30%). Fit cell is green/yellow/red. Columns
-   link to the posting, the tailored PDF, and a levels.fyi comp lookup.
+4. **Scores every new job** (fast, one small Claude call each — fit score
+   0-100, fit reason, new-grad TC estimate). No resume rewriting, no LaTeX,
+   no PDF compile at this stage, so this step stays quick even for a big
+   batch of new postings.
+5. Merges into `output/job_store.json` (persistent — never overwritten) and
+   rewrites `output/tailored_resumes.xlsx`: one row per job ever scored,
+   **ranked** by a blend of fit (70%) and estimated TC (30%). Fit cell is
+   green/yellow/red. Columns link to the posting and a levels.fyi comp lookup.
 6. Commits everything back to the repo.
+
+**Full tailoring (rewriting the resume + compiling a PDF) is on demand, not
+automatic** — that's the slow part, so it only runs for jobs you actually
+want to apply to. Once you've skimmed the ranked sheet:
+
+```
+python scripts\tailor_selected.py --match "Fortinet" "Cohesity"
+```
+
+Matches are case-insensitive substrings against company or title; run with
+several `--match` terms to do a batch at once. It writes the tailored
+`.tex`, compiles the PDF into `output/pdfs/`, and updates that job's row in
+place (Status → `tailored`, PDF link filled in). Already-tailored jobs are
+skipped unless you pass `--force`.
 
 ## Important honesty notes
 
@@ -33,7 +50,8 @@ against your subscription seat, not metered per-token billing):
 - **Nothing is fabricated.** The tailoring prompt forbids inventing employers,
   dates, or metrics — Claude only reorders and rephrases what's in your resume.
 - **Fetch is best-effort.** Some ATS/career pages block datacenter IPs; those
-  fall back to metadata-only tailoring (flagged in the "Tailor Depth" column).
+  fall back to metadata-only scoring/tailoring (flagged in the "Tailor Depth"
+  column).
 
 ## One-time setup
 
@@ -61,14 +79,36 @@ against your subscription seat, not metered per-token billing):
    - Leave "Run whether user is logged on or not" **unchecked** — the task
      needs your logged-in session so it can read `CLAUDE_CODE_OAUTH_TOKEN`
      and push to GitHub with your credentials.
+   - Add a second trigger, **On workstation unlock**, alongside "At log on"
+     — locking/unlocking the screen does *not* fire a logon event on
+     Windows, so without this the task only re-fires after a full sign-out
+     or reboot. This trigger type isn't exposed by the simple Task Scheduler
+     dropdown flow for a *new* task, but is available under the task's
+     Properties → Triggers → New → "Begin the task" once the task exists.
 
 ## Get results
 
 Pull the repo or open `output/tailored_resumes.xlsx` directly on your machine
 — it's updated and pushed automatically after each run. Rows are pre-ranked;
-skim top-down. Each row links to its tailored PDF in `output/pdfs/`.
+skim top-down. Rows with Status `tailored` link to a resume PDF in
+`output/pdfs/`; everything else has been scored but not yet tailored — see
+above for pulling the trigger on specific ones.
 
 ## Manual run
 
+Scan/rank only (what the scheduled task does):
 `powershell -ExecutionPolicy Bypass -File scripts\run_pipeline.ps1` from the
 repo root. Check `output\pipeline.log` for a run history / errors.
+
+Tailor specific jobs on demand:
+`python scripts\tailor_selected.py --match "<company or title>" [...]`
+
+## Concurrency note
+
+`run_pipeline.ps1` takes a lock file (`.pipeline.lock`) so two triggers
+firing close together (e.g. a logon and an unlock within the same minute)
+don't both start a run — this actually happened once during development and
+produced duplicated, colliding output. If a run is ever killed uncleanly
+(process killed rather than left to exit), delete `.pipeline.lock` by hand
+before the next trigger, otherwise it'll wait for the stale PID check to
+clear it on the next attempt.
