@@ -19,9 +19,10 @@
     "tc_estimate_low": 190000,
     "tc_estimate_high": 235000,
     "tc_basis": "Posting states a base range of $179,500-$220,000 plus equity program participation and discretionary bonus; new grads typically land near the bottom of the base band, so ~$190k is the realistic planning figure. The posted band looks broad enough to span multiple levels rather than being new-grad-specific, so treat the high end as optimistic.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-12"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Fortinet_Applied_AI_Engineer_AI_Agent_bf9f59.pdf",
+    "date_scored": "2026-08-12",
+    "date_tailored": "2026-08-12"
   },
   "7b26d568-7721-45b7-ad28-66f8775408d4": {
     "id": "7b26d568-7721-45b7-ad28-66f8775408d4",
@@ -43,9 +44,10 @@
     "tc_estimate_low": 100000,
     "tc_estimate_high": 135000,
     "tc_basis": "Symbotic is a public (NASDAQ: SYM) automation/robotics firm, not a top-tier tech payer; Boston-area new-grad SWE base typically ~95-115k plus modest bonus and RSU grant. Band is an estimate with moderate confidence \u2014 level and team (control systems vs. cloud platform) could shift it either way.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-12"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Symbotic_Software_Engineer_New_Grad_81ed4e.pdf",
+    "date_scored": "2026-08-12",
+    "date_tailored": "2026-08-12"
   },
   "12b0c4cc-55d1-42fd-a6ad-d544d2b42999": {
     "id": "12b0c4cc-55d1-42fd-a6ad-d544d2b42999",

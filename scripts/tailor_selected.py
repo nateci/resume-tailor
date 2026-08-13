@@ -22,6 +22,7 @@ from job_store import load_store, save_store, write_sheet
 
 RESUME_TEX = "resume/resume.tex"
 PDF_DIR = "output/pdfs"
+MAX_ATTEMPTS = 2  # 1 retry with feedback if the compiled PDF overflows one page
 
 TAILOR_SCHEMA = {
     "type": "object",
@@ -65,6 +66,8 @@ HARD RULES:
 - Never fabricate employers, degrees, dates, or metrics. Only reorder/rephrase existing content.
 - Keep it compilable with pdflatex and preserve the preamble and all custom macros.
 - Keep it one page.
+- Every bullet (\resumeItem) must render as ONE line — no bullet should wrap
+  onto a second line. Rephrase for length, don't just truncate.
 
 RESUME (LaTeX):
 {base_tex}
@@ -77,6 +80,72 @@ def compile_pdf(tex_path, out_dir):
          f"-output-directory={out_dir}", tex_path],
         check=True, capture_output=True, timeout=120,
     )
+
+
+def get_page_count(tex_path):
+    """Parse the pdflatex/latexmk .log for the compiled page count.
+
+    Avoids a PDF-parsing dependency — pdflatex already prints
+    "Output written on X.pdf (N page(s), ...)." in its own log. pdflatex
+    hard-wraps its log at 79 columns with no inserted space, including
+    mid-filename, so the newlines are stripped (not collapsed to a space)
+    before matching — otherwise a wrapped line silently fails the regex and
+    a missing count gets misread as "1 page" (success) rather than unknown.
+    """
+    log_path = os.path.splitext(tex_path)[0] + ".log"
+    if not os.path.exists(log_path):
+        return None
+    with open(log_path, encoding="utf-8", errors="replace") as f:
+        content = f.read().replace("\n", "").replace("\r", "")
+    m = re.search(r"Output written on .*?\((\d+) pages?", content)
+    return int(m.group(1)) if m else None
+
+
+def tailor_one(cmd_prefix, base_tex, job, tag):
+    """Tailor + compile one job, retrying once with page-count feedback if
+    the first attempt overflows one page. Returns (pdf_rel, status)."""
+    overflow_note = ""
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        res = call_claude(cmd_prefix, tailor_prompt(base_tex, job) + overflow_note, TAILOR_SCHEMA)
+        tailored = res.get("tailored_tex", "")
+        if not tailored:
+            return "", "no-tex"
+
+        tex_out = os.path.join(PDF_DIR, f"{tag}.tex")
+        with open(tex_out, "w", encoding="utf-8") as f:
+            f.write(tailored)
+        try:
+            compile_pdf(tex_out, PDF_DIR)
+        except subprocess.CalledProcessError:
+            return "", "compile-failed"
+
+        pdf_path = os.path.join(PDF_DIR, f"{tag}.pdf")
+        if not os.path.exists(pdf_path):
+            return "", "compile-failed"
+
+        pages = get_page_count(tex_out)
+        if pages is None:
+            print(f"  WARNING: couldn't determine page count from {tag}.log — "
+                  "not verified, assuming OK", file=sys.stderr)
+            return f"pdfs/{tag}.pdf", "tailored"
+        if pages <= 1:
+            return f"pdfs/{tag}.pdf", "tailored"
+
+        if attempt < MAX_ATTEMPTS:
+            print(f"  compiled to {pages} pages — retrying with tighter cut", file=sys.stderr)
+            overflow_note = (
+                f"\n\nYour previous attempt compiled to {pages} pages. It MUST fit on "
+                "exactly one page. Check every bullet for line-wrap first — a wrapped "
+                "bullet is the most common cause of overflow — then cut further if "
+                "needed: drop the least relevant project/coursework line, tighten "
+                "spacing, while still following the hard rules above (never fabricate, "
+                "never invent)."
+            )
+        else:
+            # Out of attempts — keep the PDF (still usable) but flag it clearly.
+            return f"pdfs/{tag}.pdf", f"too-long:{pages}pages"
+
+    return "", "unknown-error"
 
 
 def main():
@@ -114,25 +183,11 @@ def main():
         tag = tag_for(job)
         print(f"[{i}/{len(targets)}] {job['company']} — {job['title']}", file=sys.stderr)
         try:
-            res = call_claude(cmd_prefix, tailor_prompt(base_tex, job), TAILOR_SCHEMA)
-            tailored = res.get("tailored_tex", "")
-            if not tailored:
-                job["status"] = "no-tex"
-            else:
-                tex_out = os.path.join(PDF_DIR, f"{tag}.tex")
-                with open(tex_out, "w", encoding="utf-8") as f:
-                    f.write(tailored)
-                try:
-                    compile_pdf(tex_out, PDF_DIR)
-                    pdf_path = os.path.join(PDF_DIR, f"{tag}.pdf")
-                    if os.path.exists(pdf_path):
-                        job["pdf_rel"] = f"pdfs/{tag}.pdf"
-                        job["status"] = "tailored"
-                        job["date_tailored"] = datetime.date.today().isoformat()
-                    else:
-                        job["status"] = "compile-failed"
-                except subprocess.CalledProcessError:
-                    job["status"] = "compile-failed"
+            pdf_rel, status = tailor_one(cmd_prefix, base_tex, job, tag)
+            job["pdf_rel"] = pdf_rel
+            job["status"] = status
+            if status in ("tailored",) or status.startswith("too-long:"):
+                job["date_tailored"] = datetime.date.today().isoformat()
         except Exception as e:
             job["status"] = f"tailor-error:{str(e)[:60]}"
         store[job["id"]] = job
