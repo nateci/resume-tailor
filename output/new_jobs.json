@@ -1,1389 +1,733 @@
 [
   {
-    "id": "63fc30c3-4d13-40bc-8488-b39b2dc59b9e",
-    "company": "SentiLink",
-    "title": "Applied ML Scientist",
-    "url": "https://jobs.ashbyhq.com/sentilink/5217d6c6-2140-4956-89c3-640088c29ffe/application",
+    "id": "c4870cf5-df4b-4867-8589-d69331ec3113",
+    "company": "Avnet",
+    "title": "Associate Field Application Engineer",
+    "url": "https://wd1.myworkdaysite.com/recruiting/avnet/External/job/Edina-Minnesota-United-States-Of-America/Associate-Field-Application-Engineer_JR-022071",
     "locations": [
-      "Remote in USA"
+      "Hopkins, MN"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1773382522
+    "date_posted": 1773962352
   },
   {
-    "id": "dc6c89e6-9e43-433f-a036-0d10d32ee7da",
-    "company": "The Boeing Company",
-    "title": "MP&P Engineer - Nondestructive Evaluation",
-    "url": "https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS/job/USA---Mesa-AZ/MP-P-Engineer---NDE_JR2026497106-1",
-    "locations": [
-      "Mesa, AZ"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1776527033
-  },
-  {
-    "id": "56c56225-9bfe-4b36-952b-d2b4a874a11e",
-    "company": "ByteDance",
-    "title": "Software Development Engineer - Multiple Teams",
-    "url": "https://jobs.bytedance.com/en/position/7631372899367340293/detail",
-    "locations": [
-      "Seattle, WA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1777280818
-  },
-  {
-    "id": "550c0f8a-8e58-4586-9968-9340d5265955",
-    "company": "RTX",
-    "title": "Software Engineer 1 - Test Solutions",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-AZ-TUCSON-801--1151-E-Hermans-Rd--BLDG-801-External-Site/Software-Engineer-I----Test-Solutions---Onsite_01836492-1",
-    "locations": [
-      "Tucson, AZ"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1777500478
-  },
-  {
-    "id": "1867969a-db0e-4b61-bcfe-810cf5e1f73c",
-    "company": "General Motors",
-    "title": "Machine Learning Engineer - AI Inference Solutions",
-    "url": "https://generalmotors.wd5.myworkdayjobs.com/en-CA/Careers_GM/job/Sunnyvale-California-United-States-of-America/Machine-Learning-Engineer--AI-Inference-Solutions--University-Grad-_JR-202610103",
-    "locations": [
-      "Sunnyvale, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1777943397
-  },
-  {
-    "id": "9cf6befe-5806-49aa-aed1-c3765502fb5b",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-IN-FT-WAYNE-150A--1010-Production-Rd--BLDG-150A/XMLNAME-2026-Raytheon-Full-Time--Software-Engineer-I---Onsite-_01844595",
-    "locations": [
-      "Fort Wayne, IN"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1778537443
-  },
-  {
-    "id": "525ef07a-7783-4422-9c52-ec97e51183af",
-    "company": "Ameren",
-    "title": "Engineering Representative",
-    "url": "https://ameren.wd1.myworkdayjobs.com/External/job/Collinsville-IL/Engineering-Rep-Step-1_033264",
-    "locations": [
-      "Collinsville, IL"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1778709951
-  },
-  {
-    "id": "5cf15281-fec7-4bc8-83b4-3db03d031421",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-IA-CEDAR-RAPIDS-193--1120-Collins-Rd-NE--BLDG193/Software-Engineer-1--ONSITE-_01846079",
-    "locations": [
-      "Cedar Rapids, IA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1779228560
-  },
-  {
-    "id": "00dea79d-a99b-4b51-9373-02b22d16cba2",
-    "company": "Newell Brands",
-    "title": "Associate Product Engineer - Home Fragrance",
-    "url": "https://jobs.newellbrands.com/job/South-Deerfield-Associate-Product-Engineer,-Home-Fragrance-Mass/1400762300/?ats=successfactors",
-    "locations": [
-      "Amherst, MA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1781734231
-  },
-  {
-    "id": "e2d23a33-2859-4e62-a5a1-9d2672ebeb4e",
-    "company": "Four Hands",
-    "title": "Software Engineer New Grad",
-    "url": "https://job-boards.greenhouse.io/fourhands/jobs/4297618009",
-    "locations": [
-      "Austin, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1782426326
-  },
-  {
-    "id": "78a1a51e-7c5a-49ae-909c-fe53612553e2",
-    "company": "Northrop Grumman",
-    "title": "Associate Cyber Software Engineer",
-    "url": "https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/United-States-Virginia-Chantilly/R10206390-22026-Associate-Cyber-Software-Engineer---Chantilly-VA_R10236425",
-    "locations": [
-      "Chantilly, VA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1783549093
-  },
-  {
-    "id": "52c8bdc5-91f7-416d-8a1b-26f9975959b9",
-    "company": "PNC Financial Services",
-    "title": "Software Engineer Associate Mainframe Testing/Selenium",
-    "url": "https://pnc.wd5.myworkdayjobs.com/External/job/PA---Pittsburgh-15222/Software-Engineer-Associate-Mainframe-testing-Selenium_R228735-1",
-    "locations": [
-      "Dallas, TX",
-      "Pittsburgh, PA",
-      "Strongsville, OH"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1784592000
-  },
-  {
-    "id": "e6cfe600-230b-48b7-ba94-ac7e34e8e0cd",
-    "company": "Verizon Communications",
-    "title": "Engineer 1 - Systems Engineering",
-    "url": "https://verizon.wd12.myworkdayjobs.com/verizon-careers/job/Temple-Terrace-Florida/Engineer-I---Systems-Engineering_R-1097946",
-    "locations": [
-      "E Fowler Ave, Tampa, FL"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1784764800
-  },
-  {
-    "id": "085d792a-4c79-4104-946c-89da75b559db",
-    "company": "Bot Auto",
-    "title": "Software Engineer - Generalist in Autonomous Driving System",
-    "url": "https://job-boards.greenhouse.io/botauto/jobs/5370717008",
-    "locations": [
-      "Houston, TX",
-      "SF"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1784960306
-  },
-  {
-    "id": "c5d7115a-0381-48fe-937d-74497a7da062",
-    "company": "NVIDIA",
-    "title": "GPU Verification Engineer New Grad",
-    "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/US-MA-Westford/GPU-Verification-Engineer---New-College-Grad-2026_JR2023187",
-    "locations": [
-      "Santa Clara, CA",
-      "Westford, MA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "5ded15c1-0e1b-4d50-909a-54019aa120b3",
-    "company": "Fidelity Investments",
-    "title": "Associate Software Engineer - ETF FFIO development",
-    "url": "https://fmr.wd1.myworkdayjobs.com/targeted/job/Westlake-TX/Associate-Software-Engineer_2131717-1",
-    "locations": [
-      "Westlake, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "36c8b8fd-365d-4bac-aacd-9ad6d868c515",
-    "company": "Chamberlain Group",
-    "title": "Software Engineer 1 - AI",
-    "url": "https://chamberlain.wd1.myworkdayjobs.com/Chamberlain_Group/job/Remote---California/Software-Engineer-I---AI_JR30290",
-    "locations": [
-      "California"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "5f115c55-1d75-4021-a79c-d638f003106e",
-    "company": "T2 Systems",
-    "title": "Full Stack Developer",
-    "url": "https://www.t2systems.com/jobs?gh_jid=4675527006",
-    "locations": [
-      "Indianapolis, IN"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572724
-  },
-  {
-    "id": "fe0776af-83c2-4cf6-8991-f8436b19be7e",
+    "id": "7f7df86f-b755-44f7-b66d-492960736e29",
     "company": "TikTok",
-    "title": "Graduate Software Engineer - Media Engine",
-    "url": "https://lifeattiktok.com/search/7670367152357673221",
+    "title": "Research Scientist - Multimodal Generative AI - Intelligent Creation",
+    "url": "https://lifeattiktok.com/search/7631001669631789365",
     "locations": [
       "San Jose, CA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786572513
+    "date_posted": 1776906607
   },
   {
-    "id": "ac849011-1197-4917-aa7b-e4870ced33fa",
-    "company": "TikTok",
-    "title": "Software Engineer Graduate - Foundation Platform",
-    "url": "https://lifeattiktok.com/search/7670276769459456309",
+    "id": "177af578-19a1-428a-8acb-184beaa3cf9e",
+    "company": "Motorola",
+    "title": "Software Engineering",
+    "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Plantation-FL/Software-Engineering_R66217",
     "locations": [
-      "San Jose, CA"
+      "Plantation, FL"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786572509
+    "date_posted": 1784246400
   },
   {
-    "id": "e6c29cfd-c40f-4c92-9623-7f3a936fbb5e",
-    "company": "Intertek",
-    "title": "EMC Engineer - 2nd Shift",
-    "url": "https://hcog.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/15562",
+    "id": "f49965a8-66d7-460e-aefb-c756911f4dff",
+    "company": "L3Harris Technologies",
+    "title": "Software Engineering Associate",
+    "url": "https://jobs.l3harris.com/job/Herndon-Associate,-Software-Engineering-VA-20171/1414531300/?ats=successfactors",
     "locations": [
-      "Boxborough, MA"
+      "Reston, VA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786572463
+    "date_posted": 1785506597
   },
   {
-    "id": "b3b345f1-09df-4662-9599-550ea9653c34",
-    "company": "TikTok",
-    "title": "Large Language Model Post-training Engineer Graduate - Research & Product",
-    "url": "https://lifeattiktok.com/search/7670285949976201477",
+    "id": "b05d56a6-9510-4f43-8546-6af63813210d",
+    "company": "Hawk-Eye Innovations",
+    "title": "Rugby Systems Operator",
+    "url": "https://jobs.ashbyhq.com/hawkeyeinnovations/e0e7660f-fedf-448e-829c-7203d0a3d053/application?embed=true",
     "locations": [
-      "San Jose, CA"
+      "Manchester, UK"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786572509
+    "date_posted": 1786679445
   },
   {
-    "id": "7a4476c8-f02c-469b-8528-bfa3c98bfc8f",
-    "company": "TikTok",
-    "title": "Machine Learning Engineer Graduate - E-Commerce Governance - PhD",
-    "url": "https://lifeattiktok.com/search/7672928557537954053",
-    "locations": [
-      "Seattle, WA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572503
-  },
-  {
-    "id": "2841155f-a6b5-417e-850c-c1fc194c2d3c",
-    "company": "TikTok",
-    "title": "Backend Software Engineer Graduate - Creation Platform",
-    "url": "https://lifeattiktok.com/search/7670292836050422021",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572523
-  },
-  {
-    "id": "51d49505-2900-4370-b8a9-df3e597de705",
-    "company": "TikTok",
-    "title": "Machine Learning Engineer Graduate - E-Commerce Governance",
-    "url": "https://lifeattiktok.com/search/7672928557539002629",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572509
-  },
-  {
-    "id": "6fd32f9a-0eeb-4389-b7ab-ea83b5ad4c71",
-    "company": "XPENG Motors",
-    "title": "Senior Machine Learning Engineer - Predictive World Model",
-    "url": "https://job-boards.greenhouse.io/xpengmotors/jobs/8702836002",
-    "locations": [
-      "Santa Clara, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572468
-  },
-  {
-    "id": "6eee6f4b-bc6f-4aab-87e5-c10dbbfed41a",
-    "company": "TikTok",
-    "title": "Software Engineer Graduate - Video-on-Demand Algorithm",
-    "url": "https://lifeattiktok.com/search/7670282906426476853",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572509
-  },
-  {
-    "id": "60aa966e-b8e8-4190-9e9b-98a2a53c3dc7",
-    "company": "RTX",
-    "title": "Data Analytics and Methods Engineer - Mission Applied Science & Technology",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-TX-RICHARDSON-C17--1717-Cityline-Dr--CITYLINE-C17/Software-Engineer-I_01866279",
-    "locations": [
-      "Richardson, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "172b703e-8433-4778-8e7c-9652e1e27fa5",
-    "company": "Guidehouse",
-    "title": "Public Health Data Engineer",
-    "url": "https://guidehouse.wd1.myworkdayjobs.com/external/job/US---TX-San-Antonio/Public-Health-Data-Engineer_43271-1",
-    "locations": [
-      "Houston, TX",
-      "Remote in USA",
-      "San Antonio, TX",
-      "Atlanta, GA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "a8bb8bee-9384-4ef6-b48e-0a00efb028e5",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-IA-CEDAR-RAPIDS-166--855-35Th-St-NE--BLDG-166/Software-Engineer-I--Onsite-_01864603",
-    "locations": [
-      "Cedar Rapids, IA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "d1fec00e-2484-4015-8c22-39afe9bcdeec",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-MD-ANNAPOLIS-906--2551-Riva-Rd--BLDG-906/Software-Engineer-I--Onsite-_01864384",
-    "locations": [
-      "Annapolis, MD"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "ed2cf37e-8a1e-4d2f-8cf3-ea92bbfbcde2",
-    "company": "Apple",
-    "title": "Software Engineer - Applied Machine Learning - IS&T",
-    "url": "https://jobs.apple.com/en-us/details/200677645",
-    "locations": [
-      "Austin, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572311
-  },
-  {
-    "id": "f07c781c-3f76-44c2-ad53-fbefb9ca1fd1",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-AZ-TUCSON-801--1151-E-Hermans-Rd--BLDG-801-External-Site/Software-Engineer-I--Onsite-_01865026-1",
-    "locations": [
-      "Tucson, AZ"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "aaa99c72-7271-4979-8852-5f63983e3a59",
-    "company": "Rambus",
-    "title": "Lead MTS Application Engineer - Memory Interface",
-    "url": "https://careers-rambus.icims.com/jobs/23024/job?mobile=true&needsRedirect=false",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572228
-  },
-  {
-    "id": "b4164b93-99fc-4289-a9cd-de27b0ed1579",
-    "company": "Lawrence Livermore National Laboratory (LLNL)",
-    "title": "Heavy-Ion Physics and Scientific Machine Learning Postdoctoral Researcher",
-    "url": "https://jobs.smartrecruiters.com/LLNL/3743990014571757",
-    "locations": [
-      "Livermore, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572251
-  },
-  {
-    "id": "f049d222-a352-43e2-bcca-b2ead5fc94c1",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-MD-ANNAPOLIS-905--2551-Riva-Rd--BLDG-905/Software-Engineer-I--Onsite-_01865987",
-    "locations": [
-      "Annapolis, MD"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "763090cc-ccc3-4707-bfbb-e4cedaedcdcc",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineer-I--Onsite-_01865956",
-    "locations": [
-      "West Valley City, UT"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "44e55172-2968-45fe-9b1a-22ccf107ea1d",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-MD-ANNAPOLIS-906--2551-Riva-Rd--BLDG-906/Software-Engineer-I--Onsite-_01864398",
-    "locations": [
-      "Annapolis, MD"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "0c0e98e9-17b7-4035-b381-670534175dff",
-    "company": "Lawrence Livermore National Laboratory (LLNL)",
-    "title": "Explainable AI Postdoctoral Researcher",
-    "url": "https://jobs.smartrecruiters.com/LLNL/3743990014567496",
-    "locations": [
-      "Livermore, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572244
-  },
-  {
-    "id": "06f36243-fddd-45b2-a193-3a6ec9970c2a",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-IA-CEDAR-RAPIDS-166--855-35Th-St-NE--BLDG-166/Software-Engineer-I---Onsite-_01866072",
-    "locations": [
-      "Cedar Rapids, IA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "3652f4da-c0cd-474f-be8a-83f27443f5a8",
-    "company": "Apple",
-    "title": "Design Verification Engineer",
-    "url": "https://jobs.apple.com/en-us/details/200630984",
-    "locations": [
-      "Waltham, MA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786572317
-  },
-  {
-    "id": "2b8eaba7-6f38-4420-a729-c5e420e4ae70",
-    "company": "General Matter",
-    "title": "Software Engineer New Grad",
-    "url": "https://job-boards.greenhouse.io/generalmatter/jobs/5375987008",
-    "locations": [
-      "LA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786575205
-  },
-  {
-    "id": "5d07aedb-f343-4842-96e9-3e56d3f4586a",
-    "company": "Microchip Technology",
-    "title": "Validation Engineer 1",
-    "url": "https://wd5.myworkdaysite.com/recruiting/microchiphr/External/job/AZ---Chandler/Engineer-I--Validation_R3512-26",
-    "locations": [
-      "Chandler, AZ"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "d3c098a3-25fd-4752-926c-073c5ef98949",
-    "company": "Northrop Grumman",
-    "title": "AI Software Engineer - Aht",
-    "url": "https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/United-States-Ohio-Beavercreek/Associate-AI-Software-Engineer--AI-Software-Engineer--AHT-_R10245469",
-    "locations": [
-      "Beavercreek, OH"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "47db7b74-b29c-4098-9e87-68af93ab3843",
-    "company": "Northrop Grumman",
-    "title": "Associate Software Engineer/Software Engineer - Associate Engineer Software (T01) - Engineer Software (T02)",
-    "url": "https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/United-States-Florida-Melbourne/XMLNAME-2027-Associate-Software-Engineer-Software-Engineer_R10245233",
-    "locations": [
-      "Melbourne, FL"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "b05649ee-4731-41d9-9b2a-2be57e93cab3",
-    "company": "State Street",
-    "title": "Full Stack Software Engineer - Officer",
-    "url": "https://statestreet.wd1.myworkdayjobs.com/Global/job/Toronto-Ontario/Full-Stack-Software-Engineer--Officer_R-792060",
-    "locations": [
-      "Toronto, ON, Canada"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "ec8d7f8d-2154-4e58-bc3d-7413c3536d43",
-    "company": "Uniswap",
-    "title": "Software Engineer - Early Career",
-    "url": "https://jobs.ashbyhq.com/uniswap/fb4d4137-f003-4669-beb7-2a5caca88012/application?embed=true",
-    "locations": [
-      "NYC"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786574694
-  },
-  {
-    "id": "9eeb571e-079e-492d-84f7-49d9ddf5a00d",
-    "company": "Rocket Lab USA",
-    "title": "Flight Software Engineer 1",
-    "url": "https://job-boards.greenhouse.io/rocketlab/jobs/7830196003",
-    "locations": [
-      "Littleton, CO"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786574025
-  },
-  {
-    "id": "8f0f4a4f-19f8-4ae3-8cb4-d69de28aefba",
-    "company": "ByteDance",
-    "title": "Research Scientist Graduate - Seed AI Foundation Model Infrastructure",
-    "url": "https://jobs.bytedance.com/en/position/7673268418623293749/detail",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786584313
-  },
-  {
-    "id": "36649be5-6fcf-46db-86bb-69e8d9c6ce71",
-    "company": "Exelixis",
-    "title": "Associate Engineer - AI and Agentic",
-    "url": "https://exelixis.wd1.myworkdayjobs.com/exel/job/Alameda-CA/Associate-Engineer---AI-and-Agentic_JR7031",
-    "locations": [
-      "Alameda, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786492800
-  },
-  {
-    "id": "0f5bb908-9ac8-4a97-b45d-0ad47f7cd13b",
-    "company": "ByteDance",
-    "title": "Research Engineer Graduate - Seed Infra",
-    "url": "https://jobs.bytedance.com/en/position/7673256063231854901/detail",
-    "locations": [
-      "Seattle, WA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786584312
-  },
-  {
-    "id": "b1ee273d-a77a-4b83-b8cd-f1ad4cdd4d30",
-    "company": "ByteDance",
-    "title": "Research Engineer Graduate - Seed Infra",
-    "url": "https://jobs.bytedance.com/en/position/7673254778614253829/detail",
-    "locations": [
-      "Seattle, WA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786584312
-  },
-  {
-    "id": "75a66528-c177-480e-9924-cde2ebd6a6d4",
-    "company": "ByteDance",
-    "title": "Research Scientist Graduate - Seed AI Foundation Model Infrastructure - PhD",
-    "url": "https://jobs.bytedance.com/en/position/7673264681083898165/detail",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786584312
-  },
-  {
-    "id": "cf341e15-fb9e-4b2f-871f-b5f2c95f0e3f",
-    "company": "Resmed",
-    "title": "Associate Software Engineer - Digital Product Engineering - Internet-of-Things",
-    "url": "https://resmed.wd3.myworkdayjobs.com/en-US/ResMed_External_Careers/job/San-Diego-CA-United-States/Associate-Software-Engineer_JR_053125",
+    "id": "767d1491-f472-4664-be9c-276d9f8aa535",
+    "company": "Qualcomm",
+    "title": "Engineering Technician - Intermediate",
+    "url": "https://qualcomm.eightfold.ai/careers/job/446718288363",
     "locations": [
       "San Diego, CA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786492800
+    "date_posted": 1786679302
   },
   {
-    "id": "ae31bcf5-3524-4c9f-8b9e-361d60f9fa17",
-    "company": "TikTok",
-    "title": "Backend Software Engineer New Grad - Creator Strategy",
-    "url": "https://lifeattiktok.com/search/7672976491146004741",
-    "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786583338
-  },
-  {
-    "id": "82b0f083-f346-4f10-91bf-8d21a2b88675",
-    "company": "TikTok",
-    "title": "Software Engineer Graduate - Recommendation Architecture - Feeds Infrastructure",
-    "url": "https://lifeattiktok.com/search/7672530785573980421",
-    "locations": [
-      "Seattle, WA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786583315
-  },
-  {
-    "id": "9c569a74-622f-4862-8f43-84f0e63f9893",
-    "company": "Panasonic Holdings",
-    "title": "Software Engineer 1 - Embedded Systems",
-    "url": "https://careers.na.panasonic.com/jobs/50269?icims=1",
-    "locations": [
-      "Irvine, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786583265
-  },
-  {
-    "id": "54a06b84-67eb-4568-8969-1e478d303342",
-    "company": "Lennar Corporation",
+    "id": "ea670782-222f-4f9d-8ca8-8d6120478821",
+    "company": "Honeywell",
     "title": "Software Engineer 1",
-    "url": "https://lennar.wd1.myworkdayjobs.com/Lennar_Jobs/job/Miami-FL-Job-Posting-Location/Software-Engineer-I_R26_0000003523",
+    "url": "https://ibqbjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Honeywell/job/155551",
     "locations": [
-      "Miami, FL"
+      "Richmond, VA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786492800
+    "date_posted": 1786679039
   },
   {
-    "id": "d1775023-8318-4c20-8b84-7725fb52c8a3",
-    "company": "Consumer Direct Care Network",
-    "title": "Software Engineer 1",
-    "url": "https://cdcn.avature.net/careers/JobDetail/8611",
+    "id": "539ddb97-a187-4681-9626-955ac26196f8",
+    "company": "Broadcom Limited",
+    "title": "Support Engineer - Mainframe",
+    "url": "https://broadcom.wd1.myworkdayjobs.com/external_career/job/USA-IL-Lisle-Warrenville-Road/Support-Engineer---Mainframe_R026779",
     "locations": [
-      "Missoula, MT"
+      "Lisle, IL"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786584511
+    "date_posted": 1786579200
   },
   {
-    "id": "6052a761-2d5c-44a7-a666-f6975df25f03",
-    "company": "Accenture",
-    "title": "Entry Level Java Developer Associate",
-    "url": "https://jobs.smartrecruiters.com/AccentureFederalServices/78366121",
+    "id": "86bdbbed-2cac-4420-988c-ff02f061f103",
+    "company": "Teledyne",
+    "title": "Engineering Technician",
+    "url": "https://flir.wd1.myworkdayjobs.com/flircareers/job/US---Huntsville-AL/Engineering-Technician-1_REQ36311",
     "locations": [
-      "San Antonio, TX"
+      "Huntsville, AL"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786601623
+    "date_posted": 1786579200
   },
   {
-    "id": "0e951ce4-39c4-46ef-ab06-3c7ed19fd9af",
-    "company": "Accenture",
-    "title": "Software Engineering Associate",
-    "url": "https://jobs.smartrecruiters.com/AccentureFederalServices/78253961",
+    "id": "4b1d018c-2a4a-4b40-b79e-97dd465d5531",
+    "company": "Seagate Technology ",
+    "title": "Systems Engineer - Early Career",
+    "url": "https://seagatecareers.com/job/Longmont-Systems-Engineer-Early-Career-CO-80501/1419329400/?ats=successfactors",
     "locations": [
-      "Arlington County, Arlington, VA"
+      "Longmont, CO"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786601620
+    "date_posted": 1786678901
   },
   {
-    "id": "d99737b4-325b-4453-aa8c-35b6468d5695",
-    "company": "Mapjects",
-    "title": "MicroStrategy Developer",
-    "url": "https://jobs.smartrecruiters.com/Mapjectscom/79514410",
+    "id": "c905beb6-9fb3-4fd0-9598-23f0425a783c",
+    "company": "Moffitt Cancer Center",
+    "title": "Data Engineer 1",
+    "url": "https://moffitt.wd108.myworkdayjobs.com/Moffitt/job/Moffitt-Business-Center/DATA-ENGINEER-I_R-2977",
     "locations": [
-      "Fairfax, VA"
+      "Tampa, FL"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786601555
+    "date_posted": 1786579200
   },
   {
-    "id": "919e3428-c805-4f21-9770-29a36d2ce524",
-    "company": "Dunn Solutions Group",
-    "title": "Java Developer",
-    "url": "https://jobs.smartrecruiters.com/DunnSolutionsGroup/88312248",
+    "id": "10b1f7da-cc7f-45ba-a157-7054596c9937",
+    "company": "Associated Bank",
+    "title": "Full-Stack Developer Associate",
+    "url": "https://associatedbank.wd1.myworkdayjobs.com/en-US/external_careers/job/US-WI-Remote/Full-Stack-Developer-Associate_JR106237",
     "locations": [
-      "Skokie, IL"
+      "Minnesota",
+      "Nebraska",
+      "Wisconsin",
+      "Illinois"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786601535
+    "date_posted": 1786579200
   },
   {
-    "id": "a812bd9c-30db-4395-9348-62781c4a750d",
-    "company": "Dunn Solutions Group",
-    "title": "Java Developer",
-    "url": "https://jobs.smartrecruiters.com/DunnSolutionsGroup/88657218",
-    "locations": [
-      "Minneapolis, MN"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786601535
-  },
-  {
-    "id": "067a35d4-40e1-4bbd-9e22-956a8a7ec3ad",
-    "company": "Dunn Solutions Group",
-    "title": "Java Developer",
-    "url": "https://jobs.smartrecruiters.com/DunnSolutionsGroup/88657168",
-    "locations": [
-      "Raleigh, NC"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786601533
-  },
-  {
-    "id": "85a7cdca-c4d0-43be-a530-3d9273287d69",
-    "company": "Citizens Financial Group",
-    "title": "AI Software Engineer 1",
-    "url": "https://hcgn.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/48633",
-    "locations": [
-      "United States"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786601290
-  },
-  {
-    "id": "2d60016e-8a05-4302-bd2c-db0a3f11fe99",
-    "company": "Sigla",
-    "title": "Software Engineer",
-    "url": "https://jobs.smartrecruiters.com/SiglaLLC/743999662580203",
-    "locations": [
-      "St. Louis, MO"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786601060
-  },
-  {
-    "id": "1e5ab0ea-1864-4dac-b3a0-480ec705e25b",
-    "company": "Presidency Solutions",
-    "title": "Software Developer",
-    "url": "https://jobs.smartrecruiters.com/PresidencySolutions1/82551703",
-    "locations": [
-      "Farmington Hills, MI"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786601041
-  },
-  {
-    "id": "ea47b81d-38b4-4c79-b7a8-d4b98cd222bc",
-    "company": "Selector Software",
-    "title": "Software Engineer",
-    "url": "https://selectorsoftware.bamboohr.com/careers/193/",
-    "locations": [
-      "Santa Clara, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786602304
-  },
-  {
-    "id": "03d4d191-5eff-4bbf-a18a-a070843036a0",
-    "company": "Options Technology",
-    "title": "PHP/SQL Web Developer - Options Market Data Team",
-    "url": "https://optionsit.bamboohr.com/careers/121/",
-    "locations": [
-      "Cambridge, UK"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786602280
-  },
-  {
-    "id": "ddbc3338-08db-4c93-9c6d-d0a88e19b684",
-    "company": "Adidev Technologies Inc",
-    "title": "iOS Developer",
-    "url": "https://adidev.bamboohr.com/careers/34/",
-    "locations": [
-      "Charlotte, NC"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786602150
-  },
-  {
-    "id": "aa257799-08d3-405b-b906-58d61f43af09",
-    "company": "Adidev Technologies Inc",
-    "title": "Mobile Developer - iOS/Android",
-    "url": "https://adidev.bamboohr.com/careers/44/",
-    "locations": [
-      "Atlanta, GA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786602153
-  },
-  {
-    "id": "2bba0fd8-a19f-4bc4-be98-e3237e625a1a",
-    "company": "Adidev Technologies Inc",
-    "title": "Android Developer",
-    "url": "https://adidev.bamboohr.com/careers/27/",
+    "id": "24791851-7303-48e1-abb0-af0ef1452299",
+    "company": "Kyndryl",
+    "title": "Associate AI Engineer",
+    "url": "https://kyndryl.wd5.myworkdayjobs.com/en-US/KyndrylProfessionalCareers/job/USDALFRI---Dallas-Frisco-AI-HUB-FRI/Early-Career-Consult-Program---Associate-AI-Engineer_R-66739-2",
     "locations": [
       "Dallas, TX"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602153
+    "date_posted": 1786579200
   },
   {
-    "id": "7fa184d8-1d6e-474e-afac-7571cf147fe7",
-    "company": "Apollo Mission Critical Engineering",
-    "title": "Software Engineering Associate - Software Development Associate",
-    "url": "https://apollomce.bamboohr.com/careers/96/",
+    "id": "7894345d-6677-46a0-b561-523670a2aa56",
+    "company": "Kyndryl",
+    "title": "Associate AI Engineer - Early Career Consult Program",
+    "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylEarlyCareers/job/USDALFRI---Dallas-Frisco-AI-HUB-FRI/Early-Career-Consult-Program---Associate-AI-Engineer_R-66739",
     "locations": [
-      "Atlanta, GA"
+      "Dallas, TX"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602116
+    "date_posted": 1786579200
   },
   {
-    "id": "53dd3daa-13cd-4e52-b973-fb3582e01fda",
-    "company": "PHIHONG USA",
-    "title": "Firmware Engineer",
-    "url": "https://phihong.bamboohr.com/careers/446/",
+    "id": "8b34936c-e41c-4125-be15-b324d6d312c5",
+    "company": "VTG",
+    "title": "Associate Software Engineer",
+    "url": "https://careers.vtgdefense.com/jobs/9316?icims=1",
     "locations": [
-      "Bohemia, NY"
+      "Manassas, VA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602118
+    "date_posted": 1786680207
   },
   {
-    "id": "670d458a-456d-4e42-8032-bcf187bd3649",
-    "company": "Epos Now Group",
-    "title": "Software Engineer 3",
-    "url": "https://eposnowgroup.bamboohr.com/careers/567/",
+    "id": "1a6e1243-653e-4c44-9a87-789030cb51a3",
+    "company": "VTG",
+    "title": "Associate Software Engineer",
+    "url": "https://careers.vtgdefense.com/jobs/9425?icims=1",
+    "locations": [
+      "Manassas, VA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786680205
+  },
+  {
+    "id": "df7ccad4-e94d-42b5-914a-8875029af2a8",
+    "company": "ITA International",
+    "title": "Junior Power Platform Developer",
+    "url": "https://careers-ita-intl.icims.com/jobs/4470/job?mobile=true&needsRedirect=false",
+    "locations": [
+      "Remote in USA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786680182
+  },
+  {
+    "id": "5be2737a-54d7-45d6-84db-d847435fe5c4",
+    "company": "MSA Safety",
+    "title": "Embedded Software Engineer 1/2 - Fire Service",
+    "url": "https://careers.msasafety.com/jobs/9676?icims=1",
+    "locations": [
+      "Cranberry Township, PA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786680164
+  },
+  {
+    "id": "a665623e-060f-4a0d-8104-96f48b2dbbec",
+    "company": "CTG",
+    "title": "AI Vibe Coding Engineer",
+    "url": "https://careers.ctg.com/jobs/17347?icims=1",
+    "locations": [
+      "Remote in USA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786680124
+  },
+  {
+    "id": "754d18f3-d73c-451f-8214-a9c84a06d7c9",
+    "company": "EagleView",
+    "title": "Flight Systems Technician - Capture Systems R&D",
+    "url": "https://careers.eagleview.com/jobs/2872?icims=1",
+    "locations": [
+      "Rochester, NY"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786680119
+  },
+  {
+    "id": "7d777c12-dbb3-4b9e-b13d-d5156069bdd1",
+    "company": "CPI Card Group",
+    "title": "Software Developer 1",
+    "url": "https://careersuk-cpicardgroup.icims.com/jobs/11208/job?mobile=true&needsRedirect=false",
     "locations": [
       "Norwich, UK"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602082
+    "date_posted": 1786680017
   },
   {
-    "id": "5669b0ee-2c91-48c1-a10f-9014661b589c",
-    "company": "United Smart Tech",
-    "title": "AI Engineer - Agents & Experimentation",
-    "url": "https://unitedsmarttech.bamboohr.com/careers/185/",
+    "id": "4778a6b9-74eb-4c5c-9ca0-e1d4d7c63007",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Senior Engineer-Analyst - ISR Scientific Applications",
+    "url": "https://careers.jhuapl.edu/jobs/57531?icims=1",
     "locations": [
-      "Carrollton, TX"
+      "Laurel, MD"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602065
+    "date_posted": 1786679981
   },
   {
-    "id": "c28ceb25-26bc-4b87-a21a-1eee0450081b",
-    "company": "ConeTec Group",
-    "title": "Field Engineer/Field Geologist",
-    "url": "https://conetec.bamboohr.com/careers/599/",
+    "id": "337a8067-9780-4ed6-b3a0-7c25fdad3b14",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Autonomous Systems Seeker and Sensor Engineer",
+    "url": "https://careers.jhuapl.edu/jobs/57486?icims=1",
     "locations": [
-      "Seattle, WA"
+      "Laurel, MD"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602035
+    "date_posted": 1786679980
   },
   {
-    "id": "d08e06ee-dc58-4192-98ea-f189a88a6db2",
-    "company": "ConeTec Group",
-    "title": "Field Geologist/Engineer",
-    "url": "https://conetec.bamboohr.com/careers/309/",
+    "id": "d82fea85-cee3-45bf-b464-5034a6e4b576",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Artificial Intelligence Engineer - Intelligent Autonomous Systems",
+    "url": "https://careers.jhuapl.edu/jobs/57438?icims=1",
     "locations": [
-      "Richmond, CA"
+      "Laurel, MD"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786602029
+    "date_posted": 1786679974
   },
   {
-    "id": "495c218f-20df-48c5-baef-1726f57e1d01",
-    "company": "Applied Materials",
-    "title": "Software Engineer New Grad - DevOps",
-    "url": "https://amat.wd1.myworkdayjobs.com/External/job/GloucesterMA/XMLNAME-2027-Software-Engineer--DevOps---New-College-Grad---Bachelor-s--Gloucester--MA-_R2625762",
+    "id": "8be181ac-18b4-4c90-8d3f-95f303749bf2",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Cyber Engineer - Capabilities Development",
+    "url": "https://careers.jhuapl.edu/jobs/57600?icims=1",
     "locations": [
-      "Gloucester, MA"
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679978
+  },
+  {
+    "id": "25bcc690-186a-4bee-90ed-45270fef596a",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Software Engineering/ML/Data Scientist Graduate - Intelligence Systems",
+    "url": "https://careers.jhuapl.edu/jobs/57747?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679979
+  },
+  {
+    "id": "0316d9b0-4ab8-4162-b4db-6f01a603a369",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Intelligent Systems Development Engineer - Intelligent Combat Platforms Group",
+    "url": "https://careers.jhuapl.edu/jobs/58080?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679975
+  },
+  {
+    "id": "2ff916d3-3671-4e8e-a5df-485dc5048bba",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Data Scientist / Computer Scientist PhD Graduate - Decision Systems",
+    "url": "https://careers.jhuapl.edu/jobs/57706?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679978
+  },
+  {
+    "id": "a9b0880e-9c11-4194-8868-5df112df0da6",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Artificial Intelligence Research Scientist - Artificial Intelligence and Machine Learning",
+    "url": "https://careers.jhuapl.edu/jobs/57812?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679977
+  },
+  {
+    "id": "8427086c-fb04-4125-a38f-4e9c9fa28dc7",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Systems Engineer/Analyst New Grad - Multi-Mission Planning Development",
+    "url": "https://careers.jhuapl.edu/jobs/58164?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679974
+  },
+  {
+    "id": "b7b9f7ca-b945-481f-bfc3-04355ed79955",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "AI/ML Data Scientist/Engineer New Grad - Analytic Capabilities",
+    "url": "https://careers.jhuapl.edu/jobs/57801?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679975
+  },
+  {
+    "id": "8dc89094-3aea-4bac-9d27-dfbd32fba20c",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Synthetic Aperture Radar Machine Learning Engineer - Imaging Systems",
+    "url": "https://careers.jhuapl.edu/jobs/58971?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679956
+  },
+  {
+    "id": "804e9756-cd00-4514-a056-bb06c49a19c4",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Machine Learning PhD New Grad - Artificial Intelligence",
+    "url": "https://careers.jhuapl.edu/jobs/59010?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679954
+  },
+  {
+    "id": "588f0052-a7a7-484e-9118-a50d1e50c96a",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Applied Algorithms Engineer New Grad",
+    "url": "https://careers.jhuapl.edu/jobs/59108?icims=1",
+    "locations": [
+      "Huntsville, AL"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679950
+  },
+  {
+    "id": "07fc4738-d12f-4bb3-b8de-6b749a723716",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Artificial Intelligence and Complex Systems Postdoc Researcher",
+    "url": "https://careers.jhuapl.edu/jobs/58855?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679952
+  },
+  {
+    "id": "dd30d3b2-252b-4967-903e-8a1f0f4693e2",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Computer Engineer New Grad - Shipboard Systems Team",
+    "url": "https://careers.jhuapl.edu/jobs/59098?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679946
+  },
+  {
+    "id": "0e6c1db8-ce0d-4d6e-8962-3757c2b0a9e8",
+    "company": "DecisionPoint Corporation",
+    "title": "Entry-level Software Developer",
+    "url": "https://careers-decisionpointcorp.icims.com/jobs/3685/job?mobile=true&needsRedirect=false",
+    "locations": [
+      "Remote in USA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679946
+  },
+  {
+    "id": "ad89813c-5160-4d6c-86e1-6c0180f9d408",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Navigation Systems Analyst/Engineer",
+    "url": "https://careers.jhuapl.edu/jobs/59337?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679936
+  },
+  {
+    "id": "33f03ee2-af54-4e9a-a8c3-1ca957e56cd0",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Engineer Graduate - Multi-Mission Planning Development",
+    "url": "https://careers.jhuapl.edu/jobs/58163?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679932
+  },
+  {
+    "id": "6d081b1c-739e-4f18-b112-ddf3c2381662",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "Systems Engineer Graduate - Systems Engineer - Analyst",
+    "url": "https://careers.jhuapl.edu/jobs/59497?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679924
+  },
+  {
+    "id": "9841d195-19c9-4d37-8876-6d72b9dec5af",
+    "company": "Johns Hopkins Applied Physics Laboratory",
+    "title": "PhD Graduate - Distributed Tactical Awareness",
+    "url": "https://careers.jhuapl.edu/jobs/59533?icims=1",
+    "locations": [
+      "Laurel, MD"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679923
+  },
+  {
+    "id": "6fa187e4-125c-4deb-bc94-9f54dfea9379",
+    "company": "Shearers Foods",
+    "title": "EDI Business Systems Analyst",
+    "url": "https://careers.shearers.com/jobs/1996?icims=1",
+    "locations": [
+      "Massillon, OH"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786679845
+  },
+  {
+    "id": "168e5987-f713-4754-b420-77422cbf6329",
+    "company": "Microsoft",
+    "title": "Software Development Engineer - Azure PostgreSQL",
+    "url": "https://apply.careers.microsoft.com/careers/job/1970393556959253",
+    "locations": [
+      "United States"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786681205
+  },
+  {
+    "id": "7cc701f0-5ded-4485-9951-832941911f1d",
+    "company": "Dawn Meats",
+    "title": "Graduate Business Intelligence Developer",
+    "url": "https://graduate-roi-dawnmeats.icims.com/jobs/5282/job?mobile=true&needsRedirect=false",
+    "locations": [
+      "Waterford, Ireland",
+      "Dungannon, UK",
+      "Preston, UK"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786680622
+  },
+  {
+    "id": "e13d8c02-7038-49a2-87d5-9034b52718f8",
+    "company": "The Boeing Company",
+    "title": "Embedded Software Engineer - Government Training",
+    "url": "https://boeing.wd1.myworkdayjobs.com/external_subsidiary/job/USA---Hazelwood-MO/Embedded-Software-Engineer---Entry-Level_JR2026522089",
+    "locations": [
+      "Berkeley, MO",
+      "Hazelwood, MO"
     ],
     "terms": [],
     "sponsorship": "Other",
     "date_posted": 1786579200
   },
   {
-    "id": "823dc91a-f895-469a-b516-b3be2e1894e7",
-    "company": "TikTok",
-    "title": "Software Engineer Graduate - Recommendation Infrastructure",
-    "url": "https://lifeattiktok.com/search/7673284715407886597",
+    "id": "7fdbff33-ffe2-4d3f-b846-0ae624da19ff",
+    "company": "The Boeing Company",
+    "title": "Embedded Software Engineer",
+    "url": "https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS/job/USA---Hazelwood-MO/Embedded-Software-Engineer---Entry-Level_JR2026522089-1",
     "locations": [
-      "San Jose, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786612220
-  },
-  {
-    "id": "27789793-6af1-43b7-9cd5-e384f26e6e66",
-    "company": "Illumina",
-    "title": "Systems Integration Engineer 1",
-    "url": "https://illumina.wd1.myworkdayjobs.com/illumina-careers/job/US---California---San-Diego/Systems-Integration-Engineer-1_43230-JOB",
-    "locations": [
-      "San Diego, CA"
+      "Berkeley, MO",
+      "Hazelwood, MO"
     ],
     "terms": [],
     "sponsorship": "Other",
     "date_posted": 1786579200
   },
   {
-    "id": "0f38cb8f-9548-4161-b1d2-a6734d216f12",
-    "company": "Two Sigma",
-    "title": "AI Research Scientist - Campus Full-Time",
-    "url": "https://twosigma.avature.net/careers/JobDetail/13671",
+    "id": "e10bdd63-43bd-4d2a-ac7b-f65c4b8b35de",
+    "company": "Composio",
+    "title": "Forward Deployed Engineer New Grad",
+    "url": "https://jobs.ashbyhq.com/composio/f83a19a0-8188-4100-9dd5-b259efb342e6/application?embed=true",
     "locations": [
-      "NYC"
+      "SF"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1785633715
+    "date_posted": 1786687014
   },
   {
-    "id": "8461a046-ce00-42ec-917b-1c53720bba42",
-    "company": "ASML",
-    "title": "Upgrade Install and Relocation Engineer - Duv",
-    "url": "https://asml.wd3.myworkdayjobs.com/asmlext1/job/Dallas-TX-USA/Upgrade-Install-and-Relocation-Engineer---DUV_J-00349320",
+    "id": "ceae354f-7659-436b-88e0-759362464965",
+    "company": "Composio",
+    "title": "Fullstack Engineer New Grad - Product Team",
+    "url": "https://jobs.ashbyhq.com/composio/01e0e7ad-44a2-44e8-9340-64ca70eff491/application?embed=true",
     "locations": [
-      "Austin, TX",
-      "Dallas, TX"
+      "SF"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786406400
+    "date_posted": 1786687014
   },
   {
-    "id": "ac60519a-2ba3-4ffd-9d17-4549eb3809ae",
-    "company": "ASML",
-    "title": "Upgrade Install and Relocation Engineer - Duv",
-    "url": "https://asml.wd3.myworkdayjobs.com/asmlext1/job/Austin-TX-USA/Upgrade-Install-and-Relocation-Engineer_J-00349541-1",
+    "id": "8a7b2d5f-aeee-4b70-a908-f66aa938f067",
+    "company": "Urban Science",
+    "title": "Associate Software Engineer - Serviceview",
+    "url": "https://careers-urbanscience.icims.com/jobs/5181/job?mobile=true&needsRedirect=false",
     "locations": [
-      "Austin, TX"
+      "Detroit, MI"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1785801600
+    "date_posted": 1786686951
   },
   {
-    "id": "87d3b674-66f6-4a43-b3c8-765da738bad1",
-    "company": "L3Harris Technologies",
-    "title": "Associate Software Engineer",
-    "url": "https://jobs.l3harris.com/job/Greenville-Associate,-Software-Engineering-TX-75402/1419017400/?ats=successfactors",
-    "locations": [
-      "Greenville, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786630765
-  },
-  {
-    "id": "446febb4-b44b-4e23-bd24-9d5be19954c1",
-    "company": "Renesas Electronics",
-    "title": "Application Engineer - Performance Computing Power Application Engineering",
-    "url": "https://jobs.smartrecruiters.com/RenesasElectronics/744000143318619",
-    "locations": [
-      "Austin, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786630390
-  },
-  {
-    "id": "1f8e4468-cfb9-4773-8eff-5deb0dfd3370",
-    "company": "Renesas Electronics",
-    "title": "AI Compiler Engineer",
-    "url": "https://jobs.smartrecruiters.com/RenesasElectronics/744000143317369",
-    "locations": [
-      "Plano, TX"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786629875
-  },
-  {
-    "id": "be93461b-6a60-4a5d-b44b-bd7b5b06958a",
-    "company": "TRIMEDX",
-    "title": "Imaging Engineer 1",
-    "url": "https://trimedx.wd1.myworkdayjobs.com/TMX/job/Norfolk-VA/Imaging-Engineer-I_R14640",
+    "id": "63807ddc-301f-4d78-ac5c-193a82587f30",
+    "company": "M.C. Dean",
+    "title": "Systems Engineering Technician 1",
+    "url": "https://careers.mcdean.com/jobs/28841?icims=1",
     "locations": [
       "Norfolk, VA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1785801600
+    "date_posted": 1786687186
   },
   {
-    "id": "07c3dec1-0e25-447d-9793-3004c2b063cc",
-    "company": "GE Healthcare",
-    "title": "Field Engineer 1 - Imaging",
-    "url": "https://gehc.wd5.myworkdayjobs.com/GEHC_ExternalSite/job/Remote/Field-Engineer-1-Imaging_R4044274-1",
+    "id": "843113c2-8c60-49b6-b630-bbdb922cce23",
+    "company": "M.C. Dean",
+    "title": "Electronics Associate - Security and Electronic Systems",
+    "url": "https://careers.mcdean.com/jobs/30729?icims=1",
     "locations": [
-      "Remote in USA"
+      "Dallas, TX"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786687166
+  },
+  {
+    "id": "bc6695dd-e6b9-4081-b997-5b569c10338c",
+    "company": "M.C. Dean",
+    "title": "Systems Specialist - Associate",
+    "url": "https://careers.mcdean.com/jobs/31986?icims=1",
+    "locations": [
+      "Richmond, VA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786687114
+  },
+  {
+    "id": "419fcb5a-db61-41dd-baac-569ccf0c3635",
+    "company": "M.C. Dean",
+    "title": "Systems Specialist - Associate",
+    "url": "https://careers.mcdean.com/jobs/31987?icims=1",
+    "locations": [
+      "Atlanta, GA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786687110
+  },
+  {
+    "id": "94b1d3c4-d5f6-4c9b-a17c-8cc97a1339c6",
+    "company": "M.C. Dean",
+    "title": "Engineer 1 New Grad - Cis",
+    "url": "https://careers.mcdean.com/jobs/32119?icims=1",
+    "locations": [
+      "Richmond, VA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786687099
+  },
+  {
+    "id": "d1fb6d0c-1130-4775-b71b-7abf9d9f4e0a",
+    "company": "M.C. Dean",
+    "title": "Engineer 1 - New College Graduate",
+    "url": "https://careers.mcdean.com/jobs/32350?icims=1",
+    "locations": [
+      "Tysons, VA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786687084
+  },
+  {
+    "id": "4b22d036-3d08-41c6-8c11-48f020f7c545",
+    "company": "Berkshire Hathaway GUARD Insurance Companies",
+    "title": "Full Stack Developer",
+    "url": "https://careers-guard.icims.com/jobs/5913/job?mobile=true&needsRedirect=false",
+    "locations": [
+      "Alpharetta, GA",
+      "Scottsdale, AZ",
+      "Parsippany-Troy Hills, NJ",
+      "Conshohocken, PA",
+      "Wilkes-Barre, PA"
+    ],
+    "terms": [],
+    "sponsorship": "Other",
+    "date_posted": 1786690075
+  },
+  {
+    "id": "d611c661-e784-4250-b934-764d797a57f1",
+    "company": "Intel",
+    "title": "SoC Design Verification Engineer",
+    "url": "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-California-Santa-Clara/SoC-Design-Verification-Engineer_JR0286426",
+    "locations": [
+      "Santa Clara, CA"
     ],
     "terms": [],
     "sponsorship": "Other",
     "date_posted": 1786579200
   },
   {
-    "id": "51e32ae3-c939-432c-9c71-7804f1af781e",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-CA-GOLETA-H01--6380-Hollister-Ave--BLDG-H01/Software-Engineer-I--Onsite-_01866786",
+    "id": "47a11f8e-c096-4cad-ba59-7807a675d2c7",
+    "company": "TikTok",
+    "title": "Software Engineer Graduate - Media Engine",
+    "url": "https://lifeattiktok.com/search/7673667938889009461",
     "locations": [
-      "Goleta, CA"
+      "San Jose, CA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786579200
+    "date_posted": 1786698611
   },
   {
-    "id": "d58302c2-445b-48d5-b925-2de289cc22d9",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-IA-CEDAR-RAPIDS-131--5450-C-Ave-NE--BLDG-131/Software-Engineer-I--Onsite-_01866138",
+    "id": "99d4157b-10cb-42d0-88ff-db290cc271f9",
+    "company": "TikTok",
+    "title": "Backend Software Engineer Graduate - Creation Platform",
+    "url": "https://lifeattiktok.com/search/7673669198965278981",
     "locations": [
-      "Cedar Rapids, IA"
+      "San Jose, CA"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786579200
+    "date_posted": 1786698606
   },
   {
-    "id": "928e76da-a595-40dc-a8b9-409cd3c6b94c",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-CA-GOLETA-H01--6380-Hollister-Ave--BLDG-H01/Software-Engineer-I--Onsite-_01866787",
+    "id": "38d8a04a-361e-4f3a-af46-f7fc11fbc06b",
+    "company": "AMD",
+    "title": "Design Verification Engineer",
+    "url": "https://careers.amd.com/jobs/88877?icims=1",
     "locations": [
-      "Goleta, CA"
+      "Markham, ON, Canada"
     ],
     "terms": [],
     "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "8e8f913d-4263-4281-9cf3-3e083858cf58",
-    "company": "Pennsylvania State University",
-    "title": "Software Research and Development Engineer - Applied Research Laboratory",
-    "url": "https://psu.wd1.myworkdayjobs.com/PSU_Staff/job/Penn-State-University-Park/Software-Research-and-Development-Engineer_REQ_0000080402-2",
-    "locations": [
-      "State College, PA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "6753f099-9106-4840-b725-97e422c72cb4",
-    "company": "ManTech",
-    "title": "Associate BI Analytics Engineer",
-    "url": "https://mantech.avature.net/en_US/careers/JobDetail/64747",
-    "locations": [
-      "Herndon, VA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786659846
-  },
-  {
-    "id": "d6ec6bbc-1f36-4ef8-a6f4-b82799397768",
-    "company": "Loblaw Companies",
-    "title": "Front-End Developer",
-    "url": "https://myview.wd3.myworkdayjobs.com/paradox_careers/job/500-Lake-Shore-Blvd-W-Toronto-ON/Front-End-Developer--DX-Studio---18-Month-Contract_R2000692440",
-    "locations": [
-      "Toronto, ON, Canada"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "cb243aa3-0969-4c76-a554-9495b06509f9",
-    "company": "Quantum",
-    "title": "Graduate Data Engineer",
-    "url": "https://jobs.ashbyhq.com/quantum/4e81ce91-ecf2-4be2-8aba-bf3e80d1f8b6/application?embed=true",
-    "locations": [
-      "London, UK"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786659472
-  },
-  {
-    "id": "b82ebee3-b9ea-4a22-b498-9b803e53e092",
-    "company": "AIR Control Concepts",
-    "title": "Application Engineer",
-    "url": "https://aircontrolconcepts.applytojob.com/apply/0mgWNmp2sM/Application-Engineer",
-    "locations": [
-      "Elkridge, MD"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786659438
-  },
-  {
-    "id": "eaa09253-ead5-4d61-9b1c-6aaeeb8e0187",
-    "company": "Andrew Morgan",
-    "title": "OneStream Developer",
-    "url": "https://andrew-morgan.com/current-openings/?gh_jid=5389586008",
-    "locations": [
-      "Remote in USA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786661669
-  },
-  {
-    "id": "5916d7bf-9c77-4f4e-bd21-1e3a123074e5",
-    "company": "State of Nebraska",
-    "title": "IT Applications Developer - Public Health",
-    "url": "https://son.wd108.myworkdayjobs.com/NebraskaStateCareers/job/Lincoln-NE/IT-Applications-Developer---Public-Health_JR2026-00028657",
-    "locations": [
-      "Lincoln, NE"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "5626cf23-a738-4254-a817-c09de4ad69af",
-    "company": "Leidos",
-    "title": "Software Engineer",
-    "url": "https://leidos.wd5.myworkdayjobs.com/External/job/Bowie-MD/Software-Engineer_R-00189564",
-    "locations": [
-      "Bowie, MD"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "d4ae6451-b1b2-4a63-8dc6-e456e9f5bf19",
-    "company": "Autodesk",
-    "title": "Software Developer",
-    "url": "https://autodesk.wd1.myworkdayjobs.com/Ext/job/Toronto-ON-CAN/Software-Developer_26WD100537",
-    "locations": [
-      "Toronto, ON, Canada",
-      "Remote in Canada"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "7c36c172-1a8d-4c06-b6ca-6ee12e3ef829",
-    "company": "Cigna Group",
-    "title": "Technology Development Program - Software Engineering Track",
-    "url": "https://cigna.wd5.myworkdayjobs.com/cignacareers/job/Bloomfield-CT/Technology-Development-Program--TECDP----Software-Engineering-Track_26009523",
-    "locations": [
-      "Bloomington, MN",
-      "Austin, TX",
-      "Morris Plains, NJ",
-      "St. Louis, MO",
-      "Bloomfield, CT"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "272a8a12-a059-4b95-8352-e8d3fa58f498",
-    "company": "Cigna Group",
-    "title": "Technology Development Program New Grad - Data & Analytics Engineering Track",
-    "url": "https://cigna.wd5.myworkdayjobs.com/cignacareers/job/Bloomfield-CT/Technology-Development-Program--TECDP----Data---Analytics-Engineering-Track_26009518-1",
-    "locations": [
-      "Morris Plains, NJ",
-      "St. Louis, MO",
-      "Bloomfield, CT"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "52313b30-cb01-42d0-9c7e-e101d5417aa5",
-    "company": "Microsoft",
-    "title": "Software Engineer",
-    "url": "https://apply.careers.microsoft.com/careers/job/1970393556960468",
-    "locations": [
-      "Redmond, WA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786660864
-  },
-  {
-    "id": "3ff68a8b-40ab-45bd-b4df-3de7fc5eab51",
-    "company": "BlackRock",
-    "title": "Application Engineer - Service Management Operations Group",
-    "url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Professional/job/Wilmington-DE/Analyst--Application-Engineer_R266106",
-    "locations": [
-      "Wilmington, DE"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "7de9e033-61b2-4879-8e8f-2fc4907c40b7",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-IA-CEDAR-RAPIDS-137--855-35Th-St-NE--BLDG-137/Software-Engineer-I--Onsite-_01866927",
-    "locations": [
-      "Cedar Rapids, IA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "96ca88cc-f34f-46d1-a9a1-985470de3698",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-MD-ANNAPOLIS-JUNCTION-339--306-Sentinel-Dr--339-BLDG/Software-Engineer-I--Onsite-_01866357",
-    "locations": [
-      "Annapolis Junction, MD"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "6fbf8dd3-35d5-4fce-9037-e31a83a37aca",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-AZ-TUCSON-801--1151-E-Hermans-Rd--BLDG-801-External-Site/Software-Engineer-I--Onsite-_01866246",
-    "locations": [
-      "Tucson, AZ"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "e64b78a2-03ae-46f1-9dc7-98677237e137",
-    "company": "Northrop Grumman",
-    "title": "Associate Software Engineer/Software Engineer",
-    "url": "https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/United-States-California-San-Diego/XMLNAME-2027-Associate-Software-Engineer-Software-Engineer_R10245648",
-    "locations": [
-      "Redondo Beach, CA",
-      "Palmdale, CA",
-      "Oklahoma City, OK",
-      "San Diego, CA",
-      "El Segundo, CA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "cb63292f-b39a-4bea-90c5-b2ae6d117b68",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-AZ-TUCSON-9030--9030-S-Rita-Rd--BLDG-9030/Software-Engineer-I_01865110",
-    "locations": [
-      "Tucson, AZ"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "00a986b7-fbb6-4c37-9e5c-e326452abc8b",
-    "company": "RTX",
-    "title": "Software Engineer 1",
-    "url": "https://globalhr.wd5.myworkdayjobs.com/fr-CA/Private_Posting_No_TMP/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineer-I--Onsite-_01866533",
-    "locations": [
-      "West Valley City, UT"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "c321363d-16e2-462b-a93a-3f75544d87df",
-    "company": "Northrop Grumman",
-    "title": "Embedded Software Engineer",
-    "url": "https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/United-States-Georgia-Warner-Robins/Embedded-Software-Engineer---Level-1-and-2_R10245686",
-    "locations": [
-      "Warner Robins, GA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
-  },
-  {
-    "id": "a9facee3-51ba-46e7-8ce7-3f9b3d0c85d6",
-    "company": "Dexcom",
-    "title": "Software Development Engineer 1",
-    "url": "https://dexcom.wd1.myworkdayjobs.com/Dexcom/job/Remote---United-States/Software-Development-Engineer-1_JR120540",
-    "locations": [
-      "Remote in USA"
-    ],
-    "terms": [],
-    "sponsorship": "Other",
-    "date_posted": 1786579200
+    "date_posted": 1785645097
   }
 ]
