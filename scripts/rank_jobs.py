@@ -13,7 +13,7 @@ import json
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_outputs
+from job_store import load_store, save_store, write_outputs, commit_and_push
 
 JOBS_PATH = "output/jobs_with_desc.json"
 PROFILE = "resume/profile.json"
@@ -94,6 +94,8 @@ def main():
     save_store(store)
     n = write_outputs(store)
     print(f"Scored {len(jobs)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
+    if commit_and_push(f"Scored {len(jobs)} job(s): {today}"):
+        print("Committed and pushed.", file=sys.stderr)
 
 
 if __name__ == "__main__":

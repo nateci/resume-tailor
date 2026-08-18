@@ -8,6 +8,8 @@ rows" logic to get wrong.
 import datetime
 import json
 import os
+import subprocess
+import sys
 
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
@@ -182,6 +184,30 @@ def write_outputs(store):
     n = write_sheet(store)
     write_html(store)
     return n
+
+
+def commit_and_push(message):
+    """Best-effort commit+push of output/ changes. Ad-hoc scripts
+    (add_job.py, tailor_selected.py) run outside run_pipeline.ps1, which
+    only commits its own work -- without this, any ad-hoc session leaves
+    the working tree dirty, and 'git pull --rebase' in the next scheduled
+    run refuses outright ("You have unstaged changes"), silently breaking
+    the pipeline until someone notices and commits by hand (this actually
+    happened). Never raises -- a failed commit/push here shouldn't crash an
+    otherwise-successful run; it just means the next pull surfaces it.
+    """
+    try:
+        subprocess.run(["git", "add", "output/"], check=True, capture_output=True)
+        staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if staged.returncode == 0:
+            return False  # nothing to commit
+        subprocess.run(["git", "commit", "-m", message], check=True, capture_output=True)
+        subprocess.run(["git", "push"], check=True, capture_output=True)
+        return True
+    except subprocess.CalledProcessError as e:
+        stderr = (e.stderr or b"").decode("utf-8", errors="replace")[:300]
+        print(f"WARNING: git commit/push failed: {stderr}", file=sys.stderr)
+        return False
 
 
 def _link(cell, target):

@@ -18,7 +18,7 @@ import subprocess
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_outputs
+from job_store import load_store, save_store, write_outputs, commit_and_push
 
 RESUME_TEX = "resume/resume.tex"
 PDF_DIR = "output/pdfs"
@@ -195,6 +195,8 @@ def main():
     save_store(store)
     n = write_outputs(store)
     print(f"Tailored {len(targets)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
+    if commit_and_push(f"Ad-hoc: tailored {len(targets)} job(s) via tailor_selected.py"):
+        print("Committed and pushed.", file=sys.stderr)
 
 
 if __name__ == "__main__":

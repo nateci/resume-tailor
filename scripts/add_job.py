@@ -19,7 +19,7 @@ import sys
 import urllib.request
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_outputs
+from job_store import load_store, save_store, write_outputs, commit_and_push
 from fetch_descriptions import fetch_one, extract_start_signal, UA
 from rank_jobs import SCORE_SCHEMA, score_prompt
 from tailor_selected import RESUME_TEX, PDF_DIR, tag_for, tailor_one
@@ -173,6 +173,8 @@ def main():
     if job.get("pdf_rel"):
         print(f"PDF: {job['pdf_rel']}", file=sys.stderr)
     print(f"Sheet now has {n} total rows.", file=sys.stderr)
+    if commit_and_push(f"Ad-hoc: added {job['company']} — {job['title']}"):
+        print("Committed and pushed.", file=sys.stderr)
 
 
 if __name__ == "__main__":
