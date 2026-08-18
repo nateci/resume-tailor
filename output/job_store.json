@@ -8058,5 +8058,30 @@
     "pdf_rel": "pdfs/Sentry_Software_Engineer_New_Grad_2027_bbb4a7.pdf",
     "status": "tailored",
     "date_tailored": "2026-08-17"
+  },
+  "manual:4f6b09411848": {
+    "id": "manual:4f6b09411848",
+    "company": "Microsoft",
+    "title": "Software Engineer",
+    "url": "https://apply.careers.microsoft.com/careers/job/1970393556959253",
+    "locations": [
+      "Multiple Locations, US"
+    ],
+    "terms": [],
+    "sponsorship": "",
+    "date_posted": "",
+    "description": "Software Engineer\nUnited States, Multiple Locations, Multiple Locations\nJob number 200047713\nDate posted Aug 13, 2026\nWork site: 3 days / week in-office\nTravel: Less than 25%\nProfession: Software Engineering\nDiscipline: Software Engineering\nRole type: Individual Contributor\nEmployment type: Full-Time\n\nOverview\nMicrosoft's Azure Data engineering team is leading the transformation of analytics in the world of data with products like databases, data integration, big data analytics, messaging & real-time analytics, and business intelligence. The products our portfolio include Microsoft Fabric, Azure SQL DB, Azure Cosmos DB, Azure PostgreSQL, Azure Data Factory, Azure Synapse Analytics, Azure Service Bus, Azure Event Grid, and Power BI. Our mission is to build the data platform for the age of AI, powering a new class of data-first applications and driving a data culture.\n\nThe Databases organization delivers trusted, scalable operational AI ready databases that power application development across cloud, hybrid, and on premises environments. Our portfolio includes SQL, Azure Cosmos DB, DocumentDB, PostgreSQL, and MySQL, supporting developers as they build AI native applications and run critical workloads at global scale.\n\nWe are hiring a Software Development Engineer to join the Azure PostgreSQL team, where you will work on and drive innovations in one or more areas of a relational database engine such as query processing, transaction logging and recovery, versioning, IO subsystems, scale-out and Distributed systems. You will have the opportunity to contribute to open-source PostgreSQL and Linux, and/or develop extensions.\n\nResponsibilities\n- Learns to use appropriate artificial intelligence (AI) tools and practices across the software development lifecycle (SDLC) in a disciplined manner.\n- With guidance, creates and implements code for a product, service, or feature reusing code as applicable.\n- Learns to review code and helps to review code of others to ensure it meets team standards.\n- With managerial oversight, begins to test design options as assigned for a product/solution feature.\n- Produce code to test hypotheses for technical solutions and assist with technical validation efforts.\n- Learns about and helps to ensure the correct processes are followed to achieve a high degree of security, privacy, safety, and accessibility.\n- Learns about acting as a designated responsible individual (DRI) for monitoring a system/product feature/service for degradation, downtime, or interruptions for simple problems.\n\nQualifications\nRequired/Minimum Qualifications:\n- Bachelor's Degree in Computer Science, or related technical discipline with proven experience coding in languages including, but not limited to, C, C++, C#, Java, JavaScript, or Python OR equivalent experience.\n- Must be able to meet Microsoft Cloud Background Check requirements upon hire/transfer and every two years thereafter.\n\nPreferred Qualifications:\n- Master's Degree in Computer Science or related technical field OR Bachelor's Degree in Computer Science or related technical field AND 2+ years technical engineering experience with coding in languages including C, C++, C#, Java, JavaScript, or Python OR equivalent experience.\n\nSoftware Engineering IC2 - The typical base pay range for this role across the U.S. is USD $85,400 - $168,100 per year. In the San Francisco Bay area and New York City metropolitan area, the base pay range is USD $111,100 - $183,700 per year.\n\nThis position will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled.",
+    "desc_source": "manual-paste",
+    "start_signal": "",
+    "likely_2027": false,
+    "fit_score": 91,
+    "fit_reason": "Near-ideal match: Azure PostgreSQL engine work (query processing, transaction logging/recovery, versioning/MVCC, IO subsystems, scale-out distributed systems) maps almost line-for-line onto the candidate's Raft/LSM-tree/MVCC KV store and systems concentration, at an IC2 entry level with only a BS required \u2014 the sole caveat is that this is a standard req rather than an explicitly 2027-start new-grad pipeline, so timing may need confirmation.",
+    "tc_estimate_low": 150000,
+    "tc_estimate_high": 190000,
+    "tc_basis": "Microsoft IC2 (new-grad/entry SWE) in Azure Data: posted base range $85.4k\u2013$168.1k with new-grad offers typically landing ~$120\u2013140k base, plus ~$20k signing and ~$60\u201380k RSUs vested over 4 years (~$15\u201320k/yr) and ~10\u201320% target bonus. Yields first-year TC roughly $150\u2013190k; Bay Area/NYC skews toward the top. Estimate based on general knowledge of Microsoft's comp tier, not verified data.",
+    "date_scored": "2026-08-17",
+    "pdf_rel": "pdfs/Microsoft_Software_Engineer_3abfc6.pdf",
+    "status": "tailored",
+    "date_tailored": "2026-08-17"
   }
 }
