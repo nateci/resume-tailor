@@ -6251,9 +6251,10 @@
     "tc_estimate_low": 145000,
     "tc_estimate_high": 190000,
     "tc_basis": "Posting lists base ranges of $130-165k (L1) and $150-200k (L2); new grads typically start at L1, so base ~$130-150k plus long-term stock/cash incentives, discretionary bonus, and discounted ESPP. SpaceX equity is illiquid private stock, so realized TC skews base-heavy relative to public big-tech offers. Estimate, not fact.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/SpaceX_Software_Security_New_Grad_Starlink_4f4a07.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-16"
   },
   "0e79e8bc-db11-456f-97e4-54fea42c6715": {
     "id": "0e79e8bc-db11-456f-97e4-54fea42c6715",
@@ -6275,9 +6276,10 @@
     "tc_estimate_low": 150000,
     "tc_estimate_high": 190000,
     "tc_basis": "Posting lists Level 1 base of $135k-$175k (new grads almost always L1, realistically $140-155k base in Palo Alto). Add SpaceX long-term incentives (private company stock or long-term cash awards), discretionary bonus, and ESPP discount. SpaceX base pay is competitive with big tech, but equity is illiquid private stock realized only via periodic tender offers, so effective annual TC lands below comparable public-company new-grad offers. Estimate, not fact.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/SpaceX_Software_Engineer_New_Grad_Software_Starlin_5e492a.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-16"
   },
   "0cdf7557-d561-4d9a-ae10-243323bde8c4": {
     "id": "0cdf7557-d561-4d9a-ae10-243323bde8c4",
@@ -6453,9 +6455,10 @@
     "tc_estimate_low": 130000,
     "tc_estimate_high": 165000,
     "tc_basis": "SpaceX new-grad SWE typically offers ~$120-140k base plus a 4-year illiquid stock grant (~$10-30k/yr equivalent) and no meaningful bonus; Bastrop TX is a lower-COL site so base sits toward the middle of that range. Estimate, not fact.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/SpaceX_Software_Engineer_New_Grad_Software_Starlin_df510c.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-16"
   },
   "e1e46d1c-0205-405e-8063-32075566d4d4": {
     "id": "e1e46d1c-0205-405e-8063-32075566d4d4",
@@ -7374,9 +7377,10 @@
     "tc_estimate_low": 150000,
     "tc_estimate_high": 210000,
     "tc_basis": "Posting states base $80\u2013120k (new grads typically land near the top, ~$110\u2013125k) plus an annual discretionary bonus and profit sharing. Wolverine is a solid mid-tier Chicago prop trading firm \u2014 below Citadel Securities/Jane Street/HRT/Optiver but well above generic enterprise SWE. New-grad first-year TC at that tier typically runs ~$150\u2013210k with signing bonus included; bonus is discretionary so the low end is the safer plan.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Wolverine_Trading_Entry_Level_C_Software_Engineer_4ffc81.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-16"
   },
   "549f3df3-0ef0-4157-8a32-ee4acfbb3080": {
     "id": "549f3df3-0ef0-4157-8a32-ee4acfbb3080",
@@ -7446,9 +7450,10 @@
     "tc_estimate_low": 140000,
     "tc_estimate_high": 190000,
     "tc_basis": "Posting states base $80k\u2013$120k plus an annual discretionary bonus and profit sharing. Wolverine is a mid-tier Chicago prop trading firm \u2014 below Jane Street/HRT/Citadel Securities but well above typical big-tech-adjacent new-grad pay. New-grad SWE base realistically lands near the top of the stated range (~$110\u2013120k) with first-year bonus commonly $30\u201370k, putting all-in TC around $140\u2013190k. Estimate only; prop-shop bonuses are discretionary and vary widely by firm performance, so the downside could be closer to $130k in a weak year.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Wolverine_Trading_Entry_Level_C_Software_Engineer_c89838.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-16"
   },
   "880f2a36-5a43-4a08-ba33-5d4e5a77f266": {
     "id": "880f2a36-5a43-4a08-ba33-5d4e5a77f266",
@@ -8003,5 +8008,30 @@
     "status": "scored",
     "pdf_rel": "",
     "date_scored": "2026-08-16"
+  },
+  "manual:27722435aa7c": {
+    "id": "manual:27722435aa7c",
+    "company": "Replit",
+    "title": "Software Engineer, Developer Experience",
+    "url": "https://jobs.ashbyhq.com/replit/d0e0dd7d-59d1-4de8-afbb-54aea680b51d?employmentType=FullTime",
+    "locations": [
+      "Foster City, CA"
+    ],
+    "terms": [],
+    "sponsorship": "",
+    "date_posted": "",
+    "description": "Replit is the agentic software creation platform that enables anyone to build applications using natural language. With millions of users worldwide, Replit is democratizing software development by removing traditional barriers to application creation. About this role: Accelerate engineering velocity and reduce friction in the Replit development experience by stewarding our codebases, tooling, and developer workflows. You will directly impact every engineer who ships code at Replit. By focusing on developer experience, you will act as a force multiplier across all product development teams, enabling faster feature delivery, happier developers, and reduced operational overhead. The role combines the technical depth needed to navigate a complex, polyglot codebase with the product mindset to understand how infrastructure decisions impact developer productivity and ultimately customer value delivery. You will also partner closely with the AI team on our internal AI platform \u2014 which already generates more than 60% of all merged PRs at Replit \u2014 to improve the Agent's output and help shape strategy around the Agent's default stack. This is an early hire in this area, so you will have agency and have an accelerated career path as the team undoubtedly grows. You will: Maintain and evolve our codebase structure \u2014 a complex TypeScript monorepo, Go services, npm packages, and internal Agentic tooling. Own the build and test pipelines and optimize them to minimize build times and improve developer iteration speed. Drive code generation and type-safe interfaces across service boundaries (e.g., GraphQL, Protocol Buffers, gRPC, OpenAPI). Set the standards for code quality using automation tools such as TypeScript, ESLint, Prettier, and Go linters/formatters \u2014 building custom rules and plugins to enforce Replit-specific requirements. Streamline development setup and the onboarding experience. Work with platform teams to improve deployment processes, infrastructure integrations, and external tooling. Keep things fresh and modern in our codebase by adopting and leading migrations to better and faster tools. Partner with the AI team on our internal AI platform (which generates &gt;60% of all merged PRs at Replit) to improve the Agent's output and shape strategy around its default stack. Help manage dependencies both internal (public and private) and external, including being the face of the company when interfacing with open-source libraries (e.g., sponsorships, upstream contributions). Required skills and experience: Strong proficiency in TypeScript and/or Go and/or Nix . Expertise in modern build systems and toolchains (e.g., Vite, webpack, esbuild, Go's build/module system). Proficiency with linters, formatters, testing frameworks, and code generation tools. Experience managing monorepos or large-scale codebases. Nice to have: Experience building self-service developer platforms (CI/CD, infra, or tooling) used by many engineering teams. Experience with AI-native development workflows \u2014 e.g., OpenCode, Claude Code, Cursor, custom agent skills. Open-source leadership or community contributions. This is a full-time role that can be held from our Foster City, CA office. The hybrid role has an in-office requirement of Monday, Wednesday, and Friday. Full-Time Employee Benefits Include: \ud83d\udcb0 Competitive Salary Equity \ud83d\udcb9 401(k) Program with a 4% match ( US Only ) \u2695\ufe0f Health, Dental, Vision and Life Insurance \ud83e\ude7c Short Term and Long Term Disability \ud83d\udebc Paid Parental, Medical, Caregiver Leave \ud83c\udfdd Flexible Time Off (FTO) + Holidays \ud83d\ude97 Commuter Benefits ( In-Office US Only ) \ud83d\udcf1 Monthly Wellness Stipend \ud83e\uddd1\u200d\ud83d\udcbb Autonomous Work Environment \ud83d\udda5 In Office Set-Up Reimbursement ( In-Office Only ) \ud83d\ude80 Quarterly Team Gatherings \u2615 In Office Amenities ( In-Office Only ) Want to learn more about what we are up to? Meet the Replit Agent Replit: Make an app for that Replit Blog Amjad TED Talk Interviewing + Culture at Replit Operating Principles Reasons not to work at Replit To achieve our mission of making programming more accessible around the world, we need our team to be representative of the world. We welcome your unique perspective and experiences in shaping this product. We encourage people from all kinds of backgrounds to apply, including and especially candidates from underrepresented and non-traditional backgrounds.",
+    "desc_source": "api:ashby",
+    "start_signal": "",
+    "likely_2027": false,
+    "fit_score": 52,
+    "fit_reason": "Platform/infra-adjacent at a hot AI company with an interesting internal-AI-agent angle, but it's a build-tooling/DevEx specialist role (TS monorepos, Vite/esbuild, Nix, linter plugins) rather than backend/distributed systems, reads as an experienced \"early hire\" not a new-grad req, and the Foster City 3-day hybrid plus likely near-term start clashes with a May 2027 grad date.",
+    "tc_estimate_low": 170000,
+    "tc_estimate_high": 240000,
+    "tc_basis": "Estimate, not fact: Replit is a well-funded late-stage AI startup (multi-billion valuation) paying Bay Area top-of-market cash plus meaningful equity. No public new-grad band exists for this role, so the range is wide \u2014 ~$160-190k base with equity/bonus pushing paper TC toward the high end; illiquid startup equity means realized value could be well below the top of the band.",
+    "date_scored": "2026-08-16",
+    "pdf_rel": "pdfs/Replit_Software_Engineer_Developer_Experience_3b8acf.pdf",
+    "status": "tailored",
+    "date_tailored": "2026-08-16"
   }
 }
