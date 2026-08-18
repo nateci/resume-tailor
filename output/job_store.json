@@ -8083,5 +8083,30 @@
     "pdf_rel": "pdfs/Microsoft_Software_Engineer_3abfc6.pdf",
     "status": "tailored",
     "date_tailored": "2026-08-17"
+  },
+  "manual:2af2aefee09f": {
+    "id": "manual:2af2aefee09f",
+    "company": "Goldman Sachs",
+    "title": "New Analyst - Engineering",
+    "url": "https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CampusHiring/job/180807",
+    "locations": [
+      "Salt Lake City, UT"
+    ],
+    "terms": [],
+    "sponsorship": "",
+    "date_posted": "",
+    "description": "2027 | Americas | Salt Lake City | Engineering | New Analyst\nLocation: Salt Lake City, UT, United States\nCorporate Title: Analyst\nOffice Location(s): Salt Lake City\nDivision: Engineering Division\n\nAbout the program\nOur New Analyst Program is a full-time program for final year undergraduate and graduate students. As a new analyst, you will learn about our businesses, develop important relationships, and build career-enhancing skills.\n\nAs a participant, you will:\n- Learn about the firm and how we do business\n- Gain the skills and knowledge necessary to support our businesses\n- Have unlimited access to the training and guidance to help you prepare for the next level\n- Build your professional network and interact with colleagues across the firm\n\nAbout the division\nEngineering is at the critical center of our businesses. Our dynamic environment requires strategic thinking that is innovative and produces smart solutions. At Goldman Sachs, our Engineers don't just make things - we make things possible. Change the world by connecting people and capital with ideas. Solve the most challenging and pressing engineering problems for our clients. Join our engineering teams that build massively scalable software and systems, architect low latency infrastructure solutions, proactively guard against cyber threats, and leverage machine learning alongside financial engineering to continuously turn data into action. Create new businesses, transform finance, and explore a world of opportunity at the speed of markets. Engineering, which is comprised of our Technology Division and global strategists groups, is at the critical center of our business, and our dynamic environment requires innovative strategic thinking and immediate, real solutions.\n\nWho We Look For: Goldman Sachs Engineers are innovators and problem-solvers, building solutions in risk management, big data, mobile and more. We look for creative collaborators who evolve, adapt to change and thrive in a fast-paced global environment.",
+    "desc_source": "manual-paste",
+    "start_signal": "",
+    "likely_2027": false,
+    "fit_score": 74,
+    "fit_reason": "Strong timing and profile match \u2014 a 2027 new-analyst engineering program that explicitly builds \"massively scalable software,\" low-latency infrastructure, and ML/data systems, which lines up well with the candidate's distributed-systems, backend, and cloud-infra strengths; docked mainly for the generic non-team-specific placement (could land in a non-backend group), Salt Lake City rather than Boston/NYC, and a bonus-heavy no-equity comp structure that sits at the lower end of the $130-165k anchor.",
+    "tc_estimate_low": 125000,
+    "tc_estimate_high": 160000,
+    "tc_basis": "Goldman Sachs New Analyst (Engineering) comp is fairly standardized: base ~$110-125k for 2027 US analysts, with Salt Lake City typically at or slightly below the NYC band, plus a year-end bonus (~15-30% of base) and a modest signing bonus (~$10-20k). No equity component, so upside is capped relative to big-tech new grad offers. Band reflects low-end (weak bonus year, SLC base) to high-end (strong bonus, full signing).",
+    "date_scored": "2026-08-17",
+    "pdf_rel": "pdfs/Goldman_Sachs_New_Analyst_Engineering_596913.pdf",
+    "status": "tailored",
+    "date_tailored": "2026-08-17"
   }
 }
