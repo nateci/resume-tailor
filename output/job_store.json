@@ -2015,9 +2015,10 @@
     "tc_estimate_low": 95000,
     "tc_estimate_high": 120000,
     "tc_basis": "Fidelity is a non-tech-tier financial employer: new-grad Associate SWE base typically ~$85-105k plus a ~7-10% bonus and no meaningful equity, adjusted down slightly for the lower-cost DFW/Westlake TX location. Band is somewhat wide because the scraped posting contained only the title, so no level or requirement detail was available to refine the estimate.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-13"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Fidelity_Investments_Associate_Software_Engineer_E_a61e0d.pdf",
+    "date_scored": "2026-08-13",
+    "date_tailored": "2026-08-19"
   },
   "36c8b8fd-365d-4bac-aacd-9ad6d868c515": {
     "id": "36c8b8fd-365d-4bac-aacd-9ad6d868c515",
@@ -4187,9 +4188,10 @@
     "tc_estimate_low": 105000,
     "tc_estimate_high": 140000,
     "tc_basis": "BlackRock is upper-tier finance but below big-tech comp for engineering; NYC analyst-program new grads land roughly $95-115k base plus 10-25% bonus, and Wilmington DE typically carries a location discount. Band is intentionally wide because the scraped posting contained only the title (no body, level, or comp signal), so seniority is inferred.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-13"
+    "status": "tailored",
+    "pdf_rel": "pdfs/BlackRock_Application_Engineer_Service_Management__b74e98.pdf",
+    "date_scored": "2026-08-13",
+    "date_tailored": "2026-08-19"
   },
   "7de9e033-61b2-4879-8e8f-2fc4907c40b7": {
     "id": "7de9e033-61b2-4879-8e8f-2fc4907c40b7",
@@ -10214,9 +10216,10 @@
     "tc_estimate_low": 85000,
     "tc_estimate_high": 110000,
     "tc_basis": "Vanguard is a low-cost asset manager, not a tech-tier payer; new-grad application engineer in Charlotte typically runs ~$80-95k base plus a ~5-12% annual bonus and modest 401k-heavy benefits (strong retirement match, but that doesn't show in headline TC). Band widened slightly for level/location variance. Estimate, not fact.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-19"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Vanguard_Application_Engineer_2027_Start_Date_d7d844.pdf",
+    "date_scored": "2026-08-19",
+    "date_tailored": "2026-08-19"
   },
   "034062ca-af46-4066-a960-533d027a734f": {
     "id": "034062ca-af46-4066-a960-533d027a734f",
