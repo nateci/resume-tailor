@@ -13,7 +13,7 @@ import json
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_outputs, commit_and_push
+from job_store import merge_and_save, write_outputs, commit_and_push
 
 JOBS_PATH = "output/jobs_with_desc.json"
 PROFILE = "resume/profile.json"
@@ -70,8 +70,12 @@ def main():
 
     with open(PROFILE, encoding="utf-8") as f:
         profile = json.load(f)
-    store = load_store()
     today = datetime.date.today().isoformat()
+
+    # Only track entries THIS run produced -- never the store as loaded at
+    # start -- so a concurrent add_job.py/tailor_selected.py run's writes
+    # can't be clobbered by a stale in-memory snapshot at save time.
+    updates = {}
 
     for i, job in enumerate(jobs, 1):
         print(f"[{i}/{len(jobs)}] {job['company']} — {job['title']}", file=sys.stderr)
@@ -89,10 +93,10 @@ def main():
             entry["status"] = f"score-error:{str(e)[:60]}"
         entry.setdefault("pdf_rel", "")
         entry["date_scored"] = today
-        store[job["id"]] = entry
+        updates[job["id"]] = entry
 
-    save_store(store)
-    n = write_outputs(store)
+    merged = merge_and_save(updates)
+    n = write_outputs(merged)
     print(f"Scored {len(jobs)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
     if commit_and_push(f"Scored {len(jobs)} job(s): {today}"):
         print("Committed and pushed.", file=sys.stderr)

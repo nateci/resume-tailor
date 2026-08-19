@@ -19,7 +19,7 @@ import sys
 import urllib.request
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_outputs, commit_and_push
+from job_store import merge_and_save, write_outputs, commit_and_push
 from fetch_descriptions import fetch_one, extract_start_signal, UA
 from rank_jobs import SCORE_SCHEMA, score_prompt
 from tailor_selected import RESUME_TEX, PDF_DIR, tag_for, tailor_one
@@ -177,10 +177,8 @@ def main():
         job["status"] = f"tailor-error:{str(e)[:60]}"
         job["pdf_rel"] = ""
 
-    store = load_store()
-    store[job_id] = job
-    save_store(store)
-    n = write_outputs(store)
+    merged = merge_and_save({job_id: job})
+    n = write_outputs(merged)
 
     print(f"\nFit: {job.get('fit_score')} — {job.get('fit_reason', '')}", file=sys.stderr)
     print(f"Status: {job['status']}", file=sys.stderr)

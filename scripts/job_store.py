@@ -5,11 +5,13 @@ tailor_selected.py both merge into it). The ranked spreadsheet is always a
 full render of the store, so there's no separate "merge with existing sheet
 rows" logic to get wrong.
 """
+import contextlib
 import datetime
 import json
 import os
 import subprocess
 import sys
+import time
 
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
@@ -19,6 +21,13 @@ STORE_PATH = "output/job_store.json"
 SHEET_PATH = "output/tailored_resumes.xlsx"
 HTML_PATH = "output/dashboard.html"
 HTML_REFRESH_SECONDS = 20
+STORE_LOCK_PATH = "output/.store.lock"
+STORE_LOCK_TIMEOUT_SECONDS = 30
+STORE_LOCK_POLL_SECONDS = 0.2
+
+
+class StoreLockTimeout(Exception):
+    pass
 
 HEADERS = ["Rank", "Fit", "Est. TC (USD)", "Company", "Role", "Location",
            "Likely 2027?", "Start Signal", "Fit Reason", "TC Basis",
@@ -36,6 +45,53 @@ def load_store():
 def save_store(store):
     with open(STORE_PATH, "w", encoding="utf-8") as f:
         json.dump(store, f, indent=2)
+
+
+@contextlib.contextmanager
+def _store_lock():
+    """Short-held mutex around the read-merge-write critical section in
+    merge_and_save(), so concurrent writers (the scheduled scan, an ad-hoc
+    add_job.py/tailor_selected.py run) never race on that one operation.
+    os.O_CREAT | O_EXCL is an atomic create-if-absent on both POSIX and
+    Windows -- no check-then-create gap like os.path.exists() + open()
+    would have. Held for milliseconds, not the run's whole duration, so a
+    short poll-and-retry is fine (unlike run_pipeline.ps1's separate
+    whole-run lock, which is a "skip if busy" check, not a wait).
+    """
+    deadline = time.time() + STORE_LOCK_TIMEOUT_SECONDS
+    fd = None
+    while fd is None:
+        try:
+            fd = os.open(STORE_LOCK_PATH, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            if time.time() > deadline:
+                raise StoreLockTimeout(
+                    f"Could not acquire {STORE_LOCK_PATH} after "
+                    f"{STORE_LOCK_TIMEOUT_SECONDS}s -- another process may be "
+                    "stuck holding it. Delete it by hand if you're sure it's stale."
+                )
+            time.sleep(STORE_LOCK_POLL_SECONDS)
+    try:
+        yield
+    finally:
+        os.close(fd)
+        os.remove(STORE_LOCK_PATH)
+
+
+def merge_and_save(updates):
+    """Merge `updates` (job_id -> entry, only the jobs THIS process actually
+    touched) into whatever is currently on disk, instead of overwriting with
+    a stale full snapshot from this process's own load_store() at
+    start-of-run. This is what makes it safe to run rank_jobs.py /
+    tailor_selected.py / add_job.py concurrently: each only needs to agree
+    on the handful of entries it changed, not the other's. Returns the
+    merged store for immediate use (e.g. write_outputs()).
+    """
+    with _store_lock():
+        current = load_store()
+        current.update(updates)
+        save_store(current)
+        return current
 
 
 def blend(fit, tc_hi):

@@ -7,5 +7,6 @@ output/pdfs/*.tex
 __pycache__/
 .last_run
 .pipeline.lock
+output/.store.lock
 output/pipeline.log
 output/dashboard.html

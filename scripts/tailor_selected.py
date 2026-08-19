@@ -18,7 +18,7 @@ import subprocess
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, save_store, write_outputs, commit_and_push
+from job_store import load_store, merge_and_save, write_outputs, commit_and_push
 
 RESUME_TEX = "resume/resume.tex"
 PDF_DIR = "output/pdfs"
@@ -183,6 +183,11 @@ def main():
               "already-tailored ones).", file=sys.stderr)
         return
 
+    # Only track entries THIS run actually tailored -- never the full store
+    # as loaded above -- so a concurrent scheduled scan / add_job.py run's
+    # writes can't be clobbered by a stale in-memory snapshot at save time.
+    updates = {}
+
     for i, job in enumerate(targets, 1):
         tag = tag_for(job)
         print(f"[{i}/{len(targets)}] {job['company']} — {job['title']}", file=sys.stderr)
@@ -194,10 +199,10 @@ def main():
                 job["date_tailored"] = datetime.date.today().isoformat()
         except Exception as e:
             job["status"] = f"tailor-error:{str(e)[:60]}"
-        store[job["id"]] = job
+        updates[job["id"]] = job
 
-    save_store(store)
-    n = write_outputs(store)
+    merged = merge_and_save(updates)
+    n = write_outputs(merged)
     print(f"Tailored {len(targets)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
     if commit_and_push(f"Ad-hoc: tailored {len(targets)} job(s) via tailor_selected.py"):
         print("Committed and pushed.", file=sys.stderr)
