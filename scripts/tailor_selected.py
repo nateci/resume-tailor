@@ -64,10 +64,12 @@ TASK: TAILOR the resume below. {depth}
 
 HARD RULES:
 - Never fabricate employers, degrees, dates, or metrics. Only reorder/rephrase existing content.
+- Never drop a real item to save space — every bullet, every coursework entry,
+  every honor in the base resume must still appear somewhere in the output.
+  If it's too long, tighten the wording; don't cut the item.
 - Keep it compilable with pdflatex and preserve the preamble and all custom macros.
-- Keep it one page.
-- Every bullet (\resumeItem) must render as ONE line — no bullet should wrap
-  onto a second line. Rephrase for length, don't just truncate.
+- Keep it one page. Bullets may wrap onto a second line if that's what it takes to
+  keep the real content intact — a wrapped bullet is fine; a missing one is not.
 
 RESUME (LaTeX):
 {base_tex}
@@ -132,14 +134,13 @@ def tailor_one(cmd_prefix, base_tex, job, tag):
             return f"pdfs/{tag}.pdf", "tailored"
 
         if attempt < MAX_ATTEMPTS:
-            print(f"  compiled to {pages} pages — retrying with tighter cut", file=sys.stderr)
+            print(f"  compiled to {pages} pages — retrying with tighter wording", file=sys.stderr)
             overflow_note = (
                 f"\n\nYour previous attempt compiled to {pages} pages. It MUST fit on "
-                "exactly one page. Check every bullet for line-wrap first — a wrapped "
-                "bullet is the most common cause of overflow — then cut further if "
-                "needed: drop the least relevant project/coursework line, tighten "
-                "spacing, while still following the hard rules above (never fabricate, "
-                "never invent)."
+                "exactly one page. Do NOT drop any bullet, coursework entry, or honor "
+                "to make it fit — tighten wording instead: shorten phrasing per bullet, "
+                "remove redundant words, let a bullet wrap to a second line rather than "
+                "cutting it. Every real item from the base resume must still be present."
             )
         else:
             # Out of attempts — keep the PDF (still usable) but flag it clearly.
@@ -154,6 +155,9 @@ def main():
                      help="Case-insensitive substrings matched against company or title")
     ap.add_argument("--force", action="store_true",
                      help="Re-tailor even if already tailored")
+    ap.add_argument("--resume", default=RESUME_TEX,
+                     help="Base .tex file to tailor from (default: resume/resume.tex). "
+                          "Use resume/resume_intern.tex for internship postings.")
     args = ap.parse_args()
 
     cmd_prefix = resolve_claude_cmd()
@@ -162,7 +166,7 @@ def main():
         sys.exit(1)
 
     store = load_store()
-    with open(RESUME_TEX, encoding="utf-8") as f:
+    with open(args.resume, encoding="utf-8") as f:
         base_tex = f.read()
     os.makedirs(PDF_DIR, exist_ok=True)
 

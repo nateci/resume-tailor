@@ -88,6 +88,9 @@ def main():
                           "description instead — for sites that don't fetch cleanly "
                           "(bot walls, JS-rendered SPAs) where you've pasted the real "
                           "page text by hand.")
+    ap.add_argument("--resume", default=RESUME_TEX,
+                     help="Base .tex file to tailor from (default: resume/resume.tex). "
+                          "Use resume/resume_intern.tex for internship postings.")
     args = ap.parse_args()
 
     cmd_prefix = resolve_claude_cmd()
@@ -159,9 +162,9 @@ def main():
         job["status"] = f"score-error:{str(e)[:60]}"
     job["date_scored"] = today
 
-    print("Tailoring...", file=sys.stderr)
+    print(f"Tailoring (base: {args.resume})...", file=sys.stderr)
     os.makedirs(PDF_DIR, exist_ok=True)
-    with open(RESUME_TEX, encoding="utf-8") as f:
+    with open(args.resume, encoding="utf-8") as f:
         base_tex = f.read()
     tag = tag_for(job)
     try:
