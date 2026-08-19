@@ -8108,5 +8108,30 @@
     "pdf_rel": "pdfs/Goldman_Sachs_New_Analyst_Engineering_596913.pdf",
     "status": "tailored",
     "date_tailored": "2026-08-17"
+  },
+  "manual:8ae0aae740a4": {
+    "id": "manual:8ae0aae740a4",
+    "company": "Datadog",
+    "title": "Software Engineering Intern (Winter)",
+    "url": "https://careers.datadoghq.com/detail/8052095/?gh_jid=8052095",
+    "locations": [
+      "Boston, MA; New York, NY"
+    ],
+    "terms": [],
+    "sponsorship": "",
+    "date_posted": "",
+    "description": "Software Engineering Intern (Winter)\nLocations: Boston, Massachusetts, USA; New York, New York, USA\n\nWe're looking for Software Engineering Interns to help build and scale the systems that power Datadog's observability and security platform. Interns contribute directly to real-world engineering challenges across backend, frontend, infrastructure, data engineering, and developer tooling while working alongside experienced engineers and mentors. You'll help design, build, and improve systems that process and analyze massive volumes of metrics, logs, and application data in real time. Whether you're interested in distributed systems, Kubernetes, AI-powered products like Bits AI, or developer platform tooling, you'll work on meaningful projects that deliver impact to customers at global scale.\n\nWhat You'll Do:\n- Contribute to production systems that process and analyze large-scale observability and application data in real time\n- Build and improve distributed systems across backend infrastructure, developer platforms, and cloud-native services\n- Help identify and solve performance, reliability, and scalability challenges in critical services supporting Datadog's growing customer base\n- Own and deliver technical projects from design through deployment with support from experienced engineers and mentors\n- Develop technical expertise through hands-on experience with technologies such as Kubernetes, distributed systems, and cloud-native infrastructure\n- Collaborate with fellow interns, mentors, and engineers while building software that delivers impact at global scale\n\nWho You Are:\n- Pursuing a degree in Computer Science, Software Engineering, or a related technical field, or have equivalent practical experience\n- Targeting a 2028 full-time start date\n- Demonstrate strong computer science fundamentals, including data structures, algorithms, and software design\n- Comfortable coding in one or more programming languages and excited to use AI-assisted tools to enhance software development and problem solving\n- Have experience using AI coding tools or a strong interest in learning how to use them effectively, while exploring how AI can improve engineering practices and products\n- Available to work full-time from the Datadog New York or Boston office during the internship program dates: January 4 - April 23, 2027\n\nCompensation: The reasonably estimated yearly salary for this role at Datadog is $100,000-$110,000 USD.\n\nAbout Datadog: Datadog is the leading observability and security platform for the AI era, providing businesses with unified visibility across the technology stack to manage complexity at scale.",
+    "desc_source": "manual-paste",
+    "start_signal": "",
+    "likely_2027": false,
+    "fit_score": 15,
+    "fit_reason": "The technical content is a near-perfect match (large-scale distributed systems, Kubernetes, cloud-native infra, AI products), but this is a Winter 2027 internship explicitly requiring a 2028 full-time start date and full-time in-office availability Jan 4 \u2013 Apr 23, 2027 \u2014 a period when Nate is finishing his final semester before a May 2027 graduation, making him ineligible on both counts.",
+    "tc_estimate_low": 150000,
+    "tc_estimate_high": 185000,
+    "tc_basis": "Estimate is for Datadog's full-time new-grad SWE role (the relevant comparison, since this posting is an internship): Datadog is a strong-paying public infra company, typically ~$135\u2013150k base plus RSUs and bonus in NYC/Boston, landing around $150\u2013185k first-year TC. This is an estimate from general market knowledge, not verified data. The posting itself quotes $100\u2013110k annualized for the intern role (~$8.3\u20139.2k/month), which is competitive for an internship but is not a new-grad TC figure. Note: Nate should instead watch for Datadog's 2027 full-time new-grad reqs, which fit his profile and TC anchor well.",
+    "date_scored": "2026-08-18",
+    "pdf_rel": "pdfs/Datadog_Software_Engineering_Intern_Winter_f5c5d2.pdf",
+    "status": "tailored",
+    "date_tailored": "2026-08-18"
   }
 }
