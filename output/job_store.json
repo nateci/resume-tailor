@@ -11806,9 +11806,10 @@
     "tc_estimate_low": 200000,
     "tc_estimate_high": 275000,
     "tc_basis": "Cubist Systematic Strategies (Point72) is a top-tier systematic hedge fund; new-grad SWE packages generally run ~$150-175k base plus a substantial discretionary bonus and sign-on, putting first-year TC well above the candidate's $130k anchor. Hedge fund bonus variance is high, so the band is wide and approximate.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-19"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Point72_Software_Developer_Developers_a00cd4.pdf",
+    "date_scored": "2026-08-19",
+    "date_tailored": "2026-08-19"
   },
   "14a90f50-6be6-4afd-8fb8-e8de804afe10": {
     "id": "14a90f50-6be6-4afd-8fb8-e8de804afe10",
