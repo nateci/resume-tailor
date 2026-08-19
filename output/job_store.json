@@ -10957,9 +10957,10 @@
     "tc_estimate_low": 125000,
     "tc_estimate_high": 165000,
     "tc_basis": "Relativity Space is a well-funded private launch company (Eric Schmidt-backed) that pays competitively for software relative to aerospace peers but below top-tier tech. New-grad SWE base likely ~$115\u2013145k, plus illiquid equity and a modest bonus; ITAR/US-person requirement is standard for launch companies. Band is moderately wide given private-company equity uncertainty and the fact this posting is not explicitly leveled as new-grad.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-19"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Relativity_Space_AI_Software_Engineer_Terrestrial__95cec1.pdf",
+    "date_scored": "2026-08-19",
+    "date_tailored": "2026-08-19"
   },
   "7162223f-d901-4fff-b611-efabc6e5abce": {
     "id": "7162223f-d901-4fff-b611-efabc6e5abce",
