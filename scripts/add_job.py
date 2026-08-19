@@ -83,6 +83,11 @@ def main():
     ap.add_argument("--company", default=None,
                      help="Auto-detected from the ATS API when possible (Ashby/Greenhouse/Lever)")
     ap.add_argument("--locations", default=None)
+    ap.add_argument("--description-file", default=None,
+                     help="Skip auto-fetch and use this file's contents as the job "
+                          "description instead — for sites that don't fetch cleanly "
+                          "(bot walls, JS-rendered SPAs) where you've pasted the real "
+                          "page text by hand.")
     args = ap.parse_args()
 
     cmd_prefix = resolve_claude_cmd()
@@ -105,12 +110,18 @@ def main():
               f"pass {' and '.join(missing)} explicitly.", file=sys.stderr)
         sys.exit(1)
 
-    print("Fetching description...", file=sys.stderr)
-    desc, source = fetch_one(args.url)
-    if desc:
-        print(f"  got {len(desc)} chars via {source}", file=sys.stderr)
+    if args.description_file:
+        with open(args.description_file, encoding="utf-8") as f:
+            desc = f.read().strip()
+        source = "manual-paste"
+        print(f"Using pasted description ({len(desc)} chars) — skipping auto-fetch.", file=sys.stderr)
     else:
-        print("  could not fetch a description — proceeding with title+company only", file=sys.stderr)
+        print("Fetching description...", file=sys.stderr)
+        desc, source = fetch_one(args.url)
+        if desc:
+            print(f"  got {len(desc)} chars via {source}", file=sys.stderr)
+        else:
+            print("  could not fetch a description — proceeding with title+company only", file=sys.stderr)
     start_signal, likely_2027 = extract_start_signal(desc)
 
     job_id = "manual:" + hashlib.sha1(args.url.encode("utf-8")).hexdigest()[:12]
