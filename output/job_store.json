@@ -5517,9 +5517,10 @@
     "tc_estimate_low": 135000,
     "tc_estimate_high": 185000,
     "tc_basis": "Estimate, not fact. Composio is a Series A AI-infra startup ($25M from Lightspeed) hiring in SF, where new-grad infra/FDE base typically lands ~$130-160k with meaningful early-stage equity on top; band is wide because private-startup comp is unpublished and equity value is speculative. Cash-only compensation would likely sit near the low end, at or slightly above the candidate's $130k anchor.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-14"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Composio_Forward_Deployed_Engineer_New_Grad_55c35f.pdf",
+    "date_scored": "2026-08-14",
+    "date_tailored": "2026-08-19"
   },
   "ceae354f-7659-436b-88e0-759362464965": {
     "id": "ceae354f-7659-436b-88e0-759362464965",
@@ -7402,9 +7403,10 @@
     "tc_estimate_low": 170000,
     "tc_estimate_high": 215000,
     "tc_basis": "Applied Intuition is a $15B Silicon Valley startup that pays at or above top-tier new-grad levels (base ~$130-160k plus meaningful equity); an integration-flavored new-grad role likely lands in the lower half of their SWE band. Estimate from general company-tier knowledge, not verified offer data.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Applied_Intuition_Software_Integration_Engineer_Ne_72fe15.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-19"
   },
   "4ac72dac-062c-4ad9-94fb-8bd0961f1d95": {
     "id": "4ac72dac-062c-4ad9-94fb-8bd0961f1d95",
@@ -7645,9 +7647,10 @@
     "tc_estimate_low": 110000,
     "tc_estimate_high": 160000,
     "tc_basis": "LiteLLM (BerriAI) is an early-stage YC-backed startup, so no reliable public new-grad comp data \u2014 band is wide and low-confidence. Estimate assumes SF-market startup base of roughly $110-150k for a new-grad FDE plus modest illiquid equity and a 3.5% 401k match; the India/US dual posting hints they may anchor lower. FDE/support-track roles also typically pay below core SWE bands at the same company.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-15"
+    "status": "tailored",
+    "pdf_rel": "pdfs/LiteLLM_Forward_Deployed_Engineer_New_Grad_609cc8.pdf",
+    "date_scored": "2026-08-15",
+    "date_tailored": "2026-08-19"
   },
   "5e2b041d-3b5b-414f-8491-242be06bf425": {
     "id": "5e2b041d-3b5b-414f-8491-242be06bf425",
