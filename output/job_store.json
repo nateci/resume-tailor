@@ -3290,9 +3290,10 @@
     "tc_estimate_low": 140000,
     "tc_estimate_high": 185000,
     "tc_basis": "Estimate, low confidence: Selector is a private Series-B-stage Bay Area AIOps startup with no public new-grad comp data. Band assumes typical Santa Clara well-funded-startup entry SWE base of ~$135\u2013165k plus a modest bonus and illiquid early-stage equity (paper value, not guaranteed). Cash-only TC likely sits near the bottom of this band; the top depends entirely on how equity is valued.",
-    "status": "scored",
-    "pdf_rel": "",
-    "date_scored": "2026-08-13"
+    "status": "tailored",
+    "pdf_rel": "pdfs/Selector_Software_Software_Engineer_10bcf5.pdf",
+    "date_scored": "2026-08-13",
+    "date_tailored": "2026-08-19"
   },
   "03d4d191-5eff-4bbf-a18a-a070843036a0": {
     "id": "03d4d191-5eff-4bbf-a18a-a070843036a0",
