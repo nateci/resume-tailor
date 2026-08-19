@@ -11954,5 +11954,28 @@
     "status": "scored",
     "pdf_rel": "",
     "date_scored": "2026-08-19"
+  },
+  "manual:32f0a9a60fdb": {
+    "id": "manual:32f0a9a60fdb",
+    "company": "NVIDIA",
+    "title": "2027 Internships - Software Engineering",
+    "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/NVIDIA-2027-Internships--Software-Engineering_JR2023495",
+    "locations": [],
+    "terms": [],
+    "sponsorship": "",
+    "date_posted": "",
+    "description": "",
+    "desc_source": "failed",
+    "start_signal": "",
+    "likely_2027": false,
+    "fit_score": 38,
+    "fit_reason": "Excellent technical and company-tier alignment (systems, CUDA/GPU, AI infrastructure), but this is a 2027 internship requisition rather than a full-time new-grad role, and a Summer 2027 internship falls after the candidate's May 2027 graduation and target full-time start.",
+    "tc_estimate_low": 150000,
+    "tc_estimate_high": 210000,
+    "tc_basis": "Band reflects NVIDIA full-time new-grad SWE TC (roughly $130-150k base + ~$25-50k/yr RSU + 10-15% bonus), which has run high given stock appreciation; the actual posting is an internship (~$45-60/hr plus housing/relocation, i.e. ~$25-35k for a summer), so the full-time figure is the comparable-role estimate rather than what this req pays. Estimate only.",
+    "date_scored": "2026-08-19",
+    "pdf_rel": "pdfs/NVIDIA_2027_Internships_Software_Engineering_4d8ba5.pdf",
+    "status": "tailored",
+    "date_tailored": "2026-08-19"
   }
 }
