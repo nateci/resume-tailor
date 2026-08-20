@@ -97,8 +97,8 @@
   \resumeSubheading
     {Northeastern University}{May 2027 $|$ MGPA: 3.6/4.0}
     {B.S. in Computer Science, Systems Concentration}{Boston, MA}
-  \resumeSubItem{\textbf{Coursework:} Algorithms \& Data Structures, Object-Oriented Design, Foundations of Software Engineering, Computer Systems, Computer Networks, Computer Architecture, Data Science, Systems Security, Cybersecurity}
-  \resumeSubItem{\textbf{Honors:} Dean's List (all semesters), Tech Lead at Northeastern Electronic Racing, PawHacks, json-io OSS Contributor}
+  \resumeSubItem{\textbf{Coursework:} Computer Systems, Computer Networks, Computer Architecture, Algorithms \& Data Structures, Object-Oriented Design, Foundations of Software Engineering, Systems Security, Cybersecurity, Data Science}
+  \resumeSubItem{\textbf{Honors:} Dean's List (all semesters), Tech Lead, Northeastern Electronic Racing, PawHacks, json-io OSS Contributor}
 \resumeSubHeadingListEnd
 \vspace{-9pt}
 
@@ -110,8 +110,8 @@
     {Wayfair}{Jul 2026 -- Present}
     {Software Engineering Co-op}{Boston, MA}
   \resumeItemListStart
-    \resumeItem{Manage 500+ front-of-house POS and e-label devices at 99.9\% uptime with sub-3-minute average resolution across all four Wayfair retail brands (AllModern, Birch Lane, Joss \& Main, Perigold)}
     \resumeItem{Building a REST API to unify 3 competing e-label suppliers (Vusion, Pricer, Solum) behind one interface, enabling dynamic price updates across 50,000+ shelf labels and streamlining new outlet launches}
+    \resumeItem{Manage 500+ front-of-house POS and e-label devices at 99.9\% uptime with sub-3-minute average resolution across all four Wayfair retail brands (AllModern, Birch Lane, Joss \& Main, Perigold)}
   \resumeItemListEnd
 
 
@@ -119,18 +119,18 @@
     {Wolters Kluwer}{Jul 2025 -- Jun 2026}
     {Software Engineer}{Boston, MA}
   \resumeItemListStart
-    \resumeItem{Achieved 92\% uptime for the Expert AI inference pipeline across 250K+ daily active clinicians}
     \resumeItem{Overhauled JSON serialization across 20+ microservices with json-io, reducing average payload size 35\% and cutting inter-service communication latency 28\% during high-traffic clinical query periods}
     \resumeItem{Implemented OIDC/IdP authentication via Azure across 20 enterprise health systems, securing access for 10K+ clinicians with zero degradation during peak EHR synchronization windows}
+    \resumeItem{Sustained 92\% uptime on the Expert AI inference pipeline serving 250K+ daily active clinicians}
   \resumeItemListEnd
 
   \resumeSubheading
     {SculptAI}{Jan 2025 -- Aug 2026}
     {Software Architect}{New York, NY}
   \resumeItemListStart
-    \resumeItem{Re-orged 20+ engineers into product-aligned squads (Retrieval, Generation, Observability); now technical advisor}
-    \resumeItem{Implemented a FAISS in-memory vector store with periodic re-indexing and AWS S3 Vectors for persistence, holding retrieval p95 under 150ms at peak while cutting vector storage cost roughly 70\% vs. OpenSearch Serverless}
-    \resumeItem{Built Sentinel, an AI SRE agent in production, cutting MTTR on P0/P1 incidents from 45 to 12 minutes and reducing MTTD 60\% by correlating Prometheus, Tempo, and Loki telemetry via tool-use}
+    \resumeItem{Built a FAISS in-memory vector store with periodic re-indexing and AWS S3 Vectors for persistence, holding retrieval p95 under 150ms at peak while cutting vector storage cost roughly 70\% vs. OpenSearch Serverless}
+    \resumeItem{Shipped Sentinel, an AI SRE agent in production, cutting MTTR on P0/P1 incidents from 45 to 12 minutes and reducing MTTD 60\% by correlating Prometheus, Tempo, and Loki telemetry via tool-use}
+    \resumeItem{Re-orged 20+ engineers into Retrieval, Generation, and Observability squads; now technical advisor}
   \resumeItemListEnd
 
   \resumeSubheading
@@ -152,14 +152,14 @@
   \resumeProjectHeading
     {\textbf{Kepler} $|$ \emph{Rust, C++, Raft, LSM-tree, MVCC, Tokio}}{Mar. 2026 -- Present}
   \resumeItemListStart
-    \resumeItem{Built a distributed, linearizable key-value store in Rust with from-scratch Raft consensus and an LSM-tree engine}
-    \resumeItem{Reduced API server latency 25\% and held 99\% uptime across 100 pods under write-heavy load; eliminated managed-etcd dependence via an MVCC layer, cutting infra cost \$2,500/month and raising TPS headroom 30\%}
+    \resumeItem{Built a distributed, linearizable key-value store in Rust with from-scratch Raft consensus and an LSM-tree engine, sustaining 99\% uptime across 100 pods under write-heavy load}
+    \resumeItem{Cut API server latency 25\% and eliminated managed-etcd dependence via an MVCC layer, saving \$2,500/month in infra cost and raising TPS headroom 30\%}
   \resumeItemListEnd
 
   \resumeProjectHeading
     {\textbf{NOAA AUV Sonar Detection} $|$ \emph{Python, PyTorch, AWS Neuron SDK, SageMaker}}{Apr. 2025 -- Jul. 2025}
   \resumeItemListStart
-    \resumeItem{Optimized CNN inference to sub-50ms p99 latency on a single AWS Inferentia2 core for real-time onboard AUVs}
+    \resumeItem{Optimized CNN inference to sub-50ms p99 on one AWS Inferentia2 core for real-time onboard AUVs}
     \resumeItem{Trained CNN models on thermal sensor spectrograms to detect novel aquatic signatures, reaching 94.7\% precision and 91.2\% recall on a 10,000+ event test set while cutting false positives 75\% over prior baselines}
   \resumeItemListEnd
 \resumeSubHeadingListEnd
@@ -167,8 +167,8 @@
 %-----------SKILLS-----------
 \section{Skills \& Interests}
 \resumeSubHeadingListStart
-  \resumeSubItem{\textbf{Languages \& Tools:} Python, Rust, TypeScript, JavaScript, C, C++, Java, Go, Kotlin, Swift, Bash, SQL, PostgreSQL, MySQL, MongoDB, GraphQL, AWS, Azure, GCP, Docker, Kubernetes, Terraform, Buildkite, Linux, gRPC}
-  \resumeSubItem{\textbf{Frameworks \& Libraries:} React, Next.js, Node.js, Express, Flask, FastAPI, Spring Boot, PyTorch, TensorFlow}
+  \resumeSubItem{\textbf{Languages \& Tools:} Rust, Go, Python, Java, C, C++, TypeScript, JavaScript, Kotlin, Swift, Bash, SQL, PostgreSQL, MySQL, MongoDB, gRPC, GraphQL, Docker, Kubernetes, Terraform, Linux, AWS, Azure, GCP, Buildkite}
+  \resumeSubItem{\textbf{Frameworks \& Libraries:} Spring Boot, FastAPI, Flask, Node.js, Express, React, Next.js, PyTorch, TensorFlow}
   \resumeSubItem{\textbf{AI / Agentic Tooling:} Devin, Cursor, Claude Code, Claude Cowork, GitHub Copilot, CodeRabbit}
   \resumeSubItem{\textbf{Interests:} Avid Cleveland Browns fan, Weightlifting, Rock Climbing, BJJ, Running}
 \resumeSubHeadingListEnd
