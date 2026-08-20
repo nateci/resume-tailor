@@ -185,7 +185,7 @@ def write_html(store):
         levels = ("https://www.levels.fyi/?compare=" +
                   _esc(str(j.get("company", "")).replace(" ", "%20")) +
                   "&track=Software%20Engineer")
-        trs.append(f"""<tr>
+        trs.append(f"""<tr data-id="{_esc(j.get('id', ''))}">
   <td>{rank}</td>
   <td style="background:{_fit_color(fit)}">{fit}</td>
   <td>{_esc(tc_disp)}</td>
@@ -199,6 +199,7 @@ def write_html(store):
   <td>{pdf_link}</td>
   <td><a href="{levels}" target="_blank">levels.fyi ↗</a></td>
   <td>{_esc(j.get('date_scored', ''))}</td>
+  <td style="text-align:center"><input type="checkbox" class="applied-cb"></td>
 </tr>""")
 
     html = f"""<!DOCTYPE html>
@@ -217,16 +218,53 @@ def write_html(store):
   tr:hover {{ background: #f0f4fa; }}
   a {{ color: #0563C1; text-decoration: none; }}
   a:hover {{ text-decoration: underline; }}
+  tr.applied-row {{ opacity: 0.5; background: #f5f5f5; }}
 </style>
 </head>
 <body>
 <h1>Ranked Jobs</h1>
-<div class="meta">{len(rows)} jobs · auto-refreshes every {HTML_REFRESH_SECONDS}s · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>
+<div class="meta">{len(rows)} jobs · auto-refreshes every {HTML_REFRESH_SECONDS}s · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · check "Applied" to sink a row to the bottom (kept, never deleted)</div>
 <table>
 <tr><th>Rank</th><th>Fit</th><th>Est. TC</th><th>Company</th><th>Role</th><th>Location</th>
-<th>Likely 2027?</th><th>Fit Reason</th><th>Status</th><th>Job</th><th>Resume</th><th>Comp</th><th>Scored</th></tr>
+<th>Likely 2027?</th><th>Fit Reason</th><th>Status</th><th>Job</th><th>Resume</th><th>Comp</th><th>Scored</th><th>Applied</th></tr>
 {''.join(trs)}
 </table>
+<script>
+(function() {{
+  var PREFIX = 'resumeTailorApplied:';
+  var table = document.querySelector('table');
+  function isApplied(id) {{ return localStorage.getItem(PREFIX + id) === '1'; }}
+  function setApplied(id, val) {{
+    if (val) localStorage.setItem(PREFIX + id, '1');
+    else localStorage.removeItem(PREFIX + id);
+  }}
+  function reorder() {{
+    var rows = Array.prototype.slice.call(table.querySelectorAll('tr[data-id]'));
+    rows.sort(function(a, b) {{
+      var aApplied = a.classList.contains('applied-row') ? 1 : 0;
+      var bApplied = b.classList.contains('applied-row') ? 1 : 0;
+      return aApplied - bApplied;
+    }});
+    rows.forEach(function(r) {{ table.appendChild(r); }});
+  }}
+  var rows = table.querySelectorAll('tr[data-id]');
+  rows.forEach(function(row) {{
+    var id = row.getAttribute('data-id');
+    var cb = row.querySelector('.applied-cb');
+    if (!id || !cb) return;
+    if (isApplied(id)) {{
+      cb.checked = true;
+      row.classList.add('applied-row');
+    }}
+    cb.addEventListener('change', function() {{
+      setApplied(id, cb.checked);
+      row.classList.toggle('applied-row', cb.checked);
+      reorder();
+    }});
+  }});
+  reorder();
+}})();
+</script>
 </body>
 </html>
 """
