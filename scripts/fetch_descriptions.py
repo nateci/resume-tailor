@@ -138,8 +138,8 @@ def extract_start_signal(text):
     return signal, likely_2027
 
 
-def main():
-    jobs = json.load(open(IN_PATH))
+def main(in_path=IN_PATH, out_path=OUT_PATH):
+    jobs = json.load(open(in_path))
     out, stats = [], {}
     for i, job in enumerate(jobs, 1):
         print(f"[{i}/{len(jobs)}] {job['company']} — {job['title']}", file=sys.stderr)
@@ -152,7 +152,7 @@ def main():
         stats[source] = stats.get(source, 0) + 1
         out.append(job)
         time.sleep(1.0)
-    json.dump(out, open(OUT_PATH, "w"), indent=2)
+    json.dump(out, open(out_path, "w"), indent=2)
     print(f"Fetch sources: {stats}", file=sys.stderr)
 
 

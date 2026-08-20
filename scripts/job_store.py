@@ -35,20 +35,20 @@ HEADERS = ["Rank", "Fit", "Est. TC (USD)", "Company", "Role", "Location",
            "Date Scored"]
 
 
-def load_store():
-    if os.path.exists(STORE_PATH):
-        with open(STORE_PATH, encoding="utf-8") as f:
+def load_store(path=STORE_PATH):
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
 
-def save_store(store):
-    with open(STORE_PATH, "w", encoding="utf-8") as f:
+def save_store(store, path=STORE_PATH):
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(store, f, indent=2)
 
 
 @contextlib.contextmanager
-def _store_lock():
+def _store_lock(lock_path=STORE_LOCK_PATH):
     """Short-held mutex around the read-merge-write critical section in
     merge_and_save(), so concurrent writers (the scheduled scan, an ad-hoc
     add_job.py/tailor_selected.py run) never race on that one operation.
@@ -62,11 +62,11 @@ def _store_lock():
     fd = None
     while fd is None:
         try:
-            fd = os.open(STORE_LOCK_PATH, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
         except FileExistsError:
             if time.time() > deadline:
                 raise StoreLockTimeout(
-                    f"Could not acquire {STORE_LOCK_PATH} after "
+                    f"Could not acquire {lock_path} after "
                     f"{STORE_LOCK_TIMEOUT_SECONDS}s -- another process may be "
                     "stuck holding it. Delete it by hand if you're sure it's stale."
                 )
@@ -75,10 +75,10 @@ def _store_lock():
         yield
     finally:
         os.close(fd)
-        os.remove(STORE_LOCK_PATH)
+        os.remove(lock_path)
 
 
-def merge_and_save(updates):
+def merge_and_save(updates, path=STORE_PATH, lock_path=STORE_LOCK_PATH):
     """Merge `updates` (job_id -> entry, only the jobs THIS process actually
     touched) into whatever is currently on disk, instead of overwriting with
     a stale full snapshot from this process's own load_store() at
@@ -86,11 +86,15 @@ def merge_and_save(updates):
     tailor_selected.py / add_job.py concurrently: each only needs to agree
     on the handful of entries it changed, not the other's. Returns the
     merged store for immediate use (e.g. write_outputs()).
+
+    `path`/`lock_path` let a separate pipeline (e.g. the internship one) use
+    its own store file with its own lock, so the two never contend or cross-
+    contaminate each other's data.
     """
-    with _store_lock():
-        current = load_store()
+    with _store_lock(lock_path):
+        current = load_store(path)
         current.update(updates)
-        save_store(current)
+        save_store(current, path)
         return current
 
 
@@ -99,7 +103,15 @@ def blend(fit, tc_hi):
     return 0.7 * fit + 0.3 * tc_norm
 
 
-def write_sheet(store):
+def _tc_display(tc_lo, tc_hi, tc_display):
+    if not tc_hi:
+        return "unknown"
+    if tc_display == "hourly":
+        return f"${tc_lo}–${tc_hi}/hr"
+    return f"${tc_lo // 1000}k–${tc_hi // 1000}k"
+
+
+def write_sheet(store, path=SHEET_PATH, tc_display="annual"):
     wb = Workbook()
     ws = wb.active
     ws.title = "Ranked Jobs"
@@ -121,7 +133,7 @@ def write_sheet(store):
         loc = j.get("locations")
         loc = ", ".join(loc) if isinstance(loc, list) else str(loc or "")
         tc_lo, tc_hi = j.get("tc_estimate_low", 0), j.get("tc_estimate_high", 0)
-        tc_disp = f"${tc_lo // 1000}k–${tc_hi // 1000}k" if tc_hi else "unknown"
+        tc_disp = _tc_display(tc_lo, tc_hi, tc_display)
         lv = ("https://www.levels.fyi/?compare=" +
               str(j.get("company", "")).replace(" ", "%20") + "&track=Software%20Engineer")
         row = rank + 1
@@ -142,7 +154,7 @@ def write_sheet(store):
         _link(ws.cell(row, 15), lv)
         _color_fit(ws.cell(row, 2))
 
-    wb.save(SHEET_PATH)
+    wb.save(path)
     return len(rows)
 
 
@@ -160,7 +172,7 @@ def _fit_color(v):
     return "#C6EFCE" if v >= 75 else "#FFEB9C" if v >= 50 else "#FFC7CE"
 
 
-def write_html(store):
+def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"):
     """Auto-refreshing local dashboard — meant to be left open in a browser
     tab. Unlike the xlsx, browsers don't take an exclusive lock on the file
     they're displaying, so this can stay open indefinitely without ever
@@ -176,7 +188,7 @@ def write_html(store):
         loc = j.get("locations")
         loc = ", ".join(loc) if isinstance(loc, list) else str(loc or "")
         tc_lo, tc_hi = j.get("tc_estimate_low", 0), j.get("tc_estimate_high", 0)
-        tc_disp = f"${tc_lo // 1000}k–${tc_hi // 1000}k" if tc_hi else "unknown"
+        tc_disp = _tc_display(tc_lo, tc_hi, tc_display)
         fit = j.get("fit_score", 0)
         job_link = (f'<a href="{_esc(j["url"])}" target="_blank">Apply ↗</a>'
                     if j.get("url") else "")
@@ -207,7 +219,7 @@ def write_html(store):
 <head>
 <meta charset="utf-8">
 <meta http-equiv="refresh" content="{HTML_REFRESH_SECONDS}">
-<title>Resume Tailor — Ranked Jobs</title>
+<title>Resume Tailor — {_esc(heading)}</title>
 <style>
   body {{ font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin: 24px; background: #fafafa; }}
   h1 {{ font-size: 18px; color: #333; margin-bottom: 4px; }}
@@ -222,7 +234,7 @@ def write_html(store):
 </style>
 </head>
 <body>
-<h1>Ranked Jobs</h1>
+<h1>{_esc(heading)}</h1>
 <div class="meta">{len(rows)} jobs · auto-refreshes every {HTML_REFRESH_SECONDS}s · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · check "Applied" to sink a row to the bottom (kept, never deleted)</div>
 <table>
 <tr><th>Rank</th><th>Fit</th><th>Est. TC</th><th>Company</th><th>Role</th><th>Location</th>
@@ -268,15 +280,19 @@ def write_html(store):
 </body>
 </html>
 """
-    with open(HTML_PATH, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write(html)
 
 
-def write_outputs(store):
+def write_outputs(store, sheet_path=SHEET_PATH, html_path=HTML_PATH, heading="Ranked Jobs",
+                   tc_display="annual"):
     """Writes both the xlsx (portable snapshot) and the auto-refreshing
-    HTML dashboard (meant to be left open) from the same store."""
-    n = write_sheet(store)
-    write_html(store)
+    HTML dashboard (meant to be left open) from the same store.
+
+    tc_display="hourly" formats Est. TC as a $/hr band instead of $Xk-$Yk --
+    for the internship pipeline, whose estimates are hourly, not annual."""
+    n = write_sheet(store, sheet_path, tc_display)
+    write_html(store, html_path, heading, tc_display)
     return n
 
 

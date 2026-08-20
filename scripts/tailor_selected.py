@@ -18,9 +18,18 @@ import subprocess
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import load_store, merge_and_save, write_outputs, commit_and_push
+from job_store import (
+    load_store, merge_and_save, write_outputs, commit_and_push,
+    STORE_PATH as STORE_PATH_DEFAULT, SHEET_PATH as SHEET_PATH_DEFAULT,
+    HTML_PATH as HTML_PATH_DEFAULT, STORE_LOCK_PATH as STORE_LOCK_PATH_DEFAULT,
+)
+from rank_intern_jobs import (
+    STORE_PATH as INTERN_STORE_PATH, SHEET_PATH as INTERN_SHEET_PATH,
+    HTML_PATH as INTERN_HTML_PATH, STORE_LOCK_PATH as INTERN_STORE_LOCK_PATH,
+)
 
 RESUME_TEX = "resume/resume.tex"
+RESUME_INTERN_TEX = "resume/resume_intern.tex"
 PDF_DIR = "output/pdfs"
 MAX_ATTEMPTS = 2  # 1 retry with feedback if the compiled PDF overflows one page
 
@@ -70,6 +79,11 @@ HARD RULES:
 - Keep it compilable with pdflatex and preserve the preamble and all custom macros.
 - Keep it one page. Bullets may wrap onto a second line if that's what it takes to
   keep the real content intact — a wrapped bullet is fine; a missing one is not.
+- Avoid short orphan lines: if a bullet, subheading, or skills line wraps, don't let it
+  spill onto a second line with only one or two words — that wastes vertical space as
+  blank whitespace next to a nearly-empty line. Rephrase so wrapped lines are reasonably
+  full, or restructure the line break, using only details already present (never invent
+  new content just to fill space).
 
 RESUME (LaTeX):
 {base_tex}
@@ -155,17 +169,27 @@ def main():
                      help="Case-insensitive substrings matched against company or title")
     ap.add_argument("--force", action="store_true",
                      help="Re-tailor even if already tailored")
-    ap.add_argument("--resume", default=RESUME_TEX,
-                     help="Base .tex file to tailor from (default: resume/resume.tex). "
-                          "Use resume/resume_intern.tex for internship postings.")
+    ap.add_argument("--resume", default=None,
+                     help="Base .tex file to tailor from. Defaults to resume/resume.tex, "
+                          "or resume/resume_intern.tex when --intern is passed.")
+    ap.add_argument("--intern", action="store_true",
+                     help="Tailor against the internship pipeline's store "
+                          "(output/intern_job_store.json) instead of the new-grad one, "
+                          "and default --resume to resume/resume_intern.tex.")
     args = ap.parse_args()
+    if args.resume is None:
+        args.resume = RESUME_INTERN_TEX if args.intern else RESUME_TEX
+    store_path = INTERN_STORE_PATH if args.intern else STORE_PATH_DEFAULT
+    lock_path = INTERN_STORE_LOCK_PATH if args.intern else STORE_LOCK_PATH_DEFAULT
+    sheet_path = INTERN_SHEET_PATH if args.intern else SHEET_PATH_DEFAULT
+    html_path = INTERN_HTML_PATH if args.intern else HTML_PATH_DEFAULT
 
     cmd_prefix = resolve_claude_cmd()
     if not cmd_prefix:
         print("claude CLI not found on PATH.", file=sys.stderr)
         sys.exit(1)
 
-    store = load_store()
+    store = load_store(store_path)
     with open(args.resume, encoding="utf-8") as f:
         base_tex = f.read()
     os.makedirs(PDF_DIR, exist_ok=True)
@@ -201,8 +225,13 @@ def main():
             job["status"] = f"tailor-error:{str(e)[:60]}"
         updates[job["id"]] = job
 
-    merged = merge_and_save(updates)
-    n = write_outputs(merged)
+    merged = merge_and_save(updates, path=store_path, lock_path=lock_path)
+    if args.intern:
+        n = write_outputs(merged, sheet_path=sheet_path, html_path=html_path,
+                           heading="Ranked Internships (targeting Spring 2027)",
+                           tc_display="hourly")
+    else:
+        n = write_outputs(merged, sheet_path=sheet_path, html_path=html_path)
     print(f"Tailored {len(targets)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
     if commit_and_push(f"Ad-hoc: tailored {len(targets)} job(s) via tailor_selected.py"):
         print("Committed and pushed.", file=sys.stderr)

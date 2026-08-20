@@ -10,3 +10,8 @@ __pycache__/
 output/.store.lock
 output/pipeline.log
 output/dashboard.html
+.last_run_intern
+.pipeline_intern.lock
+output/.intern_store.lock
+output/intern_pipeline.log
+output/intern_dashboard.html

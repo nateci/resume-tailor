@@ -19,12 +19,22 @@ import sys
 import urllib.request
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import merge_and_save, write_outputs, commit_and_push
+from job_store import (
+    merge_and_save, write_outputs, commit_and_push,
+    STORE_PATH as STORE_PATH_DEFAULT, SHEET_PATH as SHEET_PATH_DEFAULT,
+    HTML_PATH as HTML_PATH_DEFAULT, STORE_LOCK_PATH as STORE_LOCK_PATH_DEFAULT,
+)
 from fetch_descriptions import fetch_one, extract_start_signal, UA
 from rank_jobs import SCORE_SCHEMA, score_prompt
-from tailor_selected import RESUME_TEX, PDF_DIR, tag_for, tailor_one
+from rank_intern_jobs import (
+    SCORE_SCHEMA as INTERN_SCORE_SCHEMA, score_prompt as intern_score_prompt,
+    STORE_PATH as INTERN_STORE_PATH, SHEET_PATH as INTERN_SHEET_PATH,
+    HTML_PATH as INTERN_HTML_PATH, STORE_LOCK_PATH as INTERN_STORE_LOCK_PATH,
+)
+from tailor_selected import RESUME_TEX, RESUME_INTERN_TEX, PDF_DIR, tag_for, tailor_one
 
 PROFILE = "resume/profile.json"
+PROFILE_INTERN = "resume/profile_intern.json"
 
 
 def probe_metadata(url):
@@ -88,10 +98,17 @@ def main():
                           "description instead — for sites that don't fetch cleanly "
                           "(bot walls, JS-rendered SPAs) where you've pasted the real "
                           "page text by hand.")
-    ap.add_argument("--resume", default=RESUME_TEX,
-                     help="Base .tex file to tailor from (default: resume/resume.tex). "
-                          "Use resume/resume_intern.tex for internship postings.")
+    ap.add_argument("--resume", default=None,
+                     help="Base .tex file to tailor from. Defaults to resume/resume.tex, "
+                          "or resume/resume_intern.tex when --intern is passed.")
+    ap.add_argument("--intern", action="store_true",
+                     help="Add to the internship pipeline's store "
+                          "(output/intern_job_store.json) instead of the new-grad one, "
+                          "score against resume/profile_intern.json, and default "
+                          "--resume to resume/resume_intern.tex.")
     args = ap.parse_args()
+    if args.resume is None:
+        args.resume = RESUME_INTERN_TEX if args.intern else RESUME_TEX
 
     cmd_prefix = resolve_claude_cmd()
     if not cmd_prefix:
@@ -143,14 +160,17 @@ def main():
         "likely_2027": likely_2027,
     }
 
-    with open(PROFILE, encoding="utf-8") as f:
+    profile_path = PROFILE_INTERN if args.intern else PROFILE
+    with open(profile_path, encoding="utf-8") as f:
         profile = json.load(f)
 
     today = datetime.date.today().isoformat()
 
+    prompt_fn = intern_score_prompt if args.intern else score_prompt
+    schema = INTERN_SCORE_SCHEMA if args.intern else SCORE_SCHEMA
     print("Scoring...", file=sys.stderr)
     try:
-        res = call_claude(cmd_prefix, score_prompt(profile, job), SCORE_SCHEMA)
+        res = call_claude(cmd_prefix, prompt_fn(profile, job), schema)
         job["fit_score"] = int(res.get("fit_score", 0))
         job["fit_reason"] = res.get("fit_reason", "")
         job["tc_estimate_low"] = int(res.get("tc_estimate_low", 0))
@@ -177,8 +197,14 @@ def main():
         job["status"] = f"tailor-error:{str(e)[:60]}"
         job["pdf_rel"] = ""
 
-    merged = merge_and_save({job_id: job})
-    n = write_outputs(merged)
+    if args.intern:
+        merged = merge_and_save({job_id: job}, path=INTERN_STORE_PATH, lock_path=INTERN_STORE_LOCK_PATH)
+        n = write_outputs(merged, sheet_path=INTERN_SHEET_PATH, html_path=INTERN_HTML_PATH,
+                           heading="Ranked Internships (targeting Spring 2027)",
+                           tc_display="hourly")
+    else:
+        merged = merge_and_save({job_id: job}, path=STORE_PATH_DEFAULT, lock_path=STORE_LOCK_PATH_DEFAULT)
+        n = write_outputs(merged, sheet_path=SHEET_PATH_DEFAULT, html_path=HTML_PATH_DEFAULT)
 
     print(f"\nFit: {job.get('fit_score')} — {job.get('fit_reason', '')}", file=sys.stderr)
     print(f"Status: {job['status']}", file=sys.stderr)

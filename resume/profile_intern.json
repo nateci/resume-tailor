@@ -1,0 +1,30 @@
+{
+  "name": "Nate Cirino",
+  "grad_date": "2027-05",
+  "target_start": "Spring 2027 internship/co-op (available starting Jan 2027, after current Wayfair co-op ends Dec 2026, before May 2027 graduation)",
+  "target_window": ["Winter 2027", "Spring 2027"],
+  "note_on_timing": "Currently mid Wayfair co-op through Dec 2026 -- NOT available for Fall 2026 or earlier. Available Jan 2027 through graduation. Summer 2027 is only relevant if it does not conflict with a full-time new-grad start.",
+  "tc_reference_note": "Internship hourly/stipend rate, not annual TC. No hard anchor -- estimate a reasonable band for the company/role tier.",
+  "strengths": [
+    "distributed systems (Raft, LSM-tree, MVCC — built a linearizable KV store in Rust)",
+    "backend microservices (Java Spring, Flask, FastAPI, JMS)",
+    "AI/agentic + RAG (pgvector, Bedrock KB, tool-use agents, LLM infra)",
+    "cloud & infra (AWS, Azure, Kubernetes, Terraform, CI/CD, Datadog)",
+    "systems/security concentration"
+  ],
+  "languages": ["Rust", "Java", "Python", "TypeScript", "C", "C++", "Go(learning)"],
+  "role_fit_high": [
+    "backend / distributed systems SWE intern",
+    "infrastructure / platform / SRE-adjacent SWE intern",
+    "systems engineering intern",
+    "ML infra / AI platform / applied-AI SWE intern"
+  ],
+  "role_fit_low": [
+    "pure frontend / design-heavy",
+    "non-technical PM",
+    "hardware/embedded-only (EE-centric)",
+    "roles requiring active security clearance"
+  ],
+  "location_pref": "US; Boston/NYC strong plus; remote fine; open to relocation",
+  "constraints": ["US-authorized", "no security clearance", "actively enrolled through Aug 2027 graduation"]
+}
