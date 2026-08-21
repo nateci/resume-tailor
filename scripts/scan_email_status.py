@@ -130,14 +130,19 @@ def main():
 
     for store_path, sheet_path, html_path, tracker_path, imports_path, heading, tc_display in STORES:
         store = load_store(store_path)
-        tailored = {jid: j for jid, j in store.items() if j.get("status") == "tailored"}
+        # status=="tailored" covers the normal flow; applied=True is the
+        # escape hatch (scripts/mark_applied.py) for postings applied to
+        # without going through tailor_selected.py first -- otherwise a
+        # real confirmation email for one never has anything to match against.
+        candidates = {jid: j for jid, j in store.items()
+                      if j.get("status") == "tailored" or j.get("applied")}
         matched_jobs = set()
 
-        if not tailored:
-            print(f"{store_path}: no tailored jobs yet, nothing to match against", file=sys.stderr)
+        if not candidates:
+            print(f"{store_path}: no tailored/applied jobs yet, nothing to match against", file=sys.stderr)
         else:
             by_company = {}
-            for jid, j in tailored.items():
+            for jid, j in candidates.items():
                 by_company.setdefault(j["company"].lower(), []).append(jid)
 
             # Messages arrive newest-first, so the first hit per job is

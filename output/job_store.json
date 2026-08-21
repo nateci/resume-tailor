@@ -652,7 +652,10 @@
     "tc_basis": "Truveta is a well-funded Seattle health-data startup founded/staffed heavily by ex-Microsoft leadership and benchmarks against Seattle big-tech pay; new-grad SWE offers typically land around $135\u2013155k base plus equity/bonus, putting TC roughly $145\u2013185k. Estimate only \u2014 private-company equity value is uncertain, so treat the upper half of the band as loosely held.",
     "status": "scored",
     "pdf_rel": "",
-    "date_scored": "2026-08-12"
+    "date_scored": "2026-08-12",
+    "applied": true,
+    "app_status": "applied",
+    "app_status_date": "2026-08-21 19:46:07.173000+00:00"
   },
   "85abc859-5041-4b75-b40d-40befacf7a1e": {
     "id": "85abc859-5041-4b75-b40d-40befacf7a1e",
