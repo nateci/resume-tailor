@@ -21,7 +21,8 @@ import sys
 import urllib.request
 
 from filter_jobs import (
-    WANT_TITLE_KEYWORDS, SKIP_TITLE_KEYWORDS, http_get, get, is_active, normalize,
+    WANT_TITLE_KEYWORDS, SKIP_TITLE_KEYWORDS, SKIP_COMPANY_KEYWORDS,
+    http_get, get, is_active, normalize,
 )
 
 PRIMARY_URL = (
@@ -59,6 +60,9 @@ def load_listings():
 
 
 def wanted(job):
+    company = str(get(job, "company_name", "company")).lower()
+    if any(k in company for k in SKIP_COMPANY_KEYWORDS):
+        return False
     title = str(get(job, "title", "role", "position")).lower()
     if any(k in title for k in SKIP_TITLE_KEYWORDS):
         return False

@@ -97,9 +97,10 @@ def merge_and_save(updates, path=STORE_PATH, lock_path=STORE_LOCK_PATH):
         return current
 
 
-def blend(fit, tc_hi):
-    tc_norm = min(tc_hi, 300000) / 300000 * 100
-    return 0.7 * fit + 0.3 * tc_norm
+def rank_key(likely_2027, tc_lo, tc_hi):
+    """Sort purely on grad-date fit and comp -- fit_score plays no part in
+    ranking (still shown as a column, just not used to order rows)."""
+    return (1 if likely_2027 else 0, tc_hi, tc_lo)
 
 
 def _tc_display(tc_lo, tc_hi, tc_display):
@@ -125,7 +126,7 @@ def write_sheet(store, path=SHEET_PATH, tc_display="annual"):
 
     rows = sorted(
         store.values(),
-        key=lambda j: blend(j.get("fit_score", 0), j.get("tc_estimate_high", 0)),
+        key=lambda j: rank_key(j.get("likely_2027", False), j.get("tc_estimate_low", 0), j.get("tc_estimate_high", 0)),
         reverse=True,
     )
     for rank, j in enumerate(rows, 1):
@@ -172,13 +173,13 @@ def _fit_color(v):
 
 
 def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"):
-    """Auto-refreshing local dashboard — meant to be left open in a browser
-    tab. Unlike the xlsx, browsers don't take an exclusive lock on the file
-    they're displaying, so this can stay open indefinitely without ever
-    blocking the pipeline's next write."""
+    """Local dashboard with a manual Refresh button — meant to be left open
+    in a browser tab. Unlike the xlsx, browsers don't take an exclusive lock
+    on the file they're displaying, so this can stay open indefinitely
+    without ever blocking the pipeline's next write."""
     rows = sorted(
         store.values(),
-        key=lambda j: blend(j.get("fit_score", 0), j.get("tc_estimate_high", 0)),
+        key=lambda j: rank_key(j.get("likely_2027", False), j.get("tc_estimate_low", 0), j.get("tc_estimate_high", 0)),
         reverse=True,
     )
 
