@@ -11,6 +11,14 @@ Nate actually tailored a resume for and presumably applied to), not the
 full scored backlog -- otherwise a generic company-name match against
 400+ untailored postings would produce a lot of false positives.
 
+Incremental: only fetches mail received since the last successful run
+(tracked in .last_email_scan, plus a small OVERLAP_MINUTES safety margin),
+not a full LOOKBACK_DAYS re-scan every time -- that full sweep only
+happens once, to bootstrap a fresh checkout. A side effect: a job that's
+tailored *after* the confirmation email it corresponds to already arrived
+won't get backfilled from that older email -- delete .last_email_scan to
+force a full re-scan if that ever matters.
+
 Requires: Outlook desktop installed, set to classic (not "New Outlook" --
 toggle in the top-right of the Outlook window) and running, plus pywin32
 (`pip install pywin32`). No Azure app registration / API access needed --
@@ -22,7 +30,9 @@ import sys
 
 import win32com.client
 
-LOOKBACK_DAYS = 240
+LOOKBACK_DAYS = 240  # only used to bootstrap the very first run
+OVERLAP_MINUTES = 60  # re-check a bit of overlap past the last run as a safety margin
+LAST_RUN_PATH = ".last_email_scan"
 OL_MAIL_ITEM = 43  # olMailItem
 
 STORES = [
@@ -66,12 +76,25 @@ def classify(text):
     return None
 
 
-def fetch_messages():
+def load_last_run():
+    if os.path.exists(LAST_RUN_PATH):
+        try:
+            return datetime.datetime.fromisoformat(open(LAST_RUN_PATH, encoding="utf-8").read().strip())
+        except ValueError:
+            pass
+    return datetime.datetime.now() - datetime.timedelta(days=LOOKBACK_DAYS)
+
+
+def save_last_run(when):
+    with open(LAST_RUN_PATH, "w", encoding="utf-8") as f:
+        f.write(when.isoformat())
+
+
+def fetch_messages(since):
     outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
     inbox = outlook.GetDefaultFolder(6)  # olFolderInbox
     items = inbox.Items
     items.Sort("[ReceivedTime]", True)  # newest first
-    since = datetime.datetime.now() - datetime.timedelta(days=LOOKBACK_DAYS)
     restrict_str = since.strftime("%m/%d/%Y %I:%M %p")
     items = items.Restrict(f"[ReceivedTime] >= '{restrict_str}'")
 
@@ -93,9 +116,14 @@ def fetch_messages():
 
 
 def main():
+    run_start = datetime.datetime.now()
+    last_run = load_last_run()
+    since = last_run - datetime.timedelta(minutes=OVERLAP_MINUTES)
+
     print("Reading Outlook inbox via COM...", file=sys.stderr)
-    messages = fetch_messages()
-    print(f"{len(messages)} message(s) in the last {LOOKBACK_DAYS} days", file=sys.stderr)
+    messages = fetch_messages(since)
+    print(f"{len(messages)} message(s) since {since.strftime('%Y-%m-%d %H:%M')} "
+          f"(last scan: {last_run.strftime('%Y-%m-%d %H:%M')})", file=sys.stderr)
 
     sys.path.insert(0, os.path.dirname(__file__))
     from job_store import load_store, save_store, write_outputs
@@ -142,6 +170,8 @@ def main():
                       heading=heading, tc_display=tc_display)
         print(f"{store_path}: {len(matched_jobs)} job(s) tagged with an app_status",
               file=sys.stderr)
+
+    save_last_run(run_start)
 
 
 if __name__ == "__main__":
