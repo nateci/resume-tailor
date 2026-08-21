@@ -47,7 +47,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/Symbotic_Software_Engineer_New_Grad_81ed4e.pdf",
     "date_scored": "2026-08-12",
-    "date_tailored": "2026-08-12"
+    "date_tailored": "2026-08-12",
+    "app_status": "applied",
+    "app_status_date": "2026-08-19 18:14:17.145000+00:00"
   },
   "12b0c4cc-55d1-42fd-a6ad-d544d2b42999": {
     "id": "12b0c4cc-55d1-42fd-a6ad-d544d2b42999",
@@ -1183,7 +1185,9 @@
     "date_scored": "2026-08-12",
     "pdf_rel": "pdfs/Uniswap_Software_Engineer_Early_Career_5a340c.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-12"
+    "date_tailored": "2026-08-12",
+    "app_status": "applied",
+    "app_status_date": "2026-08-12 22:05:17.615000+00:00"
   },
   "63fc30c3-4d13-40bc-8488-b39b2dc59b9e": {
     "id": "63fc30c3-4d13-40bc-8488-b39b2dc59b9e",
@@ -3385,7 +3389,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/BlackRock_Application_Engineer_Service_Management__b74e98.pdf",
     "date_scored": "2026-08-13",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "app_status": "applied",
+    "app_status_date": "2026-08-19 19:11:45.049000+00:00"
   },
   "7de9e033-61b2-4879-8e8f-2fc4907c40b7": {
     "id": "7de9e033-61b2-4879-8e8f-2fc4907c40b7",
@@ -5380,7 +5386,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/SpaceX_Software_Security_New_Grad_Starlink_4f4a07.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-16"
+    "date_tailored": "2026-08-16",
+    "app_status": "applied",
+    "app_status_date": "2026-08-21 16:33:15.161000+00:00"
   },
   "0e79e8bc-db11-456f-97e4-54fea42c6715": {
     "id": "0e79e8bc-db11-456f-97e4-54fea42c6715",
@@ -5405,7 +5413,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/SpaceX_Software_Engineer_New_Grad_Software_Starlin_5e492a.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-16"
+    "date_tailored": "2026-08-16",
+    "app_status": "applied",
+    "app_status_date": "2026-08-21 16:33:15.161000+00:00"
   },
   "0cdf7557-d561-4d9a-ae10-243323bde8c4": {
     "id": "0cdf7557-d561-4d9a-ae10-243323bde8c4",
@@ -5584,7 +5594,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/SpaceX_Software_Engineer_New_Grad_Software_Starlin_df510c.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-16"
+    "date_tailored": "2026-08-16",
+    "app_status": "applied",
+    "app_status_date": "2026-08-21 16:33:15.161000+00:00"
   },
   "e1e46d1c-0205-405e-8063-32075566d4d4": {
     "id": "e1e46d1c-0205-405e-8063-32075566d4d4",
@@ -6435,7 +6447,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/Applied_Intuition_Software_Integration_Engineer_Ne_72fe15.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "app_status": "applied",
+    "app_status_date": "2026-08-19 18:33:20.083000+00:00"
   },
   "4ac72dac-062c-4ad9-94fb-8bd0961f1d95": {
     "id": "4ac72dac-062c-4ad9-94fb-8bd0961f1d95",
@@ -6679,7 +6693,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/LiteLLM_Forward_Deployed_Engineer_New_Grad_609cc8.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "app_status": "rejected",
+    "app_status_date": "2026-08-21 12:09:38.737000+00:00"
   },
   "5e2b041d-3b5b-414f-8491-242be06bf425": {
     "id": "5e2b041d-3b5b-414f-8491-242be06bf425",
@@ -7040,7 +7056,9 @@
     "date_scored": "2026-08-16",
     "pdf_rel": "pdfs/Replit_Software_Engineer_Developer_Experience_3b8acf.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-16"
+    "date_tailored": "2026-08-16",
+    "app_status": "applied",
+    "app_status_date": "2026-08-16 12:04:35.555000+00:00"
   },
   "manual:b2983ebc9fbc": {
     "id": "manual:b2983ebc9fbc",
@@ -7065,7 +7083,9 @@
     "date_scored": "2026-08-17",
     "pdf_rel": "pdfs/Sentry_Software_Engineer_New_Grad_2027_bbb4a7.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-17"
+    "date_tailored": "2026-08-17",
+    "app_status": "applied",
+    "app_status_date": "2026-08-17 21:10:30.252000+00:00"
   },
   "manual:4f6b09411848": {
     "id": "manual:4f6b09411848",
@@ -7090,7 +7110,9 @@
     "date_scored": "2026-08-17",
     "pdf_rel": "pdfs/Microsoft_Software_Engineer_3abfc6.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-17"
+    "date_tailored": "2026-08-17",
+    "app_status": "rejected",
+    "app_status_date": "2026-08-19 21:25:17.897000+00:00"
   },
   "manual:2af2aefee09f": {
     "id": "manual:2af2aefee09f",
@@ -7115,7 +7137,9 @@
     "date_scored": "2026-08-17",
     "pdf_rel": "pdfs/Goldman_Sachs_New_Analyst_Engineering_596913.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-17"
+    "date_tailored": "2026-08-17",
+    "app_status": "oa",
+    "app_status_date": "2026-08-17 23:41:16.403000+00:00"
   },
   "manual:8ae0aae740a4": {
     "id": "manual:8ae0aae740a4",
@@ -7140,7 +7164,9 @@
     "date_scored": "2026-08-18",
     "pdf_rel": "pdfs/Datadog_Software_Engineering_Intern_Winter_f5c5d2.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-18"
+    "date_tailored": "2026-08-18",
+    "app_status": "applied",
+    "app_status_date": "2026-08-18 20:38:08.260000+00:00"
   },
   "eec96d34-d4a6-4af6-9f82-2effad6f2f33": {
     "id": "eec96d34-d4a6-4af6-9f82-2effad6f2f33",
@@ -9125,7 +9151,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/Vanguard_Application_Engineer_2027_Start_Date_d7d844.pdf",
     "date_scored": "2026-08-19",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "app_status": "interview",
+    "app_status_date": "2026-08-19 19:15:30.987000+00:00"
   },
   "034062ca-af46-4066-a960-533d027a734f": {
     "id": "034062ca-af46-4066-a960-533d027a734f",
@@ -9870,7 +9898,9 @@
     "status": "tailored",
     "pdf_rel": "pdfs/Relativity_Space_AI_Software_Engineer_Terrestrial__95cec1.pdf",
     "date_scored": "2026-08-19",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "app_status": "rejected",
+    "app_status_date": "2026-08-19 19:22:09.203000+00:00"
   },
   "7162223f-d901-4fff-b611-efabc6e5abce": {
     "id": "7162223f-d901-4fff-b611-efabc6e5abce",
@@ -10792,7 +10822,9 @@
     "date_scored": "2026-08-19",
     "pdf_rel": "pdfs/NVIDIA_2027_Internships_Software_Engineering_4d8ba5.pdf",
     "status": "tailored",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "app_status": "interview",
+    "app_status_date": "2026-08-19 18:47:53.105000+00:00"
   },
   "ac56ab22-4e58-404f-bd27-334854dd766c": {
     "id": "ac56ab22-4e58-404f-bd27-334854dd766c",

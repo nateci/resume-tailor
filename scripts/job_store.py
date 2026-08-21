@@ -30,8 +30,8 @@ class StoreLockTimeout(Exception):
 
 HEADERS = ["Rank", "Fit", "Est. TC (USD)", "Company", "Role", "Location",
            "Likely 2027?", "Start Signal", "Fit Reason", "TC Basis",
-           "Tailor Depth", "Status", "Job Link", "Resume PDF", "levels.fyi",
-           "Date Scored"]
+           "Tailor Depth", "Status", "App Status", "Job Link", "Resume PDF",
+           "levels.fyi", "Date Scored"]
 
 
 def load_store(path=STORE_PATH):
@@ -119,7 +119,7 @@ def write_sheet(store, path=SHEET_PATH, tc_display="annual"):
         c = ws.cell(1, i, h)
         c.font = Font(bold=True, color="FFFFFF")
         c.fill = PatternFill("solid", fgColor="2F5496")
-    widths = [5, 5, 16, 20, 34, 22, 12, 26, 40, 28, 13, 14, 10, 30, 12, 12]
+    widths = [5, 5, 16, 20, 34, 22, 12, 26, 40, 28, 13, 14, 14, 10, 30, 12, 12]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "A2"
@@ -141,18 +141,19 @@ def write_sheet(store, path=SHEET_PATH, tc_display="annual"):
                 loc, "yes" if j.get("likely_2027") else "", j.get("start_signal", ""),
                 j.get("fit_reason", ""), j.get("tc_basis", ""),
                 "full" if j.get("description") else "metadata-only",
-                j.get("status", "scored"),
+                j.get("status", "scored"), j.get("app_status", ""),
                 "Apply ↗" if j.get("url") else "",
                 os.path.basename(j["pdf_rel"]) if j.get("pdf_rel") else "",
                 "levels.fyi ↗", j.get("date_scored", "")]
         for c, v in enumerate(vals, 1):
             ws.cell(row, c, v)
         if j.get("url"):
-            _link(ws.cell(row, 13), j["url"])
+            _link(ws.cell(row, 14), j["url"])
         if j.get("pdf_rel"):
-            _link(ws.cell(row, 14), j["pdf_rel"])
-        _link(ws.cell(row, 15), lv)
+            _link(ws.cell(row, 15), j["pdf_rel"])
+        _link(ws.cell(row, 16), lv)
         _color_fit(ws.cell(row, 2))
+        _color_app_status(ws.cell(row, 13))
 
     wb.save(path)
     return len(rows)
@@ -170,6 +171,22 @@ def _fit_color(v):
     except Exception:
         return "#FFC7CE"
     return "#C6EFCE" if v >= 75 else "#FFEB9C" if v >= 50 else "#FFC7CE"
+
+
+APP_STATUS_COLORS = {
+    "offer": "C6EFCE", "interview": "FFEB9C", "oa": "FFEB9C",
+    "applied": "DCE6F1", "rejected": "FFC7CE",
+}
+
+
+def _app_status_color(v):
+    return APP_STATUS_COLORS.get(str(v or "").lower())
+
+
+def _color_app_status(cell):
+    color = _app_status_color(cell.value)
+    if color:
+        cell.fill = PatternFill("solid", fgColor=color)
 
 
 def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"):
@@ -197,6 +214,9 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
         levels = ("https://www.levels.fyi/?compare=" +
                   _esc(str(j.get("company", "")).replace(" ", "%20")) +
                   "&track=Software%20Engineer")
+        app_status = j.get("app_status", "")
+        app_status_hex = _app_status_color(app_status)
+        app_status_color = f"#{app_status_hex}" if app_status_hex else "transparent"
         trs.append(f"""<tr data-id="{_esc(j.get('id', ''))}">
   <td>{rank}</td>
   <td style="background:{_fit_color(fit)}">{fit}</td>
@@ -207,6 +227,7 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
   <td>{'yes' if j.get('likely_2027') else ''}</td>
   <td>{_esc(j.get('fit_reason', ''))}</td>
   <td>{_esc(j.get('status', ''))}</td>
+  <td style="background:{app_status_color}">{_esc(app_status)}</td>
   <td>{job_link}</td>
   <td>{pdf_link}</td>
   <td><a href="{levels}" target="_blank">levels.fyi ↗</a></td>
@@ -240,7 +261,7 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
 <div class="meta">{len(rows)} jobs · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · check "Applied" to sink a row to the bottom (kept, never deleted) <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button></div>
 <table>
 <tr><th>Rank</th><th>Fit</th><th>Est. TC</th><th>Company</th><th>Role</th><th>Location</th>
-<th>Likely 2027?</th><th>Fit Reason</th><th>Status</th><th>Job</th><th>Resume</th><th>Comp</th><th>Scored</th><th>Applied</th></tr>
+<th>Likely 2027?</th><th>Fit Reason</th><th>Status</th><th>App Status</th><th>Job</th><th>Resume</th><th>Comp</th><th>Scored</th><th>Applied</th></tr>
 {''.join(trs)}
 </table>
 <script>
