@@ -307,7 +307,9 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
         f.write(html)
 
 
-TRACKER_STATUS_KEYS = ("applied", "oa", "interview", "rejected", "offer")
+TRACKER_STATUS_KEYS = ("applied", "oa", "oa_done", "r1", "r2", "r3", "r4",
+                        "interview", "rejected", "offer")
+TRACKER_STATUS_LABELS = {"oa_done": "oa done"}  # others display as their key verbatim
 
 
 def _mdy(iso_date):
@@ -347,7 +349,7 @@ def _tracker_row_html(row):
                 if row.get("url") else "")
     status = row.get("status") if row.get("status") in TRACKER_STATUS_KEYS else "applied"
     options = "".join(
-        f'<option value="{k}"{" selected" if k == status else ""}>{k}</option>'
+        f'<option value="{k}"{" selected" if k == status else ""}>{TRACKER_STATUS_LABELS.get(k, k)}</option>'
         for k in TRACKER_STATUS_KEYS
     )
     return f"""<tr data-id="{jid}">
@@ -401,6 +403,7 @@ def write_tracker_html(store, path, heading="Application Tracker", imports_path=
   .refresh-btn {{ background: #2F5496; color: #fff; border: none; border-radius: 4px;
     padding: 4px 10px; font-size: 13px; cursor: pointer; margin-left: 8px; }}
   .refresh-btn:hover {{ background: #244275; }}
+  .refresh-btn:disabled {{ background: #99a; cursor: default; }}
   table {{ border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }}
   th, td {{ border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }}
   th {{ background: #2F5496; color: #fff; position: sticky; top: 0; }}
@@ -419,7 +422,7 @@ def write_tracker_html(store, path, heading="Application Tracker", imports_path=
 </head>
 <body>
 <h1>{_esc(heading)}</h1>
-<div class="meta">{len(rows)} job(s) tracked · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · Status/Contact/Resume Ver./Interview Dates/Notes are editable and saved in this browser · <label><input type="checkbox" id="show-hidden"> show hidden</label> <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button></div>
+<div class="meta">{len(rows)} job(s) tracked · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · Status/Contact/Resume Ver./Interview Dates/Notes are editable and saved in this browser · <label><input type="checkbox" id="show-hidden"> show hidden</label> <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button> <button id="update-btn" class="refresh-btn" title="Re-scans Outlook + re-imports both Sheets (new-grad and intern) -- requires scripts/tracker_server.py running and this page loaded from http://localhost, not a double-clicked file">⬇ Update</button></div>
 <table>
 <tr><th></th><th>Date</th><th>Company</th><th>Role</th><th>Location</th><th>Status</th><th>Job</th>
 <th>Contact Name</th><th>Resume Ver.</th><th>Interview Dates</th><th>Notes</th></tr>
@@ -430,6 +433,8 @@ def write_tracker_html(store, path, heading="Application Tracker", imports_path=
   var PREFIX = 'resumeTailorTrack:';
   var HIDE_PREFIX = 'resumeTailorTrack:hidden:';
   var STATUS_COLORS = {{ offer: '#C6EFCE', interview: '#FFEB9C', oa: '#FFEB9C',
+                          oa_done: '#FFD966', r1: '#D9E8FB', r2: '#B6D4F7',
+                          r3: '#8FBEF2', r4: '#6AA8EA',
                           applied: '#DCE6F1', rejected: '#FFC7CE' }};
   function key(id, field) {{ return PREFIX + id + ':' + field; }}
 
@@ -476,6 +481,30 @@ def write_tracker_html(store, path, heading="Application Tracker", imports_path=
   }});
   showHidden.addEventListener('change', applyHidden);
   applyHidden();
+
+  var updateBtn = document.getElementById('update-btn');
+  updateBtn.addEventListener('click', function() {{
+    updateBtn.disabled = true;
+    updateBtn.textContent = 'Updating...';
+    fetch('/update', {{ method: 'POST' }})
+      .then(function(r) {{ return r.text().then(function(t) {{ return {{ ok: r.ok, text: t }}; }}); }})
+      .then(function(res) {{
+        if (res.ok) {{
+          location.reload();
+        }} else {{
+          alert('Update failed:\\n\\n' + res.text);
+          updateBtn.disabled = false;
+          updateBtn.textContent = '⬇ Update';
+        }}
+      }})
+      .catch(function() {{
+        alert('Could not reach the local update server.\\n\\n' +
+              'Run scripts/tracker_server.py and open this page via ' +
+              'http://localhost:8765/ instead of double-clicking the file.');
+        updateBtn.disabled = false;
+        updateBtn.textContent = '⬇ Update';
+      }});
+  }});
 }})();
 </script>
 </body>
