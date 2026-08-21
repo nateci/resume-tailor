@@ -27,9 +27,10 @@ OL_MAIL_ITEM = 43  # olMailItem
 
 STORES = [
     ("output/job_store.json", "output/tailored_resumes.xlsx", "output/dashboard.html",
-     "Ranked Jobs", "annual"),
+     "output/applied_tracker.html", "Ranked Jobs", "annual"),
     ("output/intern_job_store.json", "output/intern_tailored_resumes.xlsx",
-     "output/intern_dashboard.html", "Ranked Internships (targeting Spring 2027)", "hourly"),
+     "output/intern_dashboard.html", "output/intern_applied_tracker.html",
+     "Ranked Internships (targeting Spring 2027)", "hourly"),
 ]
 
 # Checked in this priority order (offer/rejected are the most unambiguous
@@ -97,7 +98,7 @@ def main():
     sys.path.insert(0, os.path.dirname(__file__))
     from job_store import load_store, save_store, write_outputs
 
-    for store_path, sheet_path, html_path, heading, tc_display in STORES:
+    for store_path, sheet_path, html_path, tracker_path, heading, tc_display in STORES:
         store = load_store(store_path)
         tailored = {jid: j for jid, j in store.items() if j.get("status") == "tailored"}
         if not tailored:
@@ -130,8 +131,11 @@ def main():
 
         if matched_jobs:
             save_store(store, store_path)
-            write_outputs(store, sheet_path=sheet_path, html_path=html_path,
-                          heading=heading, tc_display=tc_display)
+        # Always regenerate the tracker even with 0 new matches this run --
+        # earlier runs' app_status may already be there and the tracker
+        # file might not exist yet.
+        write_outputs(store, sheet_path=sheet_path, html_path=html_path,
+                      tracker_path=tracker_path, heading=heading, tc_display=tc_display)
         print(f"{store_path}: {len(matched_jobs)} job(s) tagged with an app_status",
               file=sys.stderr)
 

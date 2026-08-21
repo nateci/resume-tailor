@@ -307,15 +307,127 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
         f.write(html)
 
 
-def write_outputs(store, sheet_path=SHEET_PATH, html_path=HTML_PATH, heading="Ranked Jobs",
-                   tc_display="annual"):
-    """Writes both the xlsx (portable snapshot) and the auto-refreshing
-    HTML dashboard (meant to be left open) from the same store.
+def write_tracker_html(store, path, heading="Application Tracker"):
+    """Local, hand-editable tracker for jobs Outlook has confirmed an actual
+    interaction on (app_status set by scan_email_status.py) -- a lighter
+    stand-in for a manually-kept spreadsheet. Status/Contact Name/Resume
+    Ver./Interview Dates/Notes are editable in the browser and persisted to
+    localStorage (keyed by job id + field), so a pipeline re-run that
+    regenerates this file doesn't wipe hand-entered notes. Company/Role/
+    Location/Date/Link are always the freshly-synced pipeline values --
+    intentionally not editable, since there'd be nothing to persist them
+    against once the file regenerates."""
+    rows = sorted(
+        (j for j in store.values() if j.get("app_status")),
+        key=lambda j: j.get("app_status_date", ""),
+        reverse=True,
+    )
+
+    trs = []
+    for j in rows:
+        jid = _esc(j.get("id", ""))
+        loc = j.get("locations")
+        loc = ", ".join(loc) if isinstance(loc, list) else str(loc or "")
+        job_link = (f'<a href="{_esc(j["url"])}" target="_blank">Apply ↗</a>'
+                    if j.get("url") else "")
+        status = j.get("app_status", "")
+        resume_ver = os.path.basename(j["pdf_rel"]) if j.get("pdf_rel") else ""
+        date_applied = str(j.get("app_status_date", ""))[:10]
+        options = "".join(
+            f'<option value="{k}"{" selected" if k == status else ""}>{k}</option>'
+            for k in ("applied", "oa", "interview", "rejected", "offer")
+        )
+        trs.append(f"""<tr data-id="{jid}">
+  <td>{_esc(date_applied)}</td>
+  <td>{_esc(j.get('company', ''))}</td>
+  <td>{_esc(j.get('title', ''))}</td>
+  <td>{_esc(loc)}</td>
+  <td><select class="editable-status" data-id="{jid}" data-field="status">{options}</select></td>
+  <td>{job_link}</td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="contact"></td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="resume_ver">{_esc(resume_ver)}</td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="interview_dates"></td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="notes"></td>
+</tr>""")
+
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Resume Tailor — {_esc(heading)}</title>
+<style>
+  body {{ font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin: 24px; background: #fafafa; }}
+  h1 {{ font-size: 18px; color: #333; margin-bottom: 4px; }}
+  .meta {{ color: #777; font-size: 13px; margin-bottom: 14px; }}
+  .refresh-btn {{ background: #2F5496; color: #fff; border: none; border-radius: 4px;
+    padding: 4px 10px; font-size: 13px; cursor: pointer; margin-left: 8px; }}
+  .refresh-btn:hover {{ background: #244275; }}
+  table {{ border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }}
+  th, td {{ border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }}
+  th {{ background: #2F5496; color: #fff; position: sticky; top: 0; }}
+  tr:hover {{ background: #f0f4fa; }}
+  a {{ color: #0563C1; text-decoration: none; }}
+  a:hover {{ text-decoration: underline; }}
+  select.editable-status {{ border: none; background: transparent; font-size: 13px; width: 100%; }}
+  td.editable {{ min-width: 100px; }}
+  td.editable:focus {{ outline: 2px solid #2F5496; outline-offset: -2px; }}
+  td.editable:empty::before {{ content: attr(data-placeholder); color: #bbb; }}
+</style>
+</head>
+<body>
+<h1>{_esc(heading)}</h1>
+<div class="meta">{len(rows)} job(s) with a confirmed Outlook interaction · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · Status/Contact/Resume Ver./Interview Dates/Notes are editable and saved in this browser <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button></div>
+<table>
+<tr><th>Date</th><th>Company</th><th>Role</th><th>Location</th><th>Status</th><th>Job</th>
+<th>Contact Name</th><th>Resume Ver.</th><th>Interview Dates</th><th>Notes</th></tr>
+{''.join(trs)}
+</table>
+<script>
+(function() {{
+  var PREFIX = 'resumeTailorTrack:';
+  var STATUS_COLORS = {{ offer: '#C6EFCE', interview: '#FFEB9C', oa: '#FFEB9C',
+                          applied: '#DCE6F1', rejected: '#FFC7CE' }};
+  function key(id, field) {{ return PREFIX + id + ':' + field; }}
+
+  document.querySelectorAll('td.editable').forEach(function(el) {{
+    var saved = localStorage.getItem(key(el.dataset.id, el.dataset.field));
+    if (saved !== null) el.textContent = saved;
+    el.addEventListener('blur', function() {{
+      localStorage.setItem(key(el.dataset.id, el.dataset.field), el.textContent);
+    }});
+  }});
+
+  document.querySelectorAll('select.editable-status').forEach(function(sel) {{
+    var saved = localStorage.getItem(key(sel.dataset.id, sel.dataset.field));
+    if (saved !== null) sel.value = saved;
+    function recolor() {{ sel.style.background = STATUS_COLORS[sel.value] || 'transparent'; }}
+    recolor();
+    sel.addEventListener('change', function() {{
+      localStorage.setItem(key(sel.dataset.id, sel.dataset.field), sel.value);
+      recolor();
+    }});
+  }});
+}})();
+</script>
+</body>
+</html>
+"""
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+
+
+def write_outputs(store, sheet_path=SHEET_PATH, html_path=HTML_PATH, tracker_path=None,
+                   heading="Ranked Jobs", tc_display="annual"):
+    """Writes the xlsx (portable snapshot), the auto-refreshing HTML
+    dashboard (meant to be left open), and -- if tracker_path is given --
+    the hand-editable application tracker, all from the same store.
 
     tc_display="hourly" formats Est. TC as a $/hr band instead of $Xk-$Yk --
     for the internship pipeline, whose estimates are hourly, not annual."""
     n = write_sheet(store, sheet_path, tc_display)
     write_html(store, html_path, heading, tc_display)
+    if tracker_path:
+        write_tracker_html(store, tracker_path, f"{heading} — Application Tracker")
     return n
 
 

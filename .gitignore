@@ -15,4 +15,5 @@ output/dashboard.html
 output/.intern_store.lock
 output/intern_pipeline.log
 output/intern_dashboard.html
-output/.msal_cache.bin
+output/applied_tracker.html
+output/intern_applied_tracker.html
