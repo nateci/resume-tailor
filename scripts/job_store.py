@@ -307,48 +307,87 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
         f.write(html)
 
 
-def write_tracker_html(store, path, heading="Application Tracker"):
-    """Local, hand-editable tracker for jobs Outlook has confirmed an actual
-    interaction on (app_status set by scan_email_status.py) -- a lighter
-    stand-in for a manually-kept spreadsheet. Status/Contact Name/Resume
-    Ver./Interview Dates/Notes are editable in the browser and persisted to
-    localStorage (keyed by job id + field), so a pipeline re-run that
-    regenerates this file doesn't wipe hand-entered notes. Company/Role/
-    Location/Date/Link are always the freshly-synced pipeline values --
-    intentionally not editable, since there'd be nothing to persist them
-    against once the file regenerates."""
-    rows = sorted(
-        (j for j in store.values() if j.get("app_status")),
-        key=lambda j: j.get("app_status_date", ""),
-        reverse=True,
-    )
+TRACKER_STATUS_KEYS = ("applied", "oa", "interview", "rejected", "offer")
 
-    trs = []
-    for j in rows:
-        jid = _esc(j.get("id", ""))
-        loc = j.get("locations")
-        loc = ", ".join(loc) if isinstance(loc, list) else str(loc or "")
-        job_link = (f'<a href="{_esc(j["url"])}" target="_blank">Apply ↗</a>'
-                    if j.get("url") else "")
-        status = j.get("app_status", "")
-        resume_ver = os.path.basename(j["pdf_rel"]) if j.get("pdf_rel") else ""
-        date_applied = str(j.get("app_status_date", ""))[:10]
-        options = "".join(
-            f'<option value="{k}"{" selected" if k == status else ""}>{k}</option>'
-            for k in ("applied", "oa", "interview", "rejected", "offer")
-        )
-        trs.append(f"""<tr data-id="{jid}">
-  <td>{_esc(date_applied)}</td>
-  <td>{_esc(j.get('company', ''))}</td>
-  <td>{_esc(j.get('title', ''))}</td>
-  <td>{_esc(loc)}</td>
+
+def _mdy(iso_date):
+    """'YYYY-MM-DD' -> 'MM-DD-YYYY', or pass through unchanged if unparsable."""
+    try:
+        return datetime.datetime.strptime(iso_date, "%Y-%m-%d").strftime("%m-%d-%Y")
+    except (ValueError, TypeError):
+        return iso_date or ""
+
+
+def _normalize_store_tracker_row(j):
+    """Outlook-confirmed job_store entry -> the same normalized row shape
+    scripts/import_tracker_sheets.py produces for imported sheet rows, so
+    write_tracker_html can merge and sort both origins together."""
+    loc = j.get("locations")
+    loc = ", ".join(loc) if isinstance(loc, list) else str(loc or "")
+    date_sort = str(j.get("app_status_date", ""))[:10]
+    return {
+        "id": j.get("id", ""),
+        "date_sort": date_sort,
+        "date_display": _mdy(date_sort),
+        "company": j.get("company", ""),
+        "title": j.get("title", ""),
+        "location": loc,
+        "status": j.get("app_status", "applied"),
+        "url": j.get("url", ""),
+        "contact": "",
+        "resume_ver": os.path.basename(j["pdf_rel"]) if j.get("pdf_rel") else "",
+        "interview_dates": "",
+        "notes": "",
+    }
+
+
+def _tracker_row_html(row):
+    jid = _esc(row.get("id", ""))
+    job_link = (f'<a href="{_esc(row["url"])}" target="_blank">Apply ↗</a>'
+                if row.get("url") else "")
+    status = row.get("status") if row.get("status") in TRACKER_STATUS_KEYS else "applied"
+    options = "".join(
+        f'<option value="{k}"{" selected" if k == status else ""}>{k}</option>'
+        for k in TRACKER_STATUS_KEYS
+    )
+    return f"""<tr data-id="{jid}">
+  <td class="hide-col"><button type="button" class="hide-btn" data-id="{jid}"></button></td>
+  <td>{_esc(row.get('date_display', ''))}</td>
+  <td>{_esc(row.get('company', ''))}</td>
+  <td>{_esc(row.get('title', ''))}</td>
+  <td>{_esc(row.get('location', ''))}</td>
   <td><select class="editable-status" data-id="{jid}" data-field="status">{options}</select></td>
   <td>{job_link}</td>
-  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="contact"></td>
-  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="resume_ver">{_esc(resume_ver)}</td>
-  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="interview_dates"></td>
-  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="notes"></td>
-</tr>""")
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="contact">{_esc(row.get('contact', ''))}</td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="resume_ver">{_esc(row.get('resume_ver', ''))}</td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="interview_dates">{_esc(row.get('interview_dates', ''))}</td>
+  <td class="editable" contenteditable="true" data-placeholder="—" data-id="{jid}" data-field="notes">{_esc(row.get('notes', ''))}</td>
+</tr>"""
+
+
+def write_tracker_html(store, path, heading="Application Tracker", imports_path=None):
+    """Local, hand-editable tracker for jobs Outlook has confirmed an actual
+    interaction on (app_status set by scan_email_status.py), merged with
+    any pre-existing manually-tracked rows imported from Nate's Google
+    Sheets (scripts/import_tracker_sheets.py, written to imports_path) --
+    a lighter stand-in for a manually-kept spreadsheet.
+
+    Status/Contact Name/Resume Ver./Interview Dates/Notes are editable in
+    the browser and persisted to localStorage (keyed by row id + field), so
+    a pipeline re-run that regenerates this file doesn't wipe hand-entered
+    notes. Company/Role/Location/Date/Link are always the freshly-synced
+    values -- intentionally not editable, since there'd be nothing to
+    persist them against once the file regenerates. Every row also has a
+    hide/unhide toggle (localStorage-backed, not a delete) since imported
+    rows using company abbreviations (e.g. "db" for Databricks) can't
+    always be deduped against an Outlook-detected row automatically."""
+    rows = [_normalize_store_tracker_row(j) for j in store.values() if j.get("app_status")]
+    if imports_path and os.path.exists(imports_path):
+        with open(imports_path, encoding="utf-8") as f:
+            rows.extend(json.load(f))
+    rows.sort(key=lambda r: r.get("date_sort", ""), reverse=True)
+
+    trs = [_tracker_row_html(r) for r in rows]
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -372,19 +411,24 @@ def write_tracker_html(store, path, heading="Application Tracker"):
   td.editable {{ min-width: 100px; }}
   td.editable:focus {{ outline: 2px solid #2F5496; outline-offset: -2px; }}
   td.editable:empty::before {{ content: attr(data-placeholder); color: #bbb; }}
+  td.hide-col {{ width: 20px; text-align: center; padding: 2px; }}
+  .hide-btn {{ background: none; border: none; cursor: pointer; font-size: 14px; color: #bbb; width: 20px; }}
+  .hide-btn:hover {{ color: #c00; }}
+  tr.hidden-row {{ opacity: 0.4; background: #fafafa; }}
 </style>
 </head>
 <body>
 <h1>{_esc(heading)}</h1>
-<div class="meta">{len(rows)} job(s) with a confirmed Outlook interaction · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · Status/Contact/Resume Ver./Interview Dates/Notes are editable and saved in this browser <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button></div>
+<div class="meta">{len(rows)} job(s) tracked · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · Status/Contact/Resume Ver./Interview Dates/Notes are editable and saved in this browser · <label><input type="checkbox" id="show-hidden"> show hidden</label> <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button></div>
 <table>
-<tr><th>Date</th><th>Company</th><th>Role</th><th>Location</th><th>Status</th><th>Job</th>
+<tr><th></th><th>Date</th><th>Company</th><th>Role</th><th>Location</th><th>Status</th><th>Job</th>
 <th>Contact Name</th><th>Resume Ver.</th><th>Interview Dates</th><th>Notes</th></tr>
 {''.join(trs)}
 </table>
 <script>
 (function() {{
   var PREFIX = 'resumeTailorTrack:';
+  var HIDE_PREFIX = 'resumeTailorTrack:hidden:';
   var STATUS_COLORS = {{ offer: '#C6EFCE', interview: '#FFEB9C', oa: '#FFEB9C',
                           applied: '#DCE6F1', rejected: '#FFC7CE' }};
   function key(id, field) {{ return PREFIX + id + ':' + field; }}
@@ -407,6 +451,31 @@ def write_tracker_html(store, path, heading="Application Tracker"):
       recolor();
     }});
   }});
+
+  var showHidden = document.getElementById('show-hidden');
+  function applyHidden() {{
+    document.querySelectorAll('tr[data-id]').forEach(function(row) {{
+      var id = row.getAttribute('data-id');
+      var isHidden = localStorage.getItem(HIDE_PREFIX + id) === '1';
+      var btn = row.querySelector('.hide-btn');
+      if (btn) {{
+        btn.textContent = isHidden ? '↺' : '×';
+        btn.title = isHidden ? 'Unhide' : 'Hide this row';
+      }}
+      row.classList.toggle('hidden-row', isHidden);
+      row.style.display = (isHidden && !showHidden.checked) ? 'none' : '';
+    }});
+  }}
+  document.querySelectorAll('.hide-btn').forEach(function(btn) {{
+    btn.addEventListener('click', function() {{
+      var hideKey = HIDE_PREFIX + btn.dataset.id;
+      if (localStorage.getItem(hideKey) === '1') localStorage.removeItem(hideKey);
+      else localStorage.setItem(hideKey, '1');
+      applyHidden();
+    }});
+  }});
+  showHidden.addEventListener('change', applyHidden);
+  applyHidden();
 }})();
 </script>
 </body>
@@ -417,17 +486,18 @@ def write_tracker_html(store, path, heading="Application Tracker"):
 
 
 def write_outputs(store, sheet_path=SHEET_PATH, html_path=HTML_PATH, tracker_path=None,
-                   heading="Ranked Jobs", tc_display="annual"):
+                   imports_path=None, heading="Ranked Jobs", tc_display="annual"):
     """Writes the xlsx (portable snapshot), the auto-refreshing HTML
     dashboard (meant to be left open), and -- if tracker_path is given --
-    the hand-editable application tracker, all from the same store.
+    the hand-editable application tracker (merged with imports_path's
+    imported rows, if given), all from the same store.
 
     tc_display="hourly" formats Est. TC as a $/hr band instead of $Xk-$Yk --
     for the internship pipeline, whose estimates are hourly, not annual."""
     n = write_sheet(store, sheet_path, tc_display)
     write_html(store, html_path, heading, tc_display)
     if tracker_path:
-        write_tracker_html(store, tracker_path, f"{heading} — Application Tracker")
+        write_tracker_html(store, tracker_path, f"{heading} — Application Tracker", imports_path)
     return n
 
 

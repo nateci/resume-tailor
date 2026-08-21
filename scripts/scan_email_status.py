@@ -27,9 +27,11 @@ OL_MAIL_ITEM = 43  # olMailItem
 
 STORES = [
     ("output/job_store.json", "output/tailored_resumes.xlsx", "output/dashboard.html",
-     "output/applied_tracker.html", "Ranked Jobs", "annual"),
+     "output/applied_tracker.html", "output/tracker_imports_newgrad.json",
+     "Ranked Jobs", "annual"),
     ("output/intern_job_store.json", "output/intern_tailored_resumes.xlsx",
      "output/intern_dashboard.html", "output/intern_applied_tracker.html",
+     "output/tracker_imports_intern.json",
      "Ranked Internships (targeting Spring 2027)", "hourly"),
 ]
 
@@ -98,44 +100,46 @@ def main():
     sys.path.insert(0, os.path.dirname(__file__))
     from job_store import load_store, save_store, write_outputs
 
-    for store_path, sheet_path, html_path, tracker_path, heading, tc_display in STORES:
+    for store_path, sheet_path, html_path, tracker_path, imports_path, heading, tc_display in STORES:
         store = load_store(store_path)
         tailored = {jid: j for jid, j in store.items() if j.get("status") == "tailored"}
-        if not tailored:
-            print(f"{store_path}: no tailored jobs yet, skipping", file=sys.stderr)
-            continue
-
-        by_company = {}
-        for jid, j in tailored.items():
-            by_company.setdefault(j["company"].lower(), []).append(jid)
-
         matched_jobs = set()
-        # Messages arrive newest-first, so the first hit per job is already
-        # the most recent applicable email -- once a job has an app_status
-        # this run, later (older) messages about it are ignored.
-        for m in messages:
-            haystack = f"{m['subject']} {m['sender_name']} {m['sender_address']}".lower()
-            company_hit = next((c for c in by_company if c in haystack), None)
-            if not company_hit:
-                continue
-            status = classify(f"{m['subject']} {m['body'][:2000]}")
-            if not status:
-                continue
 
-            for jid in by_company[company_hit]:
-                if jid in matched_jobs:
+        if not tailored:
+            print(f"{store_path}: no tailored jobs yet, nothing to match against", file=sys.stderr)
+        else:
+            by_company = {}
+            for jid, j in tailored.items():
+                by_company.setdefault(j["company"].lower(), []).append(jid)
+
+            # Messages arrive newest-first, so the first hit per job is
+            # already the most recent applicable email -- once a job has an
+            # app_status this run, later (older) messages about it are ignored.
+            for m in messages:
+                haystack = f"{m['subject']} {m['sender_name']} {m['sender_address']}".lower()
+                company_hit = next((c for c in by_company if c in haystack), None)
+                if not company_hit:
                     continue
-                store[jid]["app_status"] = status
-                store[jid]["app_status_date"] = str(m["received"])
-                matched_jobs.add(jid)
+                status = classify(f"{m['subject']} {m['body'][:2000]}")
+                if not status:
+                    continue
 
-        if matched_jobs:
-            save_store(store, store_path)
-        # Always regenerate the tracker even with 0 new matches this run --
-        # earlier runs' app_status may already be there and the tracker
-        # file might not exist yet.
+                for jid in by_company[company_hit]:
+                    if jid in matched_jobs:
+                        continue
+                    store[jid]["app_status"] = status
+                    store[jid]["app_status_date"] = str(m["received"])
+                    matched_jobs.add(jid)
+
+            if matched_jobs:
+                save_store(store, store_path)
+
+        # Always regenerate the tracker, even with 0 new matches this run --
+        # earlier runs' app_status, or imported sheet rows, may already be
+        # there and the tracker file might not exist yet.
         write_outputs(store, sheet_path=sheet_path, html_path=html_path,
-                      tracker_path=tracker_path, heading=heading, tc_display=tc_display)
+                      tracker_path=tracker_path, imports_path=imports_path,
+                      heading=heading, tc_display=tc_display)
         print(f"{store_path}: {len(matched_jobs)} job(s) tagged with an app_status",
               file=sys.stderr)
 
