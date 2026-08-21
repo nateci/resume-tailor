@@ -42,6 +42,11 @@ SKIP_TITLE_KEYWORDS = (
     "program manager", "designer", "ux ", "ui ", "recruiter", "sales",
     "marketing", "clearance", "quant",  # quant excluded per SWE+Data/AI scope
 )
+# Companies to skip outright, regardless of title -- e.g. hit the yearly
+# application cap with that org (TikTok + ByteDance are the same umbrella).
+SKIP_COMPANY_KEYWORDS = (
+    "tiktok", "bytedance",
+)
 
 
 def http_get(url, headers=None, timeout=30):
@@ -91,6 +96,9 @@ def is_fulltime(job):
 
 
 def wanted(job):
+    company = str(get(job, "company_name", "company")).lower()
+    if any(k in company for k in SKIP_COMPANY_KEYWORDS):
+        return False
     title = str(get(job, "title", "role", "position")).lower()
     if any(k in title for k in SKIP_TITLE_KEYWORDS):
         return False

@@ -20,7 +20,6 @@ from openpyxl.utils import get_column_letter
 STORE_PATH = "output/job_store.json"
 SHEET_PATH = "output/tailored_resumes.xlsx"
 HTML_PATH = "output/dashboard.html"
-HTML_REFRESH_SECONDS = 20
 STORE_LOCK_PATH = "output/.store.lock"
 STORE_LOCK_TIMEOUT_SECONDS = 30
 STORE_LOCK_POLL_SECONDS = 0.2
@@ -218,12 +217,14 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="{HTML_REFRESH_SECONDS}">
 <title>Resume Tailor — {_esc(heading)}</title>
 <style>
   body {{ font-family: -apple-system, "Segoe UI", Arial, sans-serif; margin: 24px; background: #fafafa; }}
   h1 {{ font-size: 18px; color: #333; margin-bottom: 4px; }}
   .meta {{ color: #777; font-size: 13px; margin-bottom: 14px; }}
+  .refresh-btn {{ background: #2F5496; color: #fff; border: none; border-radius: 4px;
+    padding: 4px 10px; font-size: 13px; cursor: pointer; margin-left: 8px; }}
+  .refresh-btn:hover {{ background: #244275; }}
   table {{ border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }}
   th, td {{ border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }}
   th {{ background: #2F5496; color: #fff; position: sticky; top: 0; }}
@@ -235,7 +236,7 @@ def write_html(store, path=HTML_PATH, heading="Ranked Jobs", tc_display="annual"
 </head>
 <body>
 <h1>{_esc(heading)}</h1>
-<div class="meta">{len(rows)} jobs · auto-refreshes every {HTML_REFRESH_SECONDS}s · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · check "Applied" to sink a row to the bottom (kept, never deleted)</div>
+<div class="meta">{len(rows)} jobs · generated {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')} · check "Applied" to sink a row to the bottom (kept, never deleted) <button class="refresh-btn" onclick="location.reload()">⟳ Refresh</button></div>
 <table>
 <tr><th>Rank</th><th>Fit</th><th>Est. TC</th><th>Company</th><th>Role</th><th>Location</th>
 <th>Likely 2027?</th><th>Fit Reason</th><th>Status</th><th>Job</th><th>Resume</th><th>Comp</th><th>Scored</th><th>Applied</th></tr>
