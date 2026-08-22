@@ -18,6 +18,10 @@ Sheet company abbreviations that don't match a full job_store company name
 (e.g. "db" for Databricks, "spcx" for SpaceX) won't be caught by this and
 may show up as a near-duplicate row -- use the tracker HTML's per-row hide
 button to clean those up by hand.
+
+Rows dated before CUTOFF_DATE are dropped outright -- last semester's
+search is over, so old sheet rows shouldn't resurface in the current
+tracker.
 """
 import csv
 import datetime
@@ -28,13 +32,17 @@ import os
 import sys
 import urllib.request
 
+CUTOFF_DATE = "2026-06-01"  # ISO date string; compares fine against date_sort's YYYY-MM-DD
+
 SHEETS = [
     ("https://docs.google.com/spreadsheets/d/1FDzGjGS_zBUhw0wJm7LKGwljnNj307rr/export?format=csv&gid=241096095",
      "output/job_store.json", "output/tracker_imports_newgrad.json",
+     "output/tracker_auto_newgrad.json",
      "output/tailored_resumes.xlsx", "output/dashboard.html", "output/applied_tracker.html",
      "Ranked Jobs", "annual"),
     ("https://docs.google.com/spreadsheets/d/1-frWgpVCAdyPt-3fNC7LWVTX5EhInAXi/export?format=csv&gid=241096095",
      "output/intern_job_store.json", "output/tracker_imports_intern.json",
+     "output/tracker_auto_intern.json",
      "output/intern_tailored_resumes.xlsx", "output/intern_dashboard.html",
      "output/intern_applied_tracker.html",
      "Ranked Internships (targeting Spring 2027)", "hourly"),
@@ -90,6 +98,9 @@ def build_rows(csv_rows):
         if not company:
             continue
         date_display = col(r, "Date Applied")
+        date_sort = mdy_to_sort(date_display)
+        if date_sort and date_sort < CUTOFF_DATE:
+            continue  # last semester's search -- don't resurface it
         status, orig_status = map_status(col(r, "Status"))
         notes = col(r, "Notes")
         if orig_status and orig_status.strip().lower() != status:
@@ -101,7 +112,7 @@ def build_rows(csv_rows):
             f"{company}|{col(r, 'Role / Title')}|{date_display}".encode("utf-8")).hexdigest()[:16]
         rows.append({
             "id": row_id,
-            "date_sort": mdy_to_sort(date_display),
+            "date_sort": date_sort,
             "date_display": date_display,
             "company": company,
             "title": col(r, "Role / Title"),
@@ -146,7 +157,7 @@ def main():
     sys.path.insert(0, os.path.dirname(__file__))
     from job_store import load_store, write_outputs
 
-    for (csv_url, store_path, imports_path, sheet_path, html_path, tracker_path,
+    for (csv_url, store_path, imports_path, auto_path, sheet_path, html_path, tracker_path,
          heading, tc_display) in SHEETS:
         print(f"Fetching {csv_url}", file=sys.stderr)
         csv_rows = fetch_csv(csv_url)
@@ -163,7 +174,7 @@ def main():
 
         write_outputs(store, sheet_path=sheet_path, html_path=html_path,
                       tracker_path=tracker_path, imports_path=imports_path,
-                      heading=heading, tc_display=tc_display)
+                      auto_path=auto_path, heading=heading, tc_display=tc_display)
 
 
 if __name__ == "__main__":

@@ -49,7 +49,8 @@
     "date_scored": "2026-08-12",
     "date_tailored": "2026-08-12",
     "app_status": "applied",
-    "app_status_date": "2026-08-19 18:14:17.145000+00:00"
+    "app_status_date": "2026-08-19 18:14:17.145000+00:00",
+    "applied": true
   },
   "12b0c4cc-55d1-42fd-a6ad-d544d2b42999": {
     "id": "12b0c4cc-55d1-42fd-a6ad-d544d2b42999",
@@ -1190,7 +1191,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-12",
     "app_status": "applied",
-    "app_status_date": "2026-08-12 22:05:17.615000+00:00"
+    "app_status_date": "2026-08-12 22:05:17.615000+00:00",
+    "applied": true
   },
   "63fc30c3-4d13-40bc-8488-b39b2dc59b9e": {
     "id": "63fc30c3-4d13-40bc-8488-b39b2dc59b9e",
@@ -3394,7 +3396,8 @@
     "date_scored": "2026-08-13",
     "date_tailored": "2026-08-19",
     "app_status": "applied",
-    "app_status_date": "2026-08-19 19:11:45.049000+00:00"
+    "app_status_date": "2026-08-19 19:11:45.049000+00:00",
+    "applied": true
   },
   "7de9e033-61b2-4879-8e8f-2fc4907c40b7": {
     "id": "7de9e033-61b2-4879-8e8f-2fc4907c40b7",
@@ -5391,7 +5394,8 @@
     "date_scored": "2026-08-15",
     "date_tailored": "2026-08-16",
     "app_status": "applied",
-    "app_status_date": "2026-08-21 16:33:15.161000+00:00"
+    "app_status_date": "2026-08-21 16:33:15.161000+00:00",
+    "applied": true
   },
   "0e79e8bc-db11-456f-97e4-54fea42c6715": {
     "id": "0e79e8bc-db11-456f-97e4-54fea42c6715",
@@ -5418,7 +5422,8 @@
     "date_scored": "2026-08-15",
     "date_tailored": "2026-08-16",
     "app_status": "applied",
-    "app_status_date": "2026-08-21 16:33:15.161000+00:00"
+    "app_status_date": "2026-08-21 16:33:15.161000+00:00",
+    "applied": true
   },
   "0cdf7557-d561-4d9a-ae10-243323bde8c4": {
     "id": "0cdf7557-d561-4d9a-ae10-243323bde8c4",
@@ -5599,7 +5604,8 @@
     "date_scored": "2026-08-15",
     "date_tailored": "2026-08-16",
     "app_status": "applied",
-    "app_status_date": "2026-08-21 16:33:15.161000+00:00"
+    "app_status_date": "2026-08-21 16:33:15.161000+00:00",
+    "applied": true
   },
   "e1e46d1c-0205-405e-8063-32075566d4d4": {
     "id": "e1e46d1c-0205-405e-8063-32075566d4d4",
@@ -6452,7 +6458,8 @@
     "date_scored": "2026-08-15",
     "date_tailored": "2026-08-19",
     "app_status": "applied",
-    "app_status_date": "2026-08-19 18:33:20.083000+00:00"
+    "app_status_date": "2026-08-19 18:33:20.083000+00:00",
+    "applied": true
   },
   "4ac72dac-062c-4ad9-94fb-8bd0961f1d95": {
     "id": "4ac72dac-062c-4ad9-94fb-8bd0961f1d95",
@@ -6698,7 +6705,8 @@
     "date_scored": "2026-08-15",
     "date_tailored": "2026-08-19",
     "app_status": "rejected",
-    "app_status_date": "2026-08-21 12:09:38.737000+00:00"
+    "app_status_date": "2026-08-21 12:09:38.737000+00:00",
+    "applied": true
   },
   "5e2b041d-3b5b-414f-8491-242be06bf425": {
     "id": "5e2b041d-3b5b-414f-8491-242be06bf425",
@@ -7061,7 +7069,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-16",
     "app_status": "applied",
-    "app_status_date": "2026-08-16 12:04:35.555000+00:00"
+    "app_status_date": "2026-08-16 12:04:35.555000+00:00",
+    "applied": true
   },
   "manual:b2983ebc9fbc": {
     "id": "manual:b2983ebc9fbc",
@@ -7088,7 +7097,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-17",
     "app_status": "applied",
-    "app_status_date": "2026-08-17 21:10:30.252000+00:00"
+    "app_status_date": "2026-08-17 21:10:30.252000+00:00",
+    "applied": true
   },
   "manual:4f6b09411848": {
     "id": "manual:4f6b09411848",
@@ -7115,7 +7125,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-17",
     "app_status": "rejected",
-    "app_status_date": "2026-08-19 21:25:17.897000+00:00"
+    "app_status_date": "2026-08-19 21:25:17.897000+00:00",
+    "applied": true
   },
   "manual:2af2aefee09f": {
     "id": "manual:2af2aefee09f",
@@ -7142,7 +7153,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-17",
     "app_status": "oa",
-    "app_status_date": "2026-08-17 23:41:16.403000+00:00"
+    "app_status_date": "2026-08-17 23:41:16.403000+00:00",
+    "applied": true
   },
   "manual:8ae0aae740a4": {
     "id": "manual:8ae0aae740a4",
@@ -7169,7 +7181,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-18",
     "app_status": "applied",
-    "app_status_date": "2026-08-18 20:38:08.260000+00:00"
+    "app_status_date": "2026-08-18 20:38:08.260000+00:00",
+    "applied": true
   },
   "eec96d34-d4a6-4af6-9f82-2effad6f2f33": {
     "id": "eec96d34-d4a6-4af6-9f82-2effad6f2f33",
@@ -9903,7 +9916,8 @@
     "date_scored": "2026-08-19",
     "date_tailored": "2026-08-19",
     "app_status": "rejected",
-    "app_status_date": "2026-08-19 19:22:09.203000+00:00"
+    "app_status_date": "2026-08-19 19:22:09.203000+00:00",
+    "applied": true
   },
   "7162223f-d901-4fff-b611-efabc6e5abce": {
     "id": "7162223f-d901-4fff-b611-efabc6e5abce",
@@ -10657,7 +10671,10 @@
     "status": "tailored",
     "pdf_rel": "pdfs/Point72_Software_Developer_Developers_a00cd4.pdf",
     "date_scored": "2026-08-19",
-    "date_tailored": "2026-08-19"
+    "date_tailored": "2026-08-19",
+    "applied": true,
+    "app_status": "applied",
+    "app_status_date": "2026-08-19 18:54:16.116000+00:00"
   },
   "14a90f50-6be6-4afd-8fb8-e8de804afe10": {
     "id": "14a90f50-6be6-4afd-8fb8-e8de804afe10",
@@ -10827,7 +10844,8 @@
     "status": "tailored",
     "date_tailored": "2026-08-19",
     "app_status": "interview",
-    "app_status_date": "2026-08-19 18:47:53.105000+00:00"
+    "app_status_date": "2026-08-19 18:47:53.105000+00:00",
+    "applied": true
   },
   "ac56ab22-4e58-404f-bd27-334854dd766c": {
     "id": "ac56ab22-4e58-404f-bd27-334854dd766c",

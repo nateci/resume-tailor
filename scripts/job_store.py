@@ -367,11 +367,14 @@ def _tracker_row_html(row):
 </tr>"""
 
 
-def write_tracker_html(store, path, heading="Application Tracker", imports_path=None):
+def write_tracker_html(store, path, heading="Application Tracker", imports_path=None,
+                        auto_path=None):
     """Local, hand-editable tracker for jobs Outlook has confirmed an actual
     interaction on (app_status set by scan_email_status.py), merged with
     any pre-existing manually-tracked rows imported from Nate's Google
-    Sheets (scripts/import_tracker_sheets.py, written to imports_path) --
+    Sheets (scripts/import_tracker_sheets.py, written to imports_path) and
+    any companies scan_email_status.py auto-detected straight from an
+    email that don't correspond to a job_store entry at all (auto_path) --
     a lighter stand-in for a manually-kept spreadsheet.
 
     Status/Contact Name/Resume Ver./Interview Dates/Notes are editable in
@@ -380,13 +383,14 @@ def write_tracker_html(store, path, heading="Application Tracker", imports_path=
     notes. Company/Role/Location/Date/Link are always the freshly-synced
     values -- intentionally not editable, since there'd be nothing to
     persist them against once the file regenerates. Every row also has a
-    hide/unhide toggle (localStorage-backed, not a delete) since imported
-    rows using company abbreviations (e.g. "db" for Databricks) can't
-    always be deduped against an Outlook-detected row automatically."""
+    hide/unhide toggle (localStorage-backed, not a delete) since imported/
+    auto-detected rows can't always be deduped against an existing row
+    automatically (e.g. company abbreviations like "db" for Databricks)."""
     rows = [_normalize_store_tracker_row(j) for j in store.values() if j.get("app_status")]
-    if imports_path and os.path.exists(imports_path):
-        with open(imports_path, encoding="utf-8") as f:
-            rows.extend(json.load(f))
+    for extra_path in (imports_path, auto_path):
+        if extra_path and os.path.exists(extra_path):
+            with open(extra_path, encoding="utf-8") as f:
+                rows.extend(json.load(f))
     rows.sort(key=lambda r: r.get("date_sort", ""), reverse=True)
 
     trs = [_tracker_row_html(r) for r in rows]
@@ -515,18 +519,20 @@ def write_tracker_html(store, path, heading="Application Tracker", imports_path=
 
 
 def write_outputs(store, sheet_path=SHEET_PATH, html_path=HTML_PATH, tracker_path=None,
-                   imports_path=None, heading="Ranked Jobs", tc_display="annual"):
+                   imports_path=None, auto_path=None, heading="Ranked Jobs", tc_display="annual"):
     """Writes the xlsx (portable snapshot), the auto-refreshing HTML
     dashboard (meant to be left open), and -- if tracker_path is given --
     the hand-editable application tracker (merged with imports_path's
-    imported rows, if given), all from the same store.
+    Sheets-imported rows and auto_path's email-only-detected rows, if
+    given), all from the same store.
 
     tc_display="hourly" formats Est. TC as a $/hr band instead of $Xk-$Yk --
     for the internship pipeline, whose estimates are hourly, not annual."""
     n = write_sheet(store, sheet_path, tc_display)
     write_html(store, html_path, heading, tc_display)
     if tracker_path:
-        write_tracker_html(store, tracker_path, f"{heading} — Application Tracker", imports_path)
+        write_tracker_html(store, tracker_path, f"{heading} — Application Tracker",
+                            imports_path, auto_path)
     return n
 
 

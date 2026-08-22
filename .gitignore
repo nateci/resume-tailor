@@ -19,4 +19,6 @@ output/applied_tracker.html
 output/intern_applied_tracker.html
 output/tracker_imports_newgrad.json
 output/tracker_imports_intern.json
+output/tracker_auto_newgrad.json
+output/tracker_auto_intern.json
 .last_email_scan
