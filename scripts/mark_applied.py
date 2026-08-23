@@ -12,9 +12,10 @@ Usage:
   python scripts/mark_applied.py truveta --intern
   python scripts/mark_applied.py truveta --title "live link"   (narrow to one posting)
 
-Multiple postings at the same company all get marked by default (stacking
-by company, same as everything else this pipeline tracks) -- pass --title
-if a specific one needs picking out instead.
+One tracked entry per company, not one per near-duplicate posting -- if a
+company has several job_store rows (feed duplicates, or genuinely
+different roles), only the first match gets marked; the rest are left
+alone. Pass --title to pick a specific one instead of the first.
 """
 import argparse
 import sys
@@ -44,10 +45,13 @@ def main():
     if not matches:
         sys.exit(f"No job found matching company={args.company!r} title={args.title!r} in {store_path}")
 
-    for jid, j in matches:
-        j["applied"] = True
-        print(f"Marked applied: {j['company']} | {j['title']}", file=sys.stderr)
+    jid, j = matches[0]
+    j["applied"] = True
     save_store(store, store_path)
+    print(f"Marked applied: {j['company']} | {j['title']}", file=sys.stderr)
+    if len(matches) > 1:
+        print(f"({len(matches)} postings matched -- left the other {len(matches) - 1} alone; "
+              f"pass --title to pick a different one instead)", file=sys.stderr)
     print("Run scripts/scan_email_status.py (or click Update) to pick up its confirmation email.",
           file=sys.stderr)
 

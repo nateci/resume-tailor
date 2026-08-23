@@ -5420,10 +5420,7 @@
     "status": "tailored",
     "pdf_rel": "pdfs/SpaceX_Software_Engineer_New_Grad_Software_Starlin_5e492a.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-16",
-    "app_status": "applied",
-    "app_status_date": "2026-08-21 16:33:15.161000+00:00",
-    "applied": true
+    "date_tailored": "2026-08-16"
   },
   "0cdf7557-d561-4d9a-ae10-243323bde8c4": {
     "id": "0cdf7557-d561-4d9a-ae10-243323bde8c4",
@@ -5602,10 +5599,7 @@
     "status": "tailored",
     "pdf_rel": "pdfs/SpaceX_Software_Engineer_New_Grad_Software_Starlin_df510c.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-16",
-    "app_status": "applied",
-    "app_status_date": "2026-08-21 16:33:15.161000+00:00",
-    "applied": true
+    "date_tailored": "2026-08-16"
   },
   "e1e46d1c-0205-405e-8063-32075566d4d4": {
     "id": "e1e46d1c-0205-405e-8063-32075566d4d4",
@@ -7571,10 +7565,7 @@
     "tc_basis": "The posting itself discloses starting pay of $137,500 (cash + RSU) in Pleasanton plus a $20,000 starting bonus, so year-one TC lands near ~$157.5k and steady-state near ~$137.5k. Band reflects that disclosed range rather than inference; Veeva is a large public SaaS company that pays above typical enterprise-software new-grad levels but below top-tier tech/HFT. Above the ~$130k target anchor.",
     "status": "scored",
     "pdf_rel": "",
-    "date_scored": "2026-08-19",
-    "applied": true,
-    "app_status": "oa_done",
-    "app_status_date": "2026-08-23 14:31:52.805905"
+    "date_scored": "2026-08-19"
   },
   "d3bdb070-74f3-4fe0-ad6a-508f9dc3d75a": {
     "id": "d3bdb070-74f3-4fe0-ad6a-508f9dc3d75a",
@@ -7598,10 +7589,7 @@
     "tc_basis": "Posting states starting pay of $125,000 (cash + RSU) in Boston plus a $20,000 signing bonus, so first-year TC lands ~$145K and steady-state ~$125\u2013135K once the one-time bonus drops off. Veeva is a profitable mid-cap enterprise SaaS company that pays solid-but-not-top-tier new-grad comp with modest annual bonus/RSU refresh, so this band is well-anchored by the disclosed number rather than inference.",
     "status": "scored",
     "pdf_rel": "",
-    "date_scored": "2026-08-19",
-    "applied": true,
-    "app_status": "oa_done",
-    "app_status_date": "2026-08-23 14:31:52.805905"
+    "date_scored": "2026-08-19"
   },
   "ff10df50-35b8-47c4-8138-ff9083746abf": {
     "id": "ff10df50-35b8-47c4-8138-ff9083746abf",
@@ -7625,10 +7613,7 @@
     "tc_basis": "Posting states $125,000 CAD starting pay (cash + RSU) plus a $20,000 CAD sign-on for Toronto. At ~0.72 CAD/USD that is ~$90K USD steady-state, with year-one reaching ~$105K USD including the bonus. Consistent with Veeva's mid-tier enterprise-SaaS new-grad banding and the Toronto market discount versus US metros.",
     "status": "scored",
     "pdf_rel": "",
-    "date_scored": "2026-08-19",
-    "applied": true,
-    "app_status": "oa_done",
-    "app_status_date": "2026-08-23 14:31:52.805905"
+    "date_scored": "2026-08-19"
   },
   "ebecfe1f-3890-4cf8-8663-d7b118197e24": {
     "id": "ebecfe1f-3890-4cf8-8663-d7b118197e24",

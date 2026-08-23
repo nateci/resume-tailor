@@ -129,6 +129,14 @@ COMPANY_SUBJECT_PATTERNS = [
     r"assessment submitted for (?P<c>[^|,!.]+)",
 ]
 
+# Assessment vendors whose mail is fully white-labeled (no employer name
+# anywhere in subject or body) but are known, from confirming by hand, to
+# belong to one specific company -- generic extraction can never recover
+# this on its own, so it's hardcoded once it's known.
+KNOWN_VENDOR_DOMAINS = {
+    "rembrandtadvantage.com": "Veeva",
+}
+
 GENERIC_SENDER_NAMES = {
     "greenhouse", "lever", "workday", "coderbyte", "ashby", "ashbyhq",
     "bamboohr", "smartrecruiters", "taleo", "jobvite", "icims", "pinpoint",
@@ -215,8 +223,17 @@ def _company_from_domain(sender_address):
     return label.capitalize()
 
 
+def _company_from_known_vendor(sender_address):
+    domain = (sender_address or "").split("@")[-1].lower()
+    for vendor_domain, company in KNOWN_VENDOR_DOMAINS.items():
+        if domain == vendor_domain or domain.endswith("." + vendor_domain):
+            return company
+    return None
+
+
 def extract_company(subject, sender_name, sender_address):
     return (_company_from_subject(subject)
+            or _company_from_known_vendor(sender_address)
             or _company_from_sender_name(sender_name, sender_address)
             or _company_from_domain(sender_address))
 
@@ -395,15 +412,19 @@ def main():
         if hit:
             store_path, jids = hit
             matched_ids.add(id(m))
-            new_jids = [jid for jid in jids if jid not in updated_jids]
-            if not new_jids:
-                continue  # every job for this company already got a newer status this run
-            for jid in new_jids:
-                job = stores[store_path][jid]
-                job["applied"] = True
-                job["app_status"] = status
-                job["app_status_date"] = str(m["received"])
-                updated_jids.add(jid)
+            # One tracked entry per company, not one per near-duplicate
+            # posting -- if a company has several job_store rows (feed
+            # duplicates, or genuinely different roles), only the first is
+            # ever updated. Once it's set this run, later (older) messages
+            # about the same company are skipped, same as before.
+            jid = jids[0]
+            if jid in updated_jids:
+                continue
+            job = stores[store_path][jid]
+            job["applied"] = True
+            job["app_status"] = status
+            job["app_status_date"] = str(m["received"])
+            updated_jids.add(jid)
             dirty.add(store_path)
             tagged_counts[store_path] += 1
 
