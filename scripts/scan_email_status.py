@@ -74,17 +74,24 @@ STORES = [
 
 # Checked in this priority order (offer/rejected are the most unambiguous
 # signals, so they're checked before the vaguer interview/OA/applied ones).
+# Deliberately avoid single common words here (bare "interview",
+# "unfortunately") -- those matched newsletters, university digests, and a
+# security newsletter's article titles in testing. Every phrase below is
+# specific enough that it's very unlikely to appear outside a real
+# application-lifecycle email.
 OFFER_KW = ("pleased to offer", "excited to offer", "extend an offer",
             "offer letter", "offer of employment")
 REJECT_KW = ("regret to inform", "not moving forward", "will not be moving forward",
              "decided not to move forward", "other candidates", "position has been filled",
-             "not selected", "unfortunately")
+             "not selected")
 OA_KW = ("online assessment", "coding challenge", "coding assessment", "hackerrank",
          "codesignal", "karat", "assessment invite", "complete the assessment",
          "invites you to take an assessment", "invitation for assessments",
          "assessment invitation")
-INTERVIEW_KW = ("interview", "technical screen", "phone screen", "schedule a call",
-                "schedule a time", "move forward with your application")
+INTERVIEW_KW = ("invite you to interview", "invited to interview", "would like to interview",
+                 "schedule your interview", "advance to the interview", "interview invitation",
+                 "prepare for your interview", "technical screen", "phone screen",
+                 "schedule a call", "schedule a time", "move forward with your application")
 APPLIED_KW = ("thank you for applying", "thank you for your application",
               "application received", "successfully applied", "successfully submitted",
               "received your application", "thanks for your interest",
@@ -107,6 +114,7 @@ COMPANY_SUBJECT_PATTERNS = [
     r"^your (?P<c>[^|,!.]+) application\b",
     r"^(?P<c>[^|,!.]+) application confirmation\b",
     r"^(?P<c>[^|,!.]+) application update\b",
+    r"^(?P<c>[^|,!.]+) application\s*[:\-]",
     r"^(?P<c>[^|,!.]+)\s*-\s*in response to your application",
     r"^(?P<c>[^|,!.]+)\s*-\s*assessment invitation",
     r"^your application to (?P<c>[^|,!.]+)\s*$",
@@ -125,9 +133,11 @@ GENERIC_ATS_DOMAINS = {
     "icims.com", "bamboohr.com", "app.bamboohr.com", "smartrecruiters.com",
     "taleo.net", "jobvite.com", "coderbyte.com", "pinpoint.email",
     "successfactors.com", "ultipro.com", "breezy.hr",
+    "symplicity.com",  # university career-portal weekly job-digest bulk mail
+    "hackerrankmail.com",  # HackerRank's own marketing mail, not an OA invite
 }
-DOMAIN_STRIP_LABELS = ("careers", "jobs", "talent", "email", "notifications",
-                        "no-reply", "noreply", "recruiting", "hr")
+DOMAIN_STRIP_LABELS = ("careers", "jobs", "talent", "email", "mail", "notifications",
+                        "no-reply", "noreply", "recruiting", "hr", "postmaster")
 
 
 def classify(text):
@@ -171,6 +181,11 @@ def _company_from_sender_name(sender_name, sender_address):
     n = re.sub(r"\s*(talent acquisition|recruiting team|hiring team|careers|talent|hr|assessments?|notifications?)\s*$",
                "", n, flags=re.I).strip()
     if len(n) < 2 or n.lower() in GENERIC_SENDER_NAMES:
+        return None
+    # A recruiter emailing directly (not through an ATS) shows their own
+    # name as the sender -- that's a real person, not the company, and the
+    # domain (handled by the caller's fallback) gives the real answer instead.
+    if re.match(r"^[A-Z][a-zA-Z'-]+\s+[A-Z][a-zA-Z'-]+$", n):
         return None
     return n
 
@@ -252,28 +267,65 @@ def auto_row_key(company):
     return "auto:" + hashlib.md5(company.lower().encode("utf-8")).hexdigest()[:16]
 
 
-def upsert_auto_row(path, company, status, received, url=None):
-    rows = {}
-    if os.path.exists(path):
-        with open(path, encoding="utf-8") as f:
-            rows = {r["id"]: r for r in json.load(f)}
-    key = auto_row_key(company)
+# Different emails about the SAME application often phrase the company name
+# differently ("Optiver" vs "Optiver Assessments", "Anduril" vs "Anduril
+# Industries") -- stripping these common corporate/ATS suffixes before
+# comparing normalizes most of that away, so updates stack onto one row
+# instead of fragmenting into several ("stacking via company is fine").
+CORP_SUFFIX_RE = re.compile(
+    r"\s*,?\s*(industries|incorporated|inc\.?|llc|corp\.?|corporation|group|"
+    r"company|systems|technologies|technology|labs|laboratories|"
+    r"assessments?|notifications?|careers?|talent|recruiting|hr)\.?\s*$",
+    re.IGNORECASE)
+
+
+def normalize_company(company):
+    c = (company or "").strip()
+    prev = None
+    while prev != c:
+        prev = c
+        c = CORP_SUFFIX_RE.sub("", c).strip()
+    return re.sub(r"[^a-z0-9]", "", c.lower())
+
+
+def find_existing_auto_key(rows, company):
+    target = normalize_company(company)
+    if not target:
+        return None
+    for key, row in rows.items():
+        if normalize_company(row.get("company", "")) == target:
+            return key
+    return None
+
+
+def build_auto_row(existing, company, status, received, url=None):
+    existing = existing or {}
     date_sort = str(received)[:10]
-    rows[key] = {
-        "id": key,
+    return {
+        "id": existing.get("id") or auto_row_key(company),
         "date_sort": date_sort,
         "date_display": datetime.datetime.strptime(date_sort, "%Y-%m-%d").strftime("%m-%d-%Y")
                          if date_sort else "",
-        "company": company,
-        "title": rows.get(key, {}).get("title", ""),
-        "location": rows.get(key, {}).get("location", ""),
+        "company": existing.get("company") or company,  # keep the first-seen display name
+        "title": existing.get("title", ""),
+        "location": existing.get("location", ""),
         "status": status,
-        "url": url or rows.get(key, {}).get("url", ""),
-        "contact": rows.get(key, {}).get("contact", ""),
-        "resume_ver": rows.get(key, {}).get("resume_ver", ""),
-        "interview_dates": rows.get(key, {}).get("interview_dates", ""),
-        "notes": rows.get(key, {}).get("notes", ""),
+        "url": url or existing.get("url", ""),
+        "contact": existing.get("contact", ""),
+        "resume_ver": existing.get("resume_ver", ""),
+        "interview_dates": existing.get("interview_dates", ""),
+        "notes": existing.get("notes", ""),
     }
+
+
+def load_auto_rows(path):
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            return {r["id"]: r for r in json.load(f)}
+    return {}
+
+
+def save_auto_rows(path, rows):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(list(rows.values()), f, indent=2)
 
@@ -346,6 +398,9 @@ def main():
             dirty.add(store_path)
             tagged_counts[store_path] += 1
 
+    auto_rows = {STORES[0][5]: load_auto_rows(STORES[0][5]),
+                 STORES[1][5]: load_auto_rows(STORES[1][5])}
+    auto_dirty = set()
     unmatched = []
     updated_auto_keys = set()  # same newest-first "first hit wins" concern as updated_jids
     for m in messages:
@@ -359,15 +414,22 @@ def main():
         if not company:
             unmatched.append(m["subject"])
             continue
-        key = auto_row_key(company)
-        if key in updated_auto_keys:
-            continue
         is_intern = guess_intern(m["subject"], m["body"])
         target_store = STORES[1] if is_intern else STORES[0]
         auto_path = target_store[5]
-        upsert_auto_row(auto_path, company, status, m["received"])
-        updated_auto_keys.add(key)
+        rows = auto_rows[auto_path]
+
+        key = find_existing_auto_key(rows, company)
+        if key and key in updated_auto_keys:
+            continue  # already got a newer status this run
+        row = build_auto_row(rows.get(key), company, status, m["received"])
+        rows[row["id"]] = row
+        updated_auto_keys.add(row["id"])
+        auto_dirty.add(auto_path)
         tagged_counts[target_store[0]] += 1
+
+    for auto_path in auto_dirty:
+        save_auto_rows(auto_path, auto_rows[auto_path])
 
     for store_path in dirty:
         save_store(stores[store_path], store_path)
