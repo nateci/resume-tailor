@@ -174,7 +174,7 @@ def _fit_color(v):
 
 
 APP_STATUS_COLORS = {
-    "offer": "C6EFCE", "interview": "FFEB9C", "oa": "FFEB9C",
+    "offer": "C6EFCE", "interview": "FFEB9C", "oa": "FFEB9C", "oa_done": "FFD966",
     "applied": "DCE6F1", "rejected": "FFC7CE",
 }
 

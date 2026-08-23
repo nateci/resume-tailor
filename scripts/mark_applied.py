@@ -10,7 +10,11 @@ though a real confirmation email is sitting right there in the inbox.
 Usage:
   python scripts/mark_applied.py truveta
   python scripts/mark_applied.py truveta --intern
-  python scripts/mark_applied.py truveta --title "live link"   (disambiguate multiple postings)
+  python scripts/mark_applied.py truveta --title "live link"   (narrow to one posting)
+
+Multiple postings at the same company all get marked by default (stacking
+by company, same as everything else this pipeline tracks) -- pass --title
+if a specific one needs picking out instead.
 """
 import argparse
 import sys
@@ -39,16 +43,11 @@ def main():
 
     if not matches:
         sys.exit(f"No job found matching company={args.company!r} title={args.title!r} in {store_path}")
-    if len(matches) > 1:
-        print(f"{len(matches)} matches -- re-run with --title to narrow down:", file=sys.stderr)
-        for jid, j in matches:
-            print(f"  - {j['company']} | {j['title']}", file=sys.stderr)
-        sys.exit(1)
 
-    jid, j = matches[0]
-    j["applied"] = True
+    for jid, j in matches:
+        j["applied"] = True
+        print(f"Marked applied: {j['company']} | {j['title']}", file=sys.stderr)
     save_store(store, store_path)
-    print(f"Marked applied: {j['company']} | {j['title']}", file=sys.stderr)
     print("Run scripts/scan_email_status.py (or click Update) to pick up its confirmation email.",
           file=sys.stderr)
 

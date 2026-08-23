@@ -88,6 +88,11 @@ OA_KW = ("online assessment", "coding challenge", "coding assessment", "hackerra
          "codesignal", "karat", "assessment invite", "complete the assessment",
          "invites you to take an assessment", "invitation for assessments",
          "assessment invitation")
+OA_DONE_KW = ("assessment completed", "assessment has been successfully completed",
+              "successfully completed the assessment", "assessment is being reviewed",
+              "your submission is being reviewed", "reviewing your submission",
+              "reviewing your assessment", "assessment submitted",
+              "submitted your answers for")
 INTERVIEW_KW = ("invite you to interview", "invited to interview", "would like to interview",
                  "schedule your interview", "advance to the interview", "interview invitation",
                  "prepare for your interview", "technical screen", "phone screen",
@@ -120,6 +125,8 @@ COMPANY_SUBJECT_PATTERNS = [
     r"^your application to (?P<c>[^|,!.]+)\s*$",
     r"^(?P<c>[^|,!.]+) invites you to take an assessment",
     r"^(?P<c>[^|,!.]+) employment application",
+    r"being reviewed by (?P<c>[^|,!.]+)",
+    r"assessment submitted for (?P<c>[^|,!.]+)",
 ]
 
 GENERIC_SENDER_NAMES = {
@@ -146,6 +153,8 @@ def classify(text):
         return "offer"
     if any(k in t for k in REJECT_KW):
         return "rejected"
+    if any(k in t for k in OA_DONE_KW):
+        return "oa_done"
     if any(k in t for k in OA_KW):
         return "oa"
     if any(k in t for k in INTERVIEW_KW):
