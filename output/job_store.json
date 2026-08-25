@@ -1191,7 +1191,7 @@
     "status": "tailored",
     "date_tailored": "2026-08-12",
     "app_status": "applied",
-    "app_status_date": "2026-08-12 22:05:17.615000+00:00",
+    "app_status_date": "2026-08-24 09:14:11.581000+00:00",
     "applied": true
   },
   "63fc30c3-4d13-40bc-8488-b39b2dc59b9e": {
@@ -5393,8 +5393,8 @@
     "pdf_rel": "pdfs/SpaceX_Software_Security_New_Grad_Starlink_4f4a07.pdf",
     "date_scored": "2026-08-15",
     "date_tailored": "2026-08-16",
-    "app_status": "applied",
-    "app_status_date": "2026-08-21 16:33:15.161000+00:00",
+    "app_status": "rejected",
+    "app_status_date": "2026-08-23 22:27:29.552000+00:00",
     "applied": true
   },
   "0e79e8bc-db11-456f-97e4-54fea42c6715": {
