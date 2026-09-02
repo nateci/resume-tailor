@@ -68,7 +68,11 @@ try {
     Log "=== Run started ==="
 
     try {
-        git pull --rebase --quiet
+        # --autostash: an ad-hoc script (scan_email_status.py, manual testing,
+        # etc.) leaving the tree dirty between scheduled runs has repeatedly
+        # blocked this outright -- stash/pull/pop instead of just failing on
+        # any uncommitted local change. (See run_pipeline.ps1's same fix.)
+        git pull --rebase --autostash --quiet
         if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
 
         $filterResult = Invoke-PyScript "scripts\filter_intern_jobs.py"

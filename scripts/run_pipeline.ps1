@@ -73,7 +73,11 @@ try {
     Log "=== Run started ==="
 
     try {
-        git pull --rebase --quiet
+        # --autostash: an ad-hoc script (scan_email_status.py, manual testing,
+        # etc.) leaving the tree dirty between scheduled runs has repeatedly
+        # blocked this outright (2026-08-25, -27, 09-02) -- stash/pull/pop
+        # instead of just failing on any uncommitted local change.
+        git pull --rebase --autostash --quiet
         if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
 
         $filterResult = Invoke-PyScript "scripts\filter_jobs.py"
