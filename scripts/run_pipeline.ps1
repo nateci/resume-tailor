@@ -72,6 +72,15 @@ try {
 
     Log "=== Run started ==="
 
+    # A fresh invocation IS the resume signal -- clear any leftover pause
+    # flag so a forgotten one doesn't silently stall every future unattended
+    # (log-on/unlock-triggered) run at job 1 forever.
+    $PauseFlag = Join-Path $RepoRoot ".pause_newgrad"
+    if (Test-Path $PauseFlag) {
+        Remove-Item $PauseFlag -Force
+        Log "Cleared leftover pause flag from a previous run."
+    }
+
     try {
         # --autostash: an ad-hoc script (scan_email_status.py, manual testing,
         # etc.) leaving the tree dirty between scheduled runs has repeatedly

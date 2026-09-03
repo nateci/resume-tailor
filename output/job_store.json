@@ -6425,7 +6425,10 @@
     "status": "tailored",
     "pdf_rel": "pdfs/Wolverine_Trading_Entry_Level_C_Software_Engineer_4ffc81.pdf",
     "date_scored": "2026-08-15",
-    "date_tailored": "2026-08-16"
+    "date_tailored": "2026-08-16",
+    "applied": true,
+    "app_status": "rejected",
+    "app_status_date": "2026-08-27 12:48:00.837000+00:00"
   },
   "549f3df3-0ef0-4157-8a32-ee4acfbb3080": {
     "id": "549f3df3-0ef0-4157-8a32-ee4acfbb3080",
@@ -7119,7 +7122,7 @@
     "status": "tailored",
     "date_tailored": "2026-08-17",
     "app_status": "rejected",
-    "app_status_date": "2026-08-19 21:25:17.897000+00:00",
+    "app_status_date": "2026-08-28 09:01:42.371000+00:00",
     "applied": true
   },
   "manual:2af2aefee09f": {
@@ -7147,7 +7150,7 @@
     "status": "tailored",
     "date_tailored": "2026-08-17",
     "app_status": "oa",
-    "app_status_date": "2026-08-17 23:41:16.403000+00:00",
+    "app_status_date": "2026-08-26 19:32:41.390000+00:00",
     "applied": true
   },
   "manual:8ae0aae740a4": {
@@ -10670,8 +10673,8 @@
     "date_scored": "2026-08-19",
     "date_tailored": "2026-08-19",
     "applied": true,
-    "app_status": "applied",
-    "app_status_date": "2026-08-19 18:54:16.116000+00:00"
+    "app_status": "rejected",
+    "app_status_date": "2026-08-28 10:00:31.078000+00:00"
   },
   "14a90f50-6be6-4afd-8fb8-e8de804afe10": {
     "id": "14a90f50-6be6-4afd-8fb8-e8de804afe10",

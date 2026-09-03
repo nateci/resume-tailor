@@ -10,13 +10,29 @@ and rewrites the ranked spreadsheet from the store.
 """
 import datetime
 import json
+import os
 import sys
 
 from claude_client import resolve_claude_cmd, call_claude
-from job_store import merge_and_save, write_outputs, commit_and_push
+from job_store import load_store, merge_and_save, write_outputs, commit_and_push
 
 JOBS_PATH = "output/jobs_with_desc.json"
 PROFILE = "resume/profile.json"
+
+# Survives an interrupted run: filter_jobs.py marks a job "seen" the moment
+# it's queued here, regardless of whether scoring ever finishes, so a
+# killed run's un-scored remainder would otherwise never be re-queued as
+# "new" again. This file is the actual to-do list, independent of that.
+BACKLOG_PATH = "output/.newgrad_scoring_backlog.json"
+PAUSE_PATH = "output/.pause_newgrad"
+
+
+def _write_backlog(jobs):
+    if jobs:
+        with open(BACKLOG_PATH, "w", encoding="utf-8") as f:
+            json.dump(jobs, f, indent=2)
+    elif os.path.exists(BACKLOG_PATH):
+        os.remove(BACKLOG_PATH)
 
 SCORE_SCHEMA = {
     "type": "object",
@@ -63,21 +79,43 @@ def main():
         sys.exit(1)
 
     with open(JOBS_PATH, encoding="utf-8") as f:
-        jobs = json.load(f)
+        fresh_jobs = json.load(f)
+
+    # Merge in any leftover backlog from an interrupted prior run -- those
+    # jobs are already marked "seen" upstream so fresh_jobs alone won't
+    # contain them anymore.
+    backlog = []
+    if os.path.exists(BACKLOG_PATH):
+        with open(BACKLOG_PATH, encoding="utf-8") as f:
+            backlog = json.load(f)
+    by_id = {j["id"]: j for j in backlog}
+    for j in fresh_jobs:
+        by_id.setdefault(j["id"], j)
+
+    # Drop anything already scored -- a prior run may have gotten to it
+    # before being interrupted before it could prune the backlog file.
+    existing = load_store()
+    jobs = [j for j in by_id.values() if j["id"] not in existing]
+
     if not jobs:
         print("No new jobs.", file=sys.stderr)
+        _write_backlog([])
         return
 
     with open(PROFILE, encoding="utf-8") as f:
         profile = json.load(f)
     today = datetime.date.today().isoformat()
 
-    # Only track entries THIS run produced -- never the store as loaded at
-    # start -- so a concurrent add_job.py/tailor_selected.py run's writes
-    # can't be clobbered by a stale in-memory snapshot at save time.
-    updates = {}
+    remaining = list(jobs)
+    _write_backlog(remaining)
 
     for i, job in enumerate(jobs, 1):
+        if os.path.exists(PAUSE_PATH):
+            print(f"Paused ({len(remaining)} job(s) left in {BACKLOG_PATH}) -- "
+                  f"run scripts/pause_pipeline.ps1 -Resume, then re-run this "
+                  f"pipeline to continue where it left off.", file=sys.stderr)
+            return
+
         print(f"[{i}/{len(jobs)}] {job['company']} — {job['title']}", file=sys.stderr)
         entry = dict(job)
         try:
@@ -93,9 +131,15 @@ def main():
             entry["status"] = f"score-error:{str(e)[:60]}"
         entry.setdefault("pdf_rel", "")
         entry["date_scored"] = today
-        updates[job["id"]] = entry
 
-    merged = merge_and_save(updates)
+        # Saved right after each job, not batched to the end of the loop --
+        # a kill/crash mid-run now loses at most the one in-flight job
+        # instead of the entire batch.
+        merge_and_save({job["id"]: entry})
+        remaining = [j for j in remaining if j["id"] != job["id"]]
+        _write_backlog(remaining)
+
+    merged = load_store()
     n = write_outputs(merged)
     print(f"Scored {len(jobs)} job(s). Sheet now has {n} total rows.", file=sys.stderr)
     if commit_and_push(f"Scored {len(jobs)} job(s): {today}"):
